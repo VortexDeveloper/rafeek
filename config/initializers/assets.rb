@@ -3,6 +3,20 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
+Rails.application.config.assets.precompile += %w( shadowbox.css )
+Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( boot.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
+
+Rails.application.config.assets.precompile += %w( jquery.js )
+Rails.application.config.assets.precompile += %w( shadowbox.js )
+Rails.application.config.assets.precompile += %w( geral.js )
+Rails.application.config.assets.precompile += %w( bootstrap.js )
+Rails.application.config.assets.precompile += %w( html5shiv.js )
+Rails.application.config.assets.precompile += %w( jquery.modal.js )
+
+
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

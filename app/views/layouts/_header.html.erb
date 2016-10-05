@@ -1,0 +1,28 @@
+<header class="content">
+    <div class="fundo_menu fixar_fundo"></div>
+    <div id="login" class="login fixar_login">
+        <div class="mobile_action"></div>
+        <div class="mobile_action_side"></div>
+        <button class="btn news_button" href="#" data-toggle="modal" data-target="#login-modal">Login</button>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <%= render template: "devise/sessions/new" %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="logo fixar_logo">
+        <div  id="topo"></div>
+        <%= image_tag("logo_heroi.png") %>
+    </div>
+    <ul class="menu_topo fixar_menu">
+        <li class="menu_topo_item"><a href="index.rb">Home</a>
+        <li class="menu_topo_item"><a href="categorias.rb">Rifas</a>
+        <li class="menu_topo_item"><a href="categorias.rb">Novos</a>
+        <li class="menu_topo_item"><a href="categorias.rb">Hot</a>
+        <li class="menu_topo_item"><a href="pontos.rb">Pacotes de Pontos</a>
+        <li class="menu_topo_item"><a href="ganhadores.rb">Ganhadores</a>
+        <li class="menu_topo_item"><a href="help.rb">Como Funciona</a>
+    </ul>
+</header>

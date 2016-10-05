@@ -1,0 +1,191 @@
+/*-------------------------INICIO MOBILE--------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: ERASBD;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: ERASBD;
+    src: url(../fonts/ERASBD.TTF);
+}
+@font-face {
+    font-family: ERASDEMI;
+    src: url(../fonts/ERASDEMI.TTF);
+}
+@font-face {
+    font-family: ERASLGHT;
+    src: url(../fonts/ERASLGHT.TTF);
+}
+@font-face {
+    font-family: ERASMD;
+    src: url(../fonts/ERASMD.TTF);
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url(../img/bg_site.jpg);
+}
+
+.logo{
+    width: 60%;
+    margin: 5% auto;
+    margin-bottom: 0;
+}
+
+.logo img{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    margin: 0;
+}
+
+.banner{
+    width: 80%;
+    margin: 2% auto;
+}
+
+.banner img{
+    width: 100%;
+}
+
+.facebook{
+    width: 340px;
+    margin: 0 auto;
+    height: auto;
+}
+.facebook p{
+    text-align: center;
+    font-family: ERASLGHT !important;
+    color: #fff;
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+.email{
+    width: 40%;
+    padding: 30px;
+    position: relative;
+    margin: 2% auto;
+    background: rgba(255,255,255,.2);
+    border: solid 1px #fff;
+}
+
+.email input{
+    width: 405px;
+    padding: 10px;
+    position: relative;
+    margin: 2% 50%;
+    left: -202.5px;
+    background: #333;
+    color: #fff;
+    font-size: 1em;
+    font-family: ERASLGHT !important;
+    border-style: none !important;
+    border: solid 1px #fff !important;
+}
+
+.email button{
+    text-decoration: none;
+    position: relative;
+    margin: 2% 50%;
+    left: -70px;
+    width: 140px;
+    padding: 10px;;
+    background: #00B1F4;
+    border: solid 1px #E9F9FF;
+    color: #fff;
+    font-size: 1em;
+}
+
+.email button:hover{
+    cursor: pointer;
+    background: #4DCEFF;
+}
+
+.email p{
+    text-align: center;
+    font-family: ERASLGHT !important;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+footer{
+    width: 50%;
+    margin: 2% auto;
+    margin-bottom: 0;
+}
+
+footer p{
+    color: #fff;
+    font-size: 0.875em;
+    text-align: center;
+    font-weight: 300;
+    font-family: ERASLGHT !important;   
+    margin: 10px;
+}
+
+footer img{
+    width: 100px;
+    position: relative;
+    left: -50px;
+    margin: 0 50%;
+}
+
+/*---------------------------FIM MOBILE--------------------------*/
+
+
+/*-------------------------INICIO 480PX--------------------------*/
+@media (min-width: 30em){
+    .logo{
+        width: 50%;
+    }
+}    
+/*---------------------------FIM 480PX--------------------------*/
+
+
+/*-------------------------INICIO 592PX--------------------------*/
+@media (min-width: 37em){
+    .logo{
+        width: 40%;
+    }
+}
+
+/*---------------------------FIM 592PX--------------------------*/
+
+
+/*-------------------------INICIO 768PX--------------------------*/
+@media (min-width: 48em){
+    .logo{
+        width: 30%;
+    }
+
+}       
+/*---------------------------FIM 768PX--------------------------*/
+
+
+/*-------------------------INICIO 960PX--------------------------*/
+@media (min-width: 60em){
+
+    .logo{
+        width: 15%;
+        margin-top: 10px;
+    }
+
+}    
+/*---------------------------FIM 960PX--------------------------*/
+
+
+/*-------------------------INICIO 1280PX--------------------------*/
+@media (min-width: 79.9em){
+
+}    
+/*---------------------------FIM 1280PX--------------------------*/

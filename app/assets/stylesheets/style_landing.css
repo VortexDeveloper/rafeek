@@ -1,0 +1,271 @@
+/*-------------------------INICIO MOBILE--------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url(../img/bg_site.jpg);
+}
+
+.logo{
+    width: 60%;
+    margin: 5% auto;
+    margin-bottom: 0;
+}
+
+.logo img{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    margin: 0;
+    float: left;
+}
+
+.content h1{
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 300;
+    margin: 5%;
+    margin-bottom: 0;
+}
+
+.content h2{
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    color: #fff;
+    margin: 5%;
+    margin-bottom: 0;
+}
+
+.content h3{
+    text-align: center;
+    font-size: 1em;
+    font-weight: 300;
+    color: #4DCEFF;
+    margin: 5px;
+    margin-bottom: 0;
+}
+
+.content_img{
+    width: 50%;
+    margin: 0 25%;
+    margin-bottom: 0;
+}
+
+.colaborar{
+    width: 96%;
+    margin: 2%;
+    float: left;
+    margin-bottom: 0;
+}
+
+.left{
+    width: 20%;
+    float: left;
+}
+
+.left img{
+    width: 100%;
+    float: right;
+}
+
+.center{
+    width: 60%;
+    float: left;
+}
+
+.center button{
+    text-decoration: none;
+    width: 80%;
+    margin: 10%;
+    padding: 10px;;
+    background: #00B1F4;
+    border: solid 1px #E9F9FF;
+    color: #fff;
+    font-size: 1em;
+    border-radius: 40px;
+    -moz-border-radius: 40px;
+    -webkit-border-radius: 40px;
+    box-shadow: 0 0 10px #E9F9FF;
+}
+
+.center button:hover{
+    cursor: pointer;
+    background: #4DCEFF;
+}
+
+.right{
+    width: 20%;
+    float: left;
+}
+
+.right img{
+    width: 100%;
+    float: right;
+}
+
+.footer{
+    width: 50%;
+    margin: 5% 25%;
+    float: left;
+    position: relative;
+}
+
+.footer h2{
+    color: #fff;
+    font-size: 0.875em;
+    text-align: center;
+    font-weight: 300;
+}
+
+.footer img{
+    width: 100%;
+}
+
+/*---------------------------FIM MOBILE--------------------------*/
+
+
+/*-------------------------INICIO 480PX--------------------------*/
+@media (min-width: 30em){
+    .logo{
+        width: 50%;
+    }
+
+    .content h1{
+        font-size: 2em;
+    }
+
+    .content_img{
+        width: 40%;
+        margin: 0 30%;
+    }
+
+    .content h2{
+        font-size: 1.3em;
+        margin: 8%;
+    }
+
+    .colaborar{
+        width: 90%;
+        margin: 5%;
+    }
+
+    .footer{
+        width: 30%;
+        margin: 5% 35%;
+    }
+}    
+/*---------------------------FIM 480PX--------------------------*/
+
+
+/*-------------------------INICIO 592PX--------------------------*/
+@media (min-width: 37em){
+    .logo{
+        width: 40%;
+    }
+}
+
+/*---------------------------FIM 592PX--------------------------*/
+
+
+/*-------------------------INICIO 768PX--------------------------*/
+@media (min-width: 48em){
+    .logo{
+        width: 30%;
+    }
+
+    .content h1{
+        font-size: 2em;
+        margin: 1%;
+    }
+
+    .content_img{
+        width: 20%;
+        margin: 0 40%;
+    }
+
+    .content h2{
+        font-size: 1.3em;
+        margin: 10px 8%;
+    }
+
+    .colaborar{
+        width: 90%;
+        margin: 10px 5%;
+    }
+
+    .center button{
+        width: 60%;
+        margin: 20%;
+    }
+
+    .left img,
+    .right img{
+        width: 70%;
+        margin: 20% 15%;
+    }
+    .footer{
+        width: 30%;
+        margin: 10px 35%;
+    }
+}       
+/*---------------------------FIM 768PX--------------------------*/
+
+
+/*-------------------------INICIO 960PX--------------------------*/
+@media (min-width: 60em){
+
+    .logo{
+        width: 15%;
+        margin-top: 10px;
+    }
+
+    .content h1{
+        font-size: 3em;
+        margin: 1%;
+        margin-top: 10px;
+    }
+
+    .content_img{
+        width: 15%;
+        margin: 0 42.5%;
+    }
+
+    .content h2{
+        font-size: 1.3em;
+        margin: 10px 30%;
+        margin-bottom: 0;
+    }
+
+    .colaborar{
+        width: 40%;
+        margin: 0 30%;
+    }
+
+    .footer{
+        width: 10%;
+        margin: 10px 45%;
+        margin-top: 0;
+    }
+
+}    
+/*---------------------------FIM 960PX--------------------------*/
+
+
+/*-------------------------INICIO 1280PX--------------------------*/
+@media (min-width: 79.9em){
+
+}    
+/*---------------------------FIM 1280PX--------------------------*/
