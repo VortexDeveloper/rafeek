@@ -26,66 +26,15 @@
 
   <body>
 
-      <%= render partial: "layouts/header" %>
+    <%= render partial: "layouts/header" %>
 
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= link_to "logout", destroy_user_session_path, method: :delete %>
 
     <%= yield %>
 
-            <footer class="content">
-                <div class="bottom">
-                    <div class="img-rifa-bot">
-                        <%= image_tag("bilhetes-logo.png") %>
-                    </div>
-                    <div class="newsletter">
-                        <form class="navbar-form navbar-left" role="search">
-                            <h2 class="news" >Cadastre seu email e <br> receba nossas novidades</h2>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Newsletter">
-                            </div>
-                            <button type="submit" class="btn news_button">Enviar</button>
-                        </form>
-                    </div>
-                    <div class="sobre">
-                        <h2>Sobre a Raffek</h2>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum ultricies ipsum, sed sollicitudin eros accumsan vitae. Vestibulum mauris tortor, accumsan nec tellus vitae, blandit tempus ex. Sed fringilla ultrices ligula.</h3>
-                    </div>
-                    <ul class="social">
-                        <h2>Redes Sociais</h2>
-                        <li><a target="_blank" href="https://instagram.com/" title="Rafeek no Instagram"><%= image_tag("Instagram.png") %></a></li>
-                        <li><a target="_blank" href="https://plus.google.com/" title="Rafeek no Google +"><%= image_tag("Google.png") %></a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/" title="Rafeek no Facebook"><%= image_tag("Facebook.png") %></a></li>
-                    </ul>
-                    <div class="contato">
-                        <h2>Contato</h2>
-                        <div class="contato_item">
-                            <%= image_tag("tel.png") %>
-                            <a>(21) 2345-6789</a>
-                        </div>
-                        <div class="contato_item">
-                            <%= image_tag("Whatsapp.png") %>
-                            <a>(21) 99999-9897</a>
-                        </div>
-                        <div class="contato_item">
-                            <%= image_tag("email.png") %>
-                            <a>contato@rafeek.com.br</a>
-                        </div>
-                    </div>
-                    <div class="copyright">
-                        <a>© 2016: RAFEEK RIFAS - TODOS OS DIREITOS RESERVADOS</a><br>
-
-                        <a>É PROIBIDA A REPRODUÇÃO OU DISTRIBUIÇÃO DO CONTEÚDO PUBLICADO AQUI!</a>
-                    </div>
-                </div>
-            </footer>
-            <%= javascript_include_tag "jquery" %>
-            <%= javascript_include_tag "shadowbox" %>
-            <%= javascript_include_tag "geral" %>
-            <%= javascript_include_tag "bootstrap" %>
-            <%= javascript_include_tag "html5shiv" %>
-            <%= javascript_include_tag "jquery.modal" %>
+    <%= render partial: "layouts/footer" %>
 
   </body>
 </html>
