@@ -6,12 +6,13 @@
     max-width: 350px;
     width: 100% !important;
     top: 200px;
-    background: #f2f2f2;
+    background: #222;
     margin: 120px auto;
     border-radius: 4px;
     border: solid 5px #E9F9FF;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    color: #fff !important;
 }
 
 .loginmodal-container h1 {
@@ -96,17 +97,6 @@
 .login-help{
     font-size: 12px;
 }
-
-.btn-login-facebook{
-  background: #337ac4;
-  padding: 15px;
-  border-radius: 4px;
-  color: #fff !important;
-  margin: 0 auto;
-  width: 100%;
-  text-decoration: none !important;
-}
-
 /*-------------------------INICIO MOBILE--------------------------*/
 
 .bloco{
@@ -116,19 +106,19 @@
 
 @font-face {
     font-family: ERASBD;
-    src: url(../fonts/ERASBD.TTF);
+    src: url('<%= asset_path("ERASBD.TTF") %>');
 }
 @font-face {
     font-family: ERASDEMI;
-    src: url(../fonts/ERASDEMI.TTF);
+    src: url('<%= asset_path("ERASDEMI.TTF") %>');
 }
 @font-face {
     font-family: ERASLGHT;
-    src: url(../fonts/ERASLGHT.TTF);
+    src: url('<%= asset_path("ERASLGHT.TTF") %>');
 }
 @font-face {
     font-family: ERASMD;
-    src: url(../fonts/ERASMD.TTF);
+    src: url('<%= asset_path("ERASMD.TTF") %>');
 }
 
 h3, h4, h5, h6{
@@ -192,78 +182,6 @@ h2, p, a{
     font-weight: bold;
 }
 
-.menu-perfil{
-  width: 100%;
-  background: #519bd1;
-  color: #fff;
-}
-
-.menu-perfil-item{
-  width: 100%;
-  border-bottom: solid 1px #f2f2f2;
-  padding: 10px;
-  text-align: center;
-
-}
-
-.menu-perfil a{
-  text-decoration: none !important;
-  color: #fff !important;
-}
-
-.perfil{
-    width: 97%;
-    margin: 1.5%;
-    background: #fff;
-    padding: 1.5%;
-    float: left;
-    position: relative;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    box-shadow:  0 0 5px  #333;
-}
-
-.perfil img{
-    width: 100px;
-    float: left;
-    position: relative;
-}
-
-.perfil p{
-    margin: 10px 0;
-}
-
-.btn-perfil{
-  background: #4DCEFF;
-  color: #fff;
-  position: relative;
-}
-
-.perfil_desc{
-    width: 100%;
-    float: left;
-    position: relative;
-}
-
-.perfil_desc a{
-    width: 48% !important;
-    float: right;
-    padding: 15px;
-    margin-bottom: 0;
-}
-
-.perfil_desc h3{
-    text-align: center;
-    font-size: 1.5em;
-}
-
-.i-perfil{
-  width: 90% !important;
-  max-width: none !important;
-  margin: 0 5%;
-}
-
 .bilhetes img{
     width: 10px;
     margin: 0 10px;
@@ -284,7 +202,7 @@ h2, p, a{
 
 .conteudo{
     width: 100%;
-    background-image: url(<%= asset_path 'bg_site.jpg' %>)
+    background: asset-data-url("bg_site.jpg") repeat;
 }
 
 .content{
@@ -1658,7 +1576,7 @@ h2, p, a{
         margin: 0;
         position: relative;
         float: right;
-        height: 400px;
+        height: 500px;
     }
 
     .menu_side{
@@ -1690,24 +1608,11 @@ h2, p, a{
 
     }
 
-    .perfil{
-        width: 70%;
-        margin: 0 15%;
-        margin-top: 2.6%;
-
-    }
-
-    .menu-perfil-item{
-        width: 25%;
-        position: relative;
-        display: inline-block;;
-        border-right: solid 1px #fff;
-    }
-
     .parceiros{
         width: 96%;
         float: left;
         margin: 2%;
+
         position: relative;
     }
 
@@ -1721,7 +1626,7 @@ h2, p, a{
     }
 
     .slide_item_rifa{
-        width: 45%;
+        width: 55%;
         max-width: 550px;
     }
 
