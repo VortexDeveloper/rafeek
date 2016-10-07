@@ -107,6 +107,54 @@
   text-decoration: none !important;
 }
 
+.logout-btn{
+  background: #D32F3D !important;
+}
+
+.actions-buttons{
+  width: 100%;
+}
+
+.actions-buttons input{
+  width: auto;
+  position: relative;
+  right: 0;
+  float: right;
+  height: auto;
+  border-radius: 0;
+  background: #00B1F4;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.actions-buttons input:hover{
+  background: #4DCEFF;
+}
+
+.cancel-button input{
+  background: #f2f2f2;
+  color: #ccc;
+}
+
+.cancel-button input:hover{
+  background: #ccc;
+  color: #f2f2f2;
+}
+
+.back-button{
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: #1CCC5D !important;
+  border: none !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  float: left !important;
+  padding: 10px  !important;
+}
+
 /*-------------------------INICIO MOBILE--------------------------*/
 
 .bloco{
@@ -194,13 +242,12 @@ h2, p, a{
 
 .menu-perfil{
   width: 100%;
-  background: #519bd1;
   color: #fff;
+  border-bottom: solid 1px #f2f2f2;
 }
 
 .menu-perfil-item{
   width: 100%;
-  border-bottom: solid 1px #f2f2f2;
   padding: 10px;
   text-align: center;
 
@@ -208,7 +255,8 @@ h2, p, a{
 
 .menu-perfil a{
   text-decoration: none !important;
-  color: #fff !important;
+  color: #337ab7 !important;
+  text-transform: uppercase;
 }
 
 .perfil{
@@ -247,7 +295,7 @@ h2, p, a{
 }
 
 .perfil_desc a{
-    width: 48% !important;
+    width: 48%;
     float: right;
     padding: 15px;
     margin-bottom: 0;

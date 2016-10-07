@@ -4,6 +4,7 @@
         <div class="mobile_action"></div>
         <div class="mobile_action_side"></div>
         <button class="btn news_button" href="#" data-toggle="modal" data-target="#login-modal">Login</button>
+        <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'btn news_button logout-btn' %>
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
