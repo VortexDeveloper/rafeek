@@ -10,7 +10,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005192043) do
+ActiveRecord::Schema.define(version: 20161007182032) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "image"
+    t.integer  "points"
+    t.decimal  "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "avatar"
+    t.string   "sex"
+    t.date     "birth_date"
+    t.string   "street"
+    t.string   "complement"
+    t.string   "neighborhood"
+    t.string   "zip_code"
+    t.integer  "city_id"
+    t.integer  "state_id"
+    t.integer  "country_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["city_id"], name: "index_profiles_on_city_id"
+    t.index ["country_id"], name: "index_profiles_on_country_id"
+    t.index ["state_id"], name: "index_profiles_on_state_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "uf"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
