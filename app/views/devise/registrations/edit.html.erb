@@ -37,17 +37,14 @@
                             <%= f.password_field :current_password, autocomplete: "off" %>
                           </div>
 
-                          <div class="actions-buttons">
+                          <div class="actions">
                             <%= f.submit "Salvar" %>
                           </div>
                           <div class="actions-buttons cancel-button">
                               <%= link_to "Voltar", :back, class: 'back-button actions-buttons' %>
-                              <%= button_to "Cancelar", registration_path(resource_name), data: { confirm: "Deseja realmente cancelar sua conta!" }, method: :delete %>
-                          </div>
-                          <div class="">
-
                           </div>
                         <% end %>
+                        <%= button_to "Cancelar", registration_path(resource_name), data: { confirm: "Deseja realmente cancelar sua conta!" }, method: :delete %>
                       </div>
                   </div>
               </div>

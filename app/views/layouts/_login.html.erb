@@ -1,8 +1,15 @@
-<%= form_for(resource, :as => resource_name, :url => session_path(:user)) do |f| %>
-  <%= f.label 'Email' %>
-  <%= f.text_field :email %>
-  <%= f.label 'Senha' %>
-  <%= f.password_field :password %>
-  <%= f.submit 'Entrar' %>
-  <%= render partial: 'devise/shared/links_modal' %>
-<% end %>
+<button class="btn news_button" href="#" data-toggle="modal" data-target="#login-modal">Login</button>
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="loginmodal-container">
+            <%= form_for(resource, :as => resource_name, :url => session_path(:user)) do |f| %>
+              <%= f.label 'Email' %>
+              <%= f.text_field :email %>
+              <%= f.label 'Senha' %>
+              <%= f.password_field :password %>
+              <%= f.submit 'Entrar' %>
+              <%= render partial: 'devise/shared/links_modal' %>
+            <% end %>
+        </div>
+    </div>
+</div>

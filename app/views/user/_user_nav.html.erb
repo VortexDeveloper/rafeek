@@ -1,7 +1,6 @@
-
-            <ul class="menu-perfil">
-              <a href="pconta.php"><li class="menu-perfil-item">Editar Conta</a>
-              <a href="pperfil.php"><li class="menu-perfil-item">Editar Perfil</a>
-              <a href="pbilhetes.php"><li class="menu-perfil-item">Meus Bilhetes</a>
-              <a href="ppontos.php"><li class="menu-perfil-item">Meus Pontos</a>
-            </ul>
+<ul class="menu-perfil">
+    <%= link_to "Editar Conta", edit_user_registration_path %>
+    <%= link_to "Editar Perfil", profile_edit_path %>
+    <%= link_to "Meus Bilhetes", '#' %>
+    <%= link_to "Meus Pontos", '#' %>
+</ul>
