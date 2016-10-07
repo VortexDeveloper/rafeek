@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Packages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @packages.each do |package| %>
+      <tr>
+        <td><%= package.name %></td>
+        <td><%= package.description %></td>
+        <td><%= package.image %></td>
+        <td><%= package.points %></td>
+        <td><%= package.value %></td>
+        <td><%= link_to 'Exibir', package %></td>
+        <td><%= link_to 'Editar', edit_package_path(package) %></td>
+        <td><%= link_to 'Deletar', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

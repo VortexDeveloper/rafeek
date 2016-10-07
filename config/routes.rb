@@ -9,4 +9,7 @@ Rails.application.routes.draw do
       :registrations => 'users/registrations'
    }
   root to: "application#index"
+
+  resources :packages
+
 end

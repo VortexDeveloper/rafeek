@@ -97,16 +97,6 @@
     font-size: 12px;
 }
 
-.btn-login-facebook{
-  background: #337ac4;
-  padding: 15px;
-  border-radius: 4px;
-  color: #fff !important;
-  margin: 0 auto;
-  width: 100%;
-  text-decoration: none !important;
-}
-
 .logout-btn{
   background: #D32F3D !important;
 }
@@ -153,6 +143,39 @@
   color: #fff !important;
   float: left !important;
   padding: 10px  !important;
+}
+
+.btn-login-facebook{
+  background: #337ac4;
+  padding: 15px;
+  border-radius: 4px;
+  color: #fff !important;
+  margin: 0 auto;
+  width: 100%;
+  text-decoration: none !important;
+  margin-top: 10px;
+}
+
+.btn-login-facebook:hover{
+  .background: #5491d1 !important;
+}
+
+.sign-button{
+  background: #1CCC5D !important;
+}
+
+.sign-button:hover{
+  .background: #6ae196 !important;
+}
+
+.login-button{
+  background: #00B1F4 !important;
+  border: none;
+  margin-bottom: 0 !important;
+}
+
+.login-button:hover{
+    background: #6ae196 !important;
 }
 
 /*-------------------------INICIO MOBILE--------------------------*/
@@ -246,14 +269,10 @@ h2, p, a{
   border-bottom: solid 1px #f2f2f2;
 }
 
-.menu-perfil-item{
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-
-}
 
 .menu-perfil a{
+  width: 100%;
+  text-align: center;
   text-decoration: none !important;
   color: #337ab7 !important;
   text-transform: uppercase;
@@ -1745,11 +1764,10 @@ h2, p, a{
 
     }
 
-    .menu-perfil-item{
-        width: 25%;
+    .menu-perfil a{
+        width: 24.5%;
         position: relative;
-        display: inline-block;;
-        border-right: solid 1px #fff;
+        display: inline-block;
     }
 
     .parceiros{
