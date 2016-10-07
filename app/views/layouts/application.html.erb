@@ -27,11 +27,7 @@
   <body class="conteudo">
 
     <%= render partial: "layouts/header" %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= link_to "logout", destroy_user_session_path, method: :delete %>
-
+  
     <%= yield %>
 
     <%= render partial: "layouts/footer" %>
