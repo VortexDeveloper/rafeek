@@ -1,28 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Packages</h1>
+<section class="content-header">
+  <h1>
+    Pacotes
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Imagem</th>
+                <th>Pontos</th>
+                <th>Valor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @packages.each do |package| %>
-      <tr>
-        <td><%= package.name %></td>
-        <td><%= package.description %></td>
-        <td><%= package.image %></td>
-        <td><%= package.points %></td>
-        <td><%= package.value %></td>
-        <td><%= link_to 'Exibir', package %></td>
-        <td><%= link_to 'Editar', edit_package_path(package) %></td>
-        <td><%= link_to 'Deletar', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+            <tbody>
+              <% @packages.each do |package| %>
+                <tr>
+                  <td><%= package.name %></td>
+                  <td><%= package.description %></td>
+                  <td><%= package.image %></td>
+                  <td><%= package.points %></td>
+                  <td><%= package.value %></td>
+                  <td>
+                    <%= link_to 'Exibir', package, class: 'btn btn-info' %>
+                    <%= link_to 'Editar', edit_package_path(package), class: 'btn btn-primary' %>
+                    <%= link_to 'Deletar', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' }, class: 'btn btn-danger' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <br>
