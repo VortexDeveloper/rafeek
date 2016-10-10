@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.label :name, "Nome" %>
+    <%= f.text_field :name, value: partner.name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :url, "Site" %>
+    <%= f.text_field :url, value: partner.url %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

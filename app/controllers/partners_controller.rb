@@ -1,4 +1,5 @@
 class PartnersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
   layout 'admin'
 
@@ -26,6 +27,7 @@ class PartnersController < ApplicationController
   # POST /partners.json
   def create
     @partner = Partner.new(partner_params)
+    @partner.user = current_user
 
     respond_to do |format|
       if @partner.save
@@ -70,6 +72,10 @@ class PartnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def partner_params
-      params.fetch(:partner, {})
+      params.require(:partner).permit(
+        :name,
+        :logo,
+        :url
+      )
     end
 end
