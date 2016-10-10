@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007191204) do
+ActiveRecord::Schema.define(version: 20161010203711) do
+
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "balance"
@@ -63,6 +64,17 @@ ActiveRecord::Schema.define(version: 20161007191204) do
     t.index ["country_id"], name: "index_profiles_on_country_id"
     t.index ["state_id"], name: "index_profiles_on_state_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "raffles", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "points"
+    t.integer  "amount"
+    t.string   "image"
+    t.string   "string"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "states", force: :cascade do |t|

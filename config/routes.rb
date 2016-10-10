@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
   get 'user/edit'
   get 'user/show'
   get 'profile/edit'
-  put 'profile/update'
+  patch 'profile/update'
 
   devise_for :users, :controllers => {
       :omniauth_callbacks => "users/omniauth_callbacks",
@@ -11,5 +12,7 @@ Rails.application.routes.draw do
   root to: "application#index"
 
   resources :packages
+
+  resources :raffles
 
 end

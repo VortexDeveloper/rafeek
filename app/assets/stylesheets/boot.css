@@ -51,7 +51,7 @@
 }
 
 .btn_qtd_v:hover{
-    background: #E32741 !important; 
+    background: #E32741 !important;
 }
 
 .bilhetes{
@@ -102,7 +102,7 @@
 .round{
     border-radius: 20px !important;
     -moz-border-radius: 20px !important;
-    -webkit-border-radius: 20px !important; 
+    -webkit-border-radius: 20px !important;
 }
 
 .round_button{
@@ -153,7 +153,6 @@ input,
 select,
 textarea{
     padding: 10px;
-    width: 100%;
 }
 
 input.btn{
@@ -164,8 +163,8 @@ input.btn{
 .clear{
     clear: both;
 }
-               
-.vermelho{background: #E32741 !important} 
+
+.vermelho{background: #E32741 !important}
 .verde_btn{background: #1CCC5D !important}
 .azul_btn{background: #5684E7  !important}
 .vermelho_borda{border: solid 1px #E32741 !important;}
