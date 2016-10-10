@@ -9,11 +9,11 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :street
       t.string :complement
       t.string :neighborhood
-      t.string :zip_code
       t.references :city, foreign_key: true
       t.references :state, foreign_key: true
       t.references :country, foreign_key: true
-      
+      t.string :zip_code
+
       t.timestamps
     end
   end
