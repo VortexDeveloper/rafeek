@@ -1,6 +1,8 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
 
+  layout 'admin'
+
   # GET /packages
   # GET /packages.json
   def index
