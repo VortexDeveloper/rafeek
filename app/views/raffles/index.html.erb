@@ -1,25 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Raffles</h1>
+<section class="content-header">
+  <h1>
+    Rifas
+  </h1>
+</section>
+<section class="content">
+  <%= link_to 'Nova Rifa', new_raffle_path, class: 'btn btn-lg btn-success pull-right'  %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Valor em pontos</th>
+                <th>Quandtidade máxima de bilhetes</th>
+                <th>Imagem</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @raffles.each do |raffle| %>
-      <tr>
-        <td><%= link_to 'Show', raffle %></td>
-        <td><%= link_to 'Edit', edit_raffle_path(raffle) %></td>
-        <td><%= link_to 'Destroy', raffle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+            <tbody>
+              <% @raffles.each do |raffle| %>
+                <tr>
+                  <td><%= raffle.title %></td>
+                  <td><%= raffle.description %></td>
+                  <td><%= raffle.points %></td>
+                  <td><%= raffle.amount %></td>
+                  <td><%= raffle.image %></td>
+                  <td>
+                    <%= link_to 'Exibir', raffle, class: 'btn btn-info' %>
+                    <%= link_to 'Editar', edit_raffle_path(raffle), class: 'btn btn-primary' %>
+                    <%= link_to 'Deletar', raffle, method: :delete, data: { confirm: 'Deseja mesmo deletar essa rifa?' }, class: 'btn btn-danger' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <br>
-
-<%= link_to 'New Raffle', new_raffle_path %>

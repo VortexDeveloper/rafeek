@@ -1,25 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Partners</h1>
+<section class="content-header">
+  <h1>
+    Parceiros
+  </h1>
+</section>
+<section class="content">
+  <%= link_to 'Novo parceiro', new_partner_path, class: 'btn btn-lg btn-success pull-right' %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Logo</th>
+                <th>Url</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @partners.each do |partner| %>
-      <tr>
-        <td><%= link_to 'Show', partner %></td>
-        <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
-        <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+            <tbody>
+              <% @partners.each do |partner| %>
+                <tr>
+                  <td><%= partner.name %></td>
+                  <td><%= partner.logo %></td>
+                  <td><%= partner.url %></td>
+                  <td>
+                    <%= link_to 'Exibir', partner, class: 'btn btn-info' %>
+                    <%= link_to 'Editar', edit_partner_path(partner), class: 'btn btn-primary' %>
+                    <%= link_to 'Deletar', partner, method: :delete, data: { confirm: 'Deseja mesmo deletar esse parceiro?' }, class: 'btn btn-danger' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <br>
-
-<%= link_to 'New Partner', new_partner_path %>

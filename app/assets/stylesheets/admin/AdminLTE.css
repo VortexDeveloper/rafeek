@@ -60,7 +60,7 @@ body {
  /*INÍCIO PERSONALIZAÇÃO lAYOUT VORTEX
   */
 .logo-lg img{
-  height: 45PX;
+  height: 45PX !important;
 }
 
 /*FIM PERSONALIZAÇÃO lAYOUT VORTEX
