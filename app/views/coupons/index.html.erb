@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<section class="content-header">
+  <h1>
+    Cupons de desconto
+  </h1>
+</section>
+<section class="content">
+  <%= link_to 'Novo pacote', new_coupon_path, class: 'btn btn-lg btn-success pull-right'  %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Nome da Empresa</th>
+                <th>Código</th>
+                <th>Validade</th>
+                <th>Desconto em %</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @coupons.each do |coupon| %>
+                <tr>
+                  <td><%= coupon.logo %></td>
+                  <td><%= coupon.name %></td>
+                  <td><%= coupon.code %></td>
+                  <td><%= coupon.validity %></td>
+                  <td><%= coupon.discount %></td>
+                  <td>
+                    <%= link_to 'Exibir', coupon, class: 'btn btn-info' %>
+                    <%= link_to 'Editar', edit_coupon_path(coupon), class: 'btn btn-primary' %>
+                    <%= link_to 'Deletar', coupon, method: :delete, data: { confirm: 'Deseja mesmo deletar esse cupom?' }, class: 'btn btn-danger' %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

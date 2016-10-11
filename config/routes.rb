@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :packages
   resources :partners
-
   resources :raffles
+  resources :coupons
 
 end

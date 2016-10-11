@@ -56,16 +56,6 @@ body {
  * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
  */
 
-
- /*INÍCIO PERSONALIZAÇÃO lAYOUT VORTEX
-  */
-.logo-lg img{
-  height: 45PX !important;
-}
-
-/*FIM PERSONALIZAÇÃO lAYOUT VORTEX
- */
-
 .content-wrapper,
 .right-side,
 .main-footer {
