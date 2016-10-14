@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014205744) do
+ActiveRecord::Schema.define(version: 20161014212833) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -78,8 +78,12 @@ ActiveRecord::Schema.define(version: 20161014205744) do
     t.integer  "state_id"
     t.integer  "country_id"
     t.string   "zip_code"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["city_id"], name: "index_profiles_on_city_id"
     t.index ["country_id"], name: "index_profiles_on_country_id"
     t.index ["state_id"], name: "index_profiles_on_state_id"
