@@ -13,6 +13,7 @@ class Raffle < ApplicationRecord
   def random_select
     winner_ticket = tickets.sample
     update_attributes winner_ticket_id: winner_ticket.id
+
     winner_ticket
   end
 
