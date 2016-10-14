@@ -1,7 +1,7 @@
 <%= form_for profile, url: profile_update_path do |f| %>
   <div class="form-group">
     <%= f.label :name, "Avatar" %>
-    <%= image_tag profile.avatar.url %>
+    <%= image_tag profile.avatar_url %>
     <%= f.file_field :avatar %>
   </div>
   <div class="form-group">

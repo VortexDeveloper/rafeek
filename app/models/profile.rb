@@ -11,4 +11,17 @@ class Profile < ApplicationRecord
   )
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  def avatar_url
+    if user.provider.nil?
+      avatar_url
+    else
+      image
+    end
+  end
+
+  #private
+  def user
+    User.where(id: user_id).first
+  end
 end
