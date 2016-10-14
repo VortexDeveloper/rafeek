@@ -1,5 +1,4 @@
 $(function () {
-    Shadowbox.init();
 
     //CONTROLE DO MENU MOBILE TOPO
     $('.mobile_action').click(function () {
@@ -31,13 +30,13 @@ $(function () {
 
     //CONTROLE DE SUB ITEM MENU SIDE
     $('.menu_side_sub').hide();
-    $('.menu_side_item').click(function () {        
+    $('.menu_side_item').click(function () {
         $(this).children('.menu_side_sub').slideToggle('slow');
     });
 
     //*******************************SLIDE GANHADORES**********************************
 
-    //SLIDE GO 
+    //SLIDE GO
     $('.slide_nav.go').click(function () {
         clearInterval(action);
         slideGo();
@@ -84,8 +83,8 @@ $(function () {
     });
     //*******************************SLIDE GANHADORES**********************************
 //    //*******************************SLIDE PARCEIROS***********************************
-//    
-//    //SLIDE GO 
+//
+//    //SLIDE GO
 //    $('.slide_parceiros_nav.go').click(function () {
 //        clearInterval(actionParceiros);
 //        slideParceirosGo();
@@ -96,9 +95,9 @@ $(function () {
 //        clearInterval(actionParceiros);
 //        slideParceirosBack();
 //    });
-//    
+//
 //    var actionParceiros = setInterval(slideParceirosGo, 3000);
-//    
+//
 //    //BOTÃO SLIDE GO
 //    function slideParceirosGo() {
 //        if ($('.slide_parceiros_item.first').next().size()) {
@@ -125,7 +124,7 @@ $(function () {
 //                $('.slide_parceiros_item:last-of-type').fadeIn().addClass('first');
 //            });
 //        }
-//    }    
+//    }
 //    //*******************************SLIDE PARCEIROS***********************************
 
     //EFEITO SCROLL MENU
