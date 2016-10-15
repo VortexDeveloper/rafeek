@@ -25,4 +25,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     edit_user_registration_path
   end
+
+  def authenticate_admin!
+    if user_signed_in?
+      redirect_to edit_user_registration_path unless current_user.admin?
+    else
+      redirect_to root_path
+    end
+  end
 end

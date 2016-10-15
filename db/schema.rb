@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014212833) do
+ActiveRecord::Schema.define(version: 20161015172342) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -84,10 +84,11 @@ ActiveRecord::Schema.define(version: 20161014212833) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "image"
     t.index ["city_id"], name: "index_profiles_on_city_id"
     t.index ["country_id"], name: "index_profiles_on_country_id"
     t.index ["state_id"], name: "index_profiles_on_state_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
   create_table "raffles", force: :cascade do |t|
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(version: 20161014212833) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.integer  "group"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -14,7 +14,7 @@ class Profile < ApplicationRecord
 
   def avatar_url
     if user.provider.nil?
-      avatar_url
+      avatar.url
     else
       image
     end
