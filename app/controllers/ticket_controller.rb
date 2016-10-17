@@ -6,11 +6,13 @@ class TicketController < ApplicationController
   end
 
   def create!
+    @transaction = TicketTransaction.create!
     @purchase[:amount].times do
       Ticket.create do |t|
         t.owner = current_user
         t.raffle = @purchase[:raffle]
-        t.purchase_status = :incomplete
+        t.incomplete!
+        t.ticket_transaction = @transaction
       end
     end
   end
@@ -20,6 +22,8 @@ class TicketController < ApplicationController
     user_points = current_user.account.balance
 
     if needed_points > user_points
+      @transaction.tickets.each { |t| t.pending! }
+
       #deveria ser página de compra de pacotes que ainda não existe
       redirect_to root_path
     end
