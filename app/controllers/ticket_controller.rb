@@ -1,20 +1,8 @@
 class TicketController < ApplicationController
   def purchase
-    @purchase = {amount: params[:amount], raffle: Raffle.find params[:raffle_id]}
-    create!
+    @purchase = {amount: params[:amount], raffle: Raffle.find(params[:raffle_id])}
+    Ticket.create!(current_user, @purchase)
     verify_balance
-  end
-
-  def create!
-    @transaction = TicketTransaction.create!
-    @purchase[:amount].times do
-      Ticket.create do |t|
-        t.owner = current_user
-        t.raffle = @purchase[:raffle]
-        t.incomplete!
-        t.ticket_transaction = @transaction
-      end
-    end
   end
 
   def verify_balance
