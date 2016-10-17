@@ -4,18 +4,20 @@
   <%= render partial: 'layouts/head_admin' %>
 
   <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
 
       <%= render partial: 'layouts/header_admin' %>
 
-      <%= render partial: 'layouts/sidebar_admin' %>
+      <div class="wrapper">
 
-      <%= render partial: 'layouts/content_admin' %>
+        <%= render partial: 'layouts/sidebar_admin' %>
 
-      <%= render partial: 'layouts/footer_admin' %>
+        <%= render partial: 'layouts/content_admin' %>
 
-    </div>
-    <!-- ./wrapper -->
+        <%= render partial: 'layouts/footer_admin' %>
+
+        <%= render partial: 'layouts/control_sidebar_admin' %>
+
+      </div>
 
     <%= render partial: 'layouts/scripts_admin' %>
   </body>

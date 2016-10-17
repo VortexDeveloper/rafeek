@@ -10,6 +10,7 @@ Rails.application.config.assets.precompile += %w( shadowbox.css )
 Rails.application.config.assets.precompile += %w( style.css )
 Rails.application.config.assets.precompile += %w( boot.css )
 Rails.application.config.assets.precompile += %w( bootstrap.css )
+Rails.application.config.assets.precompile += %w( admin.css )
 #SCRIPTS
 Rails.application.config.assets.precompile += %w( jquery.js )
 Rails.application.config.assets.precompile += %w( shadowbox.js )

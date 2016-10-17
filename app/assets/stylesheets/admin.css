@@ -1,0 +1,19 @@
+.logo-lg img{
+ height: 35PX !important;
+}
+
+.logo-mini img{
+ height: 35PX !important;
+}
+
+.m-left{
+ margin-left: 10px !important;
+}
+
+.m-bottom{
+ margin-bottom: 10px !important;
+}
+
+.inner-content{
+  padding: 10px !important;
+}
