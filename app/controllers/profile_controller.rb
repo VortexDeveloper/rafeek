@@ -24,7 +24,8 @@ class ProfileController < ApplicationController
       :city_id,
       :state_id,
       :country_id,
-      :zip_code
+      :zip_code,
+      :avatar
     )
   end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'ticket/purchase'
+
   get 'user/edit'
   get 'user/show'
   get 'profile/edit'

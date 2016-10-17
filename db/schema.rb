@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011155516) do
+ActiveRecord::Schema.define(version: 20161015193000) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -78,12 +78,17 @@ ActiveRecord::Schema.define(version: 20161011155516) do
     t.integer  "state_id"
     t.integer  "country_id"
     t.string   "zip_code"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "image"
     t.index ["city_id"], name: "index_profiles_on_city_id"
     t.index ["country_id"], name: "index_profiles_on_country_id"
     t.index ["state_id"], name: "index_profiles_on_state_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
   create_table "raffles", force: :cascade do |t|
@@ -93,8 +98,10 @@ ActiveRecord::Schema.define(version: 20161011155516) do
     t.integer  "amount"
     t.string   "image"
     t.string   "string"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "winner_ticket_id"
+    t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -108,11 +115,12 @@ ActiveRecord::Schema.define(version: 20161011155516) do
 
   create_table "tickets", force: :cascade do |t|
     t.integer  "raffle_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "owner_id"
+    t.integer  "purchase_status"
+    t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,6 +139,7 @@ ActiveRecord::Schema.define(version: 20161011155516) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.integer  "group"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
