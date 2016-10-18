@@ -25,7 +25,7 @@
             <tbody>
               <% @coupons.each do |coupon| %>
                 <tr>
-                  <td><%= coupon.logo %></td>
+                  <td><%= image_tag coupon.avatar.url(:thumb) %></td>
                   <td><%= coupon.name %></td>
                   <td><%= coupon.code %></td>
                   <td><%= coupon.validity %></td>

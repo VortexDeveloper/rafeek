@@ -25,8 +25,8 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= f.label :logo, "Logo" %>
-              <%= f.text_field :logo, class:'form-control' %>
+              <%= image_tag coupon.avatar.url(:thumb) %>
+              <%= f.file_field :avatar %>
             </div>
             <div class="form-group">
               <%= f.label :name, "Empresa" %>

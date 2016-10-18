@@ -74,7 +74,7 @@ class PartnersController < ApplicationController
     def partner_params
       params.require(:partner).permit(
         :name,
-        :logo,
+        :avatar,
         :url
       )
     end

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20161017201159) do
+ActiveRecord::Schema.define(version: 20161018122458) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -37,13 +36,16 @@ ActiveRecord::Schema.define(version: 20161017201159) do
   end
 
   create_table "coupons", force: :cascade do |t|
-    t.string   "logo"
     t.string   "name"
     t.string   "code"
     t.date     "validity"
     t.integer  "discount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "packages", force: :cascade do |t|
@@ -61,11 +63,14 @@ ActiveRecord::Schema.define(version: 20161017201159) do
 
   create_table "partners", force: :cascade do |t|
     t.string   "name"
-    t.string   "logo"
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["user_id"], name: "index_partners_on_user_id"
   end
 

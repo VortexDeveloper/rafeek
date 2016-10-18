@@ -24,7 +24,7 @@
               <% @partners.each do |partner| %>
                 <tr>
                   <td><%= partner.name %></td>
-                  <td><%= partner.logo %></td>
+                  <td><%= image_tag partner.avatar.url(:thumb) %></td>
                   <td><%= partner.url %></td>
                   <td>
                     <%= link_to '', partner, class: 'btn btn-info fa fa-location-arrow' %>
