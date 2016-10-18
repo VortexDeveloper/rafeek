@@ -2,7 +2,7 @@ class RafflesController < ApplicationController
   before_action :set_raffle, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
 
-  layout 'admin'
+  layout 'admin', except: [:index, :show]
 
   # GET /raffles
   # GET /raffles.json
