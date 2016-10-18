@@ -350,7 +350,7 @@ h2, p, a{
 
 .conteudo{
     width: 100%;
-    background-image: url(<%= asset_path 'bg_site.jpg' %>)
+    background-image: url(../images/bg_site.jpg)
 }
 
 .content{
@@ -1680,12 +1680,12 @@ h2, p, a{
     }
 
     .menu_topo{
-        width: 889px;
+        width: 897px;
         max-width: none;
         height: 100px;
         margin: 0;
         margin-left: 50%;
-        left: -444.5px;
+        left: -448.5px;
         top: 500px;
         position: fixed;
         background: none;

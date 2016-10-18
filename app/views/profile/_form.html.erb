@@ -1,8 +1,8 @@
 <%= form_for profile, url: profile_update_path do |f| %>
   <div class="form-group">
-    <%= f.label :name, "Avatar" %>
-    <%= image_tag profile.avatar_url %>
-    <%= f.file_field :avatar %>
+    <%= image_tag profile.avatar_url, class: 'img' %>
+    <div class="img-file"></div>
+    <%= f.file_field :avatar, class: 'btn-file' %>
   </div>
   <div class="form-group">
     <%= f.label :name, "Nome" %>
@@ -48,5 +48,7 @@
     <%= f.label :zip_code, "CEP" %>
     <%= f.text_field :zip_code, value: @profile.zip_code, class: 'form-control i-perfil' %>
   </div>
-  <%= f.submit "Salvar", class: 'btn btn-perfil' %>
+  <div class="actions-buttons">
+    <%= f.submit "Salvar" %>
+  </div>
 <% end %>

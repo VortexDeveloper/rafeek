@@ -21,6 +21,7 @@ Rails.application.config.assets.precompile += %w( jquery.modal.js )
 Rails.application.config.assets.precompile += %w( jquery.dataTables.min.js )
 Rails.application.config.assets.precompile += %w( dataTables.bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( data-table-rafeek.js )
+Rails.application.config.assets.precompile += %w( image-click.js )
 
 
 # Add additional assets to the asset load path

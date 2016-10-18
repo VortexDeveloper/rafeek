@@ -187,3 +187,27 @@ input.btn{
 .preto{background: #000 !important}
 .branco{background: #FFF !important}
 .marrom{background: #AA7239 !important}
+
+.btn-file{
+  visibility: hidden;
+}
+
+.img{
+  border-radius: 3px;
+}
+
+.img-file{
+  position: absolute;
+  width: 100px;
+  height: 75px;
+  border-radius: 3px;
+}
+
+.img-file:hover{
+  background: rgba(255,255,255,0.7);
+}
+
+.form-group{
+  width: 100%;
+  float: left;
+}
