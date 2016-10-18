@@ -3,20 +3,21 @@
 
   <%= render partial: 'layouts/head_admin' %>
 
-  <body class="skin-blue">
+  <body class="hold-transition skin sidebar-mini">
+    <div class="wrapper">
 
       <%= render partial: 'layouts/header_admin' %>
 
-      <div class="wrapper row-offcanvas row-offcanvas-left">
+      <%= render partial: 'layouts/sidebar_admin' %>
 
-        <%= render partial: 'layouts/sidebar_admin' %>
+      <%= render partial: 'layouts/content_admin' %>
 
-        <%= render partial: 'layouts/content_admin' %>
+      <%= render partial: 'layouts/footer_admin' %>
 
-        <%= render partial: 'layouts/footer_admin' %>
-
-      </div>
+    </div>
+    <!-- ./wrapper -->
 
     <%= render partial: 'layouts/scripts_admin' %>
+
   </body>
 </html>

@@ -27,9 +27,9 @@
                   <td><%= partner.logo %></td>
                   <td><%= partner.url %></td>
                   <td>
-                    <%= link_to 'Exibir', partner, class: 'btn btn-info' %>
-                    <%= link_to 'Editar', edit_partner_path(partner), class: 'btn btn-primary' %>
-                    <%= link_to 'Deletar', partner, method: :delete, data: { confirm: 'Deseja mesmo deletar esse parceiro?' }, class: 'btn btn-danger' %>
+                    <%= link_to '', partner, class: 'btn btn-info fa fa-location-arrow' %>
+                    <%= link_to '', edit_partner_path(partner), class: 'btn btn-primary fa fa-edit' %>
+                    <%= link_to '', partner, method: :delete, data: { confirm: 'Deseja mesmo deletar esse parceiro?' }, class: 'btn btn-danger fa  fa-trash-o' %>
                   </td>
                 </tr>
               <% end %>

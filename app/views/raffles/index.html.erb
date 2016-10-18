@@ -6,18 +6,18 @@
   </h1>
 </section>
 <section class="content">
-  <%= link_to 'Nova Rifa', new_raffle_path, class: 'btn btn-lg btn-success pull-right'  %>
+  <%= link_to 'Nova rifa', new_raffle_path, class: 'btn btn-lg btn-success pull-right m-bottom' %>
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
+      <div class="box inner-content">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
+                <th>Imagem</th>
                 <th>Título</th>
                 <th>Descrição</th>
                 <th>Valor em pontos</th>
                 <th>Quandtidade máxima de bilhetes</th>
-                <th>Imagem</th>
                 <th>Ações</th>
               </tr>
             </thead>
@@ -25,15 +25,15 @@
             <tbody>
               <% @raffles.each do |raffle| %>
                 <tr>
+                  <td><%= image_tag raffle.avatar.url(:thumb) %></td>
                   <td><%= raffle.title %></td>
                   <td><%= raffle.description %></td>
                   <td><%= raffle.points %></td>
                   <td><%= raffle.amount %></td>
-                  <td><%= raffle.image %></td>
                   <td>
-                    <%= link_to 'Exibir', raffle, class: 'btn btn-info' %>
-                    <%= link_to 'Editar', edit_raffle_path(raffle), class: 'btn btn-primary' %>
-                    <%= link_to 'Deletar', raffle, method: :delete, data: { confirm: 'Deseja mesmo deletar essa rifa?' }, class: 'btn btn-danger' %>
+                    <%= link_to '', raffle, class: 'btn btn-info fa fa-location-arrow' %>
+                    <%= link_to '', edit_raffle_path(raffle), class: 'btn btn-primary fa fa-edit' %>
+                    <%= link_to '', raffle, method: :delete, data: { confirm: 'Deseja mesmo deletar essa rifa?' }, class: 'btn btn-danger fa  fa-trash-o' %>
                   </td>
                 </tr>
               <% end %>

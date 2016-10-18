@@ -6,10 +6,10 @@
   </h1>
 </section>
 <section class="content">
-  <%= link_to 'Novo pacote', new_coupon_path, class: 'btn btn-lg btn-success pull-right'  %>
+  <%= link_to 'Novo cupom', new_coupon_path, class: 'btn btn-lg btn-success pull-right m-bottom'  %>
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
+      <div class="box inner-content">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
@@ -31,9 +31,9 @@
                   <td><%= coupon.validity %></td>
                   <td><%= coupon.discount %></td>
                   <td>
-                    <%= link_to 'Exibir', coupon, class: 'btn btn-info' %>
-                    <%= link_to 'Editar', edit_coupon_path(coupon), class: 'btn btn-primary' %>
-                    <%= link_to 'Deletar', coupon, method: :delete, data: { confirm: 'Deseja mesmo deletar esse cupom?' }, class: 'btn btn-danger' %>
+                    <%= link_to '', coupon, class: 'btn btn-info fa fa-location-arrow' %>
+                    <%= link_to '', edit_coupon_path(coupon), class: 'btn btn-primary fa fa-edit' %>
+                    <%= link_to '', coupon, method: :delete, data: { confirm: 'Deseja mesmo deletar esse cupom?' }, class: 'btn btn-danger  fa  fa-trash-o' %>
                   </td>
                 </tr>
               <% end %>

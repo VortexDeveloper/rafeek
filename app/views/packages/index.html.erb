@@ -2,47 +2,48 @@
 
 <section class="content-header">
   <h1>
-    Pacotes de pontos
+    Pacotes
   </h1>
 </section>
 <section class="content">
-  <%= link_to 'Novo pacote', new_package_path, class: 'btn btn-lg btn-success pull-right'  %>
+  <%= link_to 'Novo pacote', new_package_path, class: 'btn btn-lg btn-success pull-right m-bottom' %>
   <div class="row">
     <div class="col-xs-12">
-      <div class="box">
-          <table id="example2" class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th>Imagem</th>
-                <th>Pontos</th>
-                <th>Valor</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
+      <div class="box inner-content">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Imagem</th>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Pontos</th>
+              <th>Valor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
 
-            <tbody>
-              <% @packages.each do |package| %>
-                <tr>
-                  <td><%= package.name %></td>
-                  <td><%= package.description %></td>
-                  <td><%= package.image %></td>
-                  <td><%= package.points %></td>
-                  <td><%= package.value %></td>
-                  <td>
-                    <%= link_to 'Exibir', package, class: 'btn btn-info' %>
-                    <%= link_to 'Editar', edit_package_path(package), class: 'btn btn-primary' %>
-                    <%= link_to 'Deletar', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' }, class: 'btn btn-danger' %>
-                  </td>
-                </tr>
-              <% end %>
-            </tbody>
-            <tfoot>
-            </tfoot>
-          </table>
+          <tbody>
+            <% @packages.each do |package| %>
+              <tr>
+                <td><%= image_tag package.avatar.url(:thumb) %></td>
+                <td><%= package.name %></td>
+                <td><%= package.description %></td>
+                <td><%= package.points %></td>
+                <td><%= package.value %></td>
+                <td>
+                  <%= link_to '', package, class: 'btn btn-info fa fa-location-arrow' %>
+                  <%= link_to '', edit_package_path(package), class: 'btn btn-primary fa fa-edit' %>
+                  <%= link_to '', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' }, class: 'btn btn-danger fa  fa-trash-o' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
         </div>
       </div>
     </div>
   </div>
 </section>
+<br>

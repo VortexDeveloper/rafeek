@@ -17,3 +17,15 @@
 .inner-content{
   padding: 10px !important;
 }
+
+.skin{
+  background: #333 !important;
+}
+
+.skin a{
+  color: #fff;
+}
+
+.skin_footer{
+  border: none;
+}

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'user/edit'
   get 'user/show'
+
   get 'profile/edit'
   patch 'profile/update'
 
@@ -17,5 +18,8 @@ Rails.application.routes.draw do
   resources :partners
   resources :raffles
   resources :coupons
+
+  #Public Pages
+  get "/pages/:public_raffles" => "pages#show"
 
 end

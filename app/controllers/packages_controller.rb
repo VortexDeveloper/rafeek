@@ -31,7 +31,7 @@ class PackagesController < ApplicationController
 
     respond_to do |format|
       if @package.save
-        format.html { redirect_to @package, notice: 'Package was successfully created.' }
+        format.html { redirect_to @package, notice: 'Pacote cadastrado com sucesso.' }
         format.json { render :show, status: :created, location: @package }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class PackagesController < ApplicationController
   def update
     respond_to do |format|
       if @package.update(package_params)
-        format.html { redirect_to @package, notice: 'Package was successfully updated.' }
+        format.html { redirect_to @package, notice: 'Pacote atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @package }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class PackagesController < ApplicationController
   def destroy
     @package.destroy
     respond_to do |format|
-      format.html { redirect_to packages_url, notice: 'Package was successfully destroyed.' }
+      format.html { redirect_to packages_url, notice: 'Pacote excluido com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -72,6 +72,6 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:name, :description, :image, :points, :value)
+      params.require(:package).permit(:name, :description, :image, :points, :value, :avatar)
     end
 end

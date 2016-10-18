@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015193000) do
+ActiveRecord::Schema.define(version: 20161017201159) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,11 +48,14 @@ ActiveRecord::Schema.define(version: 20161015193000) do
   create_table "packages", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "image"
     t.integer  "points"
     t.decimal  "value"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -96,11 +99,14 @@ ActiveRecord::Schema.define(version: 20161015193000) do
     t.string   "description"
     t.integer  "points"
     t.integer  "amount"
-    t.string   "image"
     t.string   "string"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "winner_ticket_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id"
   end
 
