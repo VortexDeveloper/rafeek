@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20161017201159) do
 
   create_table "accounts", force: :cascade do |t|
@@ -119,14 +120,21 @@ ActiveRecord::Schema.define(version: 20161017201159) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "ticket_transactions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tickets", force: :cascade do |t|
     t.integer  "raffle_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "owner_id"
     t.integer  "purchase_status"
+    t.integer  "ticket_transaction_id"
     t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
+    t.index ["ticket_transaction_id"], name: "index_tickets_on_ticket_transaction_id"
   end
 
   create_table "users", force: :cascade do |t|

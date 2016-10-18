@@ -1,5 +1,6 @@
 class RafflesController < ApplicationController
   before_action :set_raffle, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
 
   layout 'admin'
 
@@ -7,6 +8,12 @@ class RafflesController < ApplicationController
   # GET /raffles.json
   def index
     @raffles = Raffle.all
+  end
+
+  # GET /new_raffles
+  # GET /new_raffles.json
+  def new_raffles
+    # @raffles = Raffle.where("created_at between #{Date.now - 15.days} and #{Date.now}")
   end
 
   # GET /raffles/1
