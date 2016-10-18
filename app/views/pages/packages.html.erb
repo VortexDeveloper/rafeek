@@ -1,0 +1,24 @@
+<div class="dir">
+    <div class="packs">
+        <h2 class="title_padrao">PACOTES DE PONTOS</h2>
+        <div class=" top_pont"></div>
+        <% @packages.each do |package| %>
+          <div class="ponto">
+              <div class="pontos_img">
+                  <%= image_tag package.avatar.url %>
+              </div>
+              <div class="pontos_desc">
+                  <div class="pontos_desc_text">
+                      <b><%= package.name %></b>
+                      <p><%= package.description %></p>
+                  </div>
+              </div>
+              <div class="pontos_desc_price">
+                  <b><%= package.points %><c>PONTOS</c></b>
+                  <b>R$ <%= package.value %></b>
+              </div>
+              <a href="rifa.php" class="btn btn-primary bilhetes_button" role="button">COMPRE</a>
+          </div>
+        <% end %>
+    </div>
+</div>

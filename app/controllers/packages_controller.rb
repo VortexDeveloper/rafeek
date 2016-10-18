@@ -1,6 +1,7 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
   layout 'admin'
 

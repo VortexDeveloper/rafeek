@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       :omniauth_callbacks => "users/omniauth_callbacks",
       :registrations => 'users/registrations'
    }
-  root to: "application#index"
+  root to: "pages#index"
 
   resources :packages
   resources :partners
@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   resources :coupons
 
   #Public Pages
-  get "/pages/:public_raffles" => "pages#show"
+  get 'pages/index'
+  get 'pages/raffles'
+  get 'pages/packages'
+
+  get 'pages/raffles_new'
+  get 'pages/raffles_hot'
+  get 'pages/winners'
+  get 'pages/help'
 
 end

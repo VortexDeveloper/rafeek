@@ -557,9 +557,6 @@ h2, p, a{
 .menu_topo_item{
     width: 100%;
     padding: 15px;
-}
-
-.menu_topo_item a{
     font-size: 1.2em;
     color: #fff;
     text-decoration: none !important;
@@ -568,11 +565,8 @@ h2, p, a{
     font-family: ERASLGHT;
 }
 
-.menu_topo_item a:hover{
-    color: #fff !important;
-}
-
 .menu_topo_item:hover{
+    color: #fff !important;
     cursor: pointer;
     border-right: solid 5px #E32741;
 }
@@ -1029,19 +1023,10 @@ h2, p, a{
     background: rgba(200,200,200,0.4);
 }
 
-.fusao{
-    max-width: 90%;
-    max-height: 90%;
-    position: absolute;
-    margin: 5%;
-
-}
-
 .parceiros_item{
-    width: 90%;
+    width: 20%;
+    margin: 2% 6.65%;
     float: left;
-    margin: 5%;
-    margin-bottom: 0;
     height: auto;
     position: relative;
 }
@@ -1200,15 +1185,7 @@ h2, p, a{
     margin-top: 15px;
 }
 
-.pontos_img_dir {
-    width: 49%;
-    position: absolute;
-    float: left;
-    left: 0;
-    bottom: 0;
-}
-
-.pontos_img_esq{
+.pontos_img{
     width: 49%;
     position: absolute;
     float: left;
@@ -1304,13 +1281,10 @@ h2, p, a{
         max-width: 418.7px;
     }
 
-    .pontos_img_dir {
+    .pontos_img {
         width: 36%;
     }
 
-    .pontos_img_esq {
-        width: 36%;
-    }
 
     .pontos_desc {
         width: 80%;
@@ -1442,11 +1416,11 @@ h2, p, a{
         max-width: 679.5px;
     }
 
-    .pontos_img_dir {
+    .pontos_img:nth-child(odd) {
         width: 31%;
     }
 
-    .pontos_img_esq {
+    .pontos_img:nth-child(even) {
         width: 31%;
         left: auto;
         right: 0;
@@ -1498,9 +1472,14 @@ h2, p, a{
         margin-left: 35%;
     }
 
+    .parceiros{
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .parceiros_item{
-        width: 30%;
-        margin: 1.66666666%;
+        width: 20%;
+        margin: 2% 6.5%;
     }
 
     .sobre{
@@ -1592,7 +1571,7 @@ h2, p, a{
         //position: relative;
         //float: left;
         margin: 0;
-        //padding: 2%;
+        padding: 2%;
         padding-top: 2%;
         padding-bottom: 0;
         margin: 0 auto;
@@ -1702,9 +1681,6 @@ h2, p, a{
         background: none;
         float: left;
         position: relative;
-    }
-
-    .menu_topo_item a{
         font-size: 1.2em;
         color: #fff !important;
         font-weight: 300;
@@ -1768,22 +1744,6 @@ h2, p, a{
         display: inline-block;
     }
 
-    .parceiros{
-        width: 96%;
-        float: left;
-        margin: 2%;
-        position: relative;
-    }
-
-    .parceiros_item{
-        width: 80%;
-        float: left;
-        margin: 10%;
-        margin-bottom: 0;
-        height: auto;
-        position: relative;
-    }
-
     .slide_item_rifa{
         width: 45%;
         max-width: 550px;
@@ -1807,7 +1767,7 @@ h2, p, a{
         margin-top: 15px;
     }
 
-    .pontos_img_dir{
+    .pontos_img:nth-child(odd){
         width: 18%;
         position: absolute;
         float: left;
@@ -1815,7 +1775,7 @@ h2, p, a{
         bottom: 0;
     }
 
-    .pontos_img_esq{
+    .pontos_img:nth-child(even){
         width: 18%;
         position: absolute;
         float: right;

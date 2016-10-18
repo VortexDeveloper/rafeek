@@ -1,0 +1,33 @@
+<header class="content">
+    <div id="fundo_menu" class="fundo_menu"></div>
+    <div id="login" class="login">
+        <div class="mobile_action"></div>
+        <div class="mobile_action_side"></div>
+        <%= session_button %>
+    </div>
+    <div class="topo">
+
+        <div class="topo_desc">
+            <img class="m-hulk" src="../images/m-hulk.png"/>
+            <div class="desc">
+                <h1>TESTE A SUA SORTE NA UNICA RIFA DEDICADA AO MUNDO GEEK</h1>
+                <h2>COMPRE PONTOS E FAÇA SUAS APOSTAS.</h2>
+            </div>
+            <img class="m-spider" src="../images/m-spider.png"/>
+        </div>
+    </div>
+
+    <div id="logo" class="logo">
+        <div  id="topo"></div>
+        <img src="../images/logo_heroi.png"/>
+    </div>
+    <ul id="menu" class="menu_topo">
+        <%= link_to "Home", pages_index_path, class: 'menu_topo_item' %>
+        <%= link_to "Rifas", pages_raffles_path, class: 'menu_topo_item' %>
+        <%= link_to "Novos", pages_raffles_new_path, class: 'menu_topo_item' %>
+        <%= link_to "Hot", pages_raffles_hot_path, class: 'menu_topo_item' %>
+        <%= link_to "Pacotes de Pontos", pages_packages_path, class: 'menu_topo_item' %>
+        <%= link_to "Ganhadores", pages_winners_path, class: 'menu_topo_item' %>
+        <%= link_to "Como Funciona", pages_help_path, class: 'menu_topo_item' %>
+    </ul>
+</header>

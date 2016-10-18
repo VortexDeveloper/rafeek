@@ -1,11 +1,11 @@
 <div class="dir">
     <div class="raf">
-        <h2 class="title_padrao">Categorias</h2>
+        <h2 class="title_padrao">Lançamentos</h2>
         <div class="row">
           <% @raffles.each do |raffle| %>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <%= image_tag raffle.avatar.url(:thumb) %>
+                    <%= image_tag raffle.avatar.url %>
                     <div class="caption rifa">
                         <h3><%= raffle.title %></h3>
                         <p><%= raffle.description %></p>
@@ -13,11 +13,12 @@
                         <p>
                             <a href="rifa.php" class="btn btn-primary bilhetes_button" role="button">Investir</a>
                         </p>
-                        <h2 class="bilhetes"><img src="img/bol.png"/> Disponíveis <img src="img/bol_r.png"/> Vendidos</h2>
+                        <h2 class="bilhetes"><img src="../images/bol.png"/> Disponíveis <img src="../images/bol_r.png"/> Vendidos</h2>
                         <div class="progress">
+
                             <div class="progress-bar progress-bar-danger" style="width: 90%">
                                 <span class="sr-only">90 Compradas</span>
-                                90
+                                <%= @amount = raffle.amount %>
                             </div>
                             <div class="progress-bar" style="width: 10%">
                                 <span class="sr-only">10 Restantes</span>
@@ -29,5 +30,15 @@
             </div>
           <% end %>
         </div>
+        <% if @partners.present? %>
+          <h2 class="title_padrao">Nossos parceiros</h2>
+          <div class="parceiros">
+            <% @partners.each do |partner| %>
+                  <div class="parceiros_item">
+                    <%= link_to image_tag(partner.avatar.url), partner.url, target: '_blank' %>
+                  </div>
+            <% end %>
+          </div>
+        <% end %>
     </div>
 </div>

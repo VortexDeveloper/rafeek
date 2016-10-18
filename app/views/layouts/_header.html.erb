@@ -10,13 +10,13 @@
         <%= image_tag("logo_heroi.png") %>
     </div>
     <ul class="menu_topo fixar_menu">
-        <li class="menu_topo_item"><a href="index.rb">Home</a>
-        <li class="menu_topo_item"><a href="categorias.rb">Rifas</a>
-        <li class="menu_topo_item"><a href="categorias.rb">Novos</a>
-        <li class="menu_topo_item"><a href="categorias.rb">Hot</a>
-        <li class="menu_topo_item"><a href="pontos.rb">Pacotes de Pontos</a>
-        <li class="menu_topo_item"><a href="ganhadores.rb">Ganhadores</a>
-        <li class="menu_topo_item"><a href="help.rb">Como Funciona</a>
+      <%= link_to "Home", pages_index_path, class: 'menu_topo_item' %>
+      <%= link_to "Rifas", pages_raffles_path, class: 'menu_topo_item' %>
+      <%= link_to "Novos", pages_raffles_new_path, class: 'menu_topo_item' %>
+      <%= link_to "Hot", pages_raffles_hot_path, class: 'menu_topo_item' %>
+      <%= link_to "Pacotes de Pontos", pages_packages_path, class: 'menu_topo_item' %>
+      <%= link_to "Ganhadores", pages_winners_path, class: 'menu_topo_item' %>
+      <%= link_to "Como Funciona", pages_help_path, class: 'menu_topo_item' %>
     </ul>
 </header>
 <div class="top"></div>

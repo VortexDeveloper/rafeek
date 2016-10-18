@@ -1,6 +1,7 @@
 class PartnersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_partner, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
   layout 'admin'
 
   # GET /partners
