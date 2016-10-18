@@ -126,8 +126,12 @@ ActiveRecord::Schema.define(version: 20161018122458) do
   end
 
   create_table "ticket_transactions", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "status"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ticket_transactions_on_user_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -135,7 +139,6 @@ ActiveRecord::Schema.define(version: 20161018122458) do
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.integer  "owner_id"
-    t.integer  "purchase_status"
     t.integer  "ticket_transaction_id"
     t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
