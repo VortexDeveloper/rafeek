@@ -11,6 +11,24 @@ class PackagesController < ApplicationController
     @packages = Package.all
   end
 
+  def purchase
+    # byebug
+    @transaction = Cielo::Transaction.new
+    transaction_parameters = {
+      numero: "XXX",
+      valor: "10000",
+      moeda: "986",
+      bandeira: 'visa',
+      :"url-retorno" => 'http://localhost:3000',
+      cartao_numero: '4012001037141112',
+      cartao_validade: '201805',
+      cartao_seguranca: '123',
+      cartao_portador: 'Lorem Ipsum Dolor'
+    }
+    tran = @transaction.create!(transaction_parameters, :store)
+    byebug
+  end
+
   # GET /packages/1
   # GET /packages/1.json
   def show
