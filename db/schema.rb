@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019205054) do
+ActiveRecord::Schema.define(version: 20161020171248) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "user_id"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20161019205054) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "category"
+    t.date     "deadline"
     t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id"
   end
 

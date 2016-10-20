@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def welcome_text
     if user_signed_in?
-      content_tag(:p, "Saudações, " + current_user.profile.name, :class => 'user-logged')
+      content_tag(:p, "Saudações, #{(current_user.profile.name || 'Complete seu cadastro!')}", :class => 'user-logged')
     end
   end
 

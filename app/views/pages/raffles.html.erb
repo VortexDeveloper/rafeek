@@ -2,7 +2,9 @@
     <div class="raf">
         <h2 class="title_padrao">Categorias</h2>
         <div class="row">
-          <div id="raffles"><%= render 'raffles' %></div>
+          <% @raffles.each do |raffle| %>
+            <%= render 'pages/raffles', :raffle => raffle %>
+          <% end %>
         </div>
     </div>
 </div>
