@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-
-  get 'ticket/purchase'
-
   get 'user/edit'
   get 'user/show'
 
   get 'profile/edit'
   patch 'profile/update'
+  post 'ticket_transaction/purchase'
 
   devise_for :users, :controllers => {
       :omniauth_callbacks => "users/omniauth_callbacks",

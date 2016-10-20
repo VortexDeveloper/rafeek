@@ -3,7 +3,7 @@ class RafflesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
-  layout 'admin'
+  layout 'admin', except: [:index, :show]
 
 
 
