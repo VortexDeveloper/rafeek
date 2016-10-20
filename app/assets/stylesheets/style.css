@@ -185,6 +185,18 @@
     position: relative;
 }
 
+.user-logged{
+  color: #fff;
+  position: relative;
+  top: -10px;
+}
+
+.login-btn, .logout-btn {
+    padding: 5px !important;
+    font-size: 1em !important;
+}
+
+
 @font-face {
     font-family: ERASBD;
     src: url(../fonts/ERASBD.TTF);
@@ -285,9 +297,6 @@ h2, p, a{
     padding: 1.5%;
     float: left;
     position: relative;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     box-shadow:  0 0 5px  #333;
 }
 
@@ -497,7 +506,7 @@ h2, p, a{
     top: 0;
     border: solid 1px #051e5f;
     box-shadow: 0 0 10px #333;
-    background: url(../img/mobile.png) center center no-repeat;
+    background: url(../images/mobile.png) center center no-repeat;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -508,7 +517,7 @@ h2, p, a{
 }
 
 .active_topo{
-    background: url(../img/mobile_hover.png) center center no-repeat;
+    background: url(../images/mobile_hover.png) center center no-repeat;
 }
 
 .mobile_action_side{
@@ -519,7 +528,7 @@ h2, p, a{
     top: 0;
     border: solid 1px #051e5f;
     box-shadow: 0 0 10px #333;
-    background: url(../img/cat.png) center center no-repeat;
+    background: url(../images/cat.png) center center no-repeat;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -531,7 +540,7 @@ h2, p, a{
 }
 
 .active_side{
-    background: url(../img/cat_hover.png) center center no-repeat;
+    background: url(../images/cat_hover.png) center center no-repeat;
 }
 
 .menu_topo{
@@ -556,6 +565,7 @@ h2, p, a{
 
 .menu_topo_item{
     width: 100%;
+    float: left;
     padding: 15px;
     font-size: 1.2em;
     color: #fff;
@@ -1684,6 +1694,7 @@ h2, p, a{
         font-size: 1.2em;
         color: #fff !important;
         font-weight: 300;
+        top: 8px;
     }
 
     .menu_topo_item:hover{
@@ -1700,7 +1711,7 @@ h2, p, a{
         margin: 0;
         position: relative;
         float: right;
-        height: 400px;
+        height: 450px;
     }
 
     .menu_side{

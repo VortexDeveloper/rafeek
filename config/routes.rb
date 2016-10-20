@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/raffles'
   get 'pages/packages'
-
   get 'pages/raffles_new'
   get 'pages/raffles_hot'
   get 'pages/winners'
+  get 'pages/raffles_categories'
   get 'pages/help'
 
 end

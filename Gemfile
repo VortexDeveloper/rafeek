@@ -34,6 +34,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'adminlte-rails'
 gem "paperclip", "~> 5.0.0"
+gem 'will_paginate', '~> 3.1.0'
 # gem 'spree', '~> 3.1.0'
 # gem 'spree_auth_devise', '~> 3.1.0'
 # gem 'spree_gateway', '~> 3.1.0'
