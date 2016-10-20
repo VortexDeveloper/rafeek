@@ -240,9 +240,6 @@ h2, p, a{
     padding: 1.5%;
     float: left;
     position: relative;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
     box-shadow:  0 0 5px  #333;
 }
 
@@ -262,11 +259,11 @@ h2, p, a{
     position: relative;
 }
 
-.raf_item_desc a{
+.raf_item_desc a, input{
     width: 48% !important;
     float: right;
-    padding: 15px;
-    margin-bottom: 0;
+    padding: 15px !important;
+    margin: 0 !important;
 }
 
 .raf_item_desc h4{

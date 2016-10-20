@@ -14,11 +14,12 @@ class TicketTransactionController < ApplicationController
       @transaction.perfom_transaction(raffle)
       redirect_to root_path, notice: "Compra efetuada com sucesso!"
     else
-      redirect_to packages_path, notice: "Você não possui pontos suficientes"
+      redirect_to pages_packages_path, notice: "Você não possui pontos suficientes"
     end
   end
 
   def raffle
     Raffle.find params[:raffle_id]
   end
+
 end

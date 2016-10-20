@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p><p class="bg-primary">...</p>
+<p id="notice"><%= notice %></p>
 
 <section class="content-header">
   <h1>
@@ -15,6 +15,7 @@
               <tr>
                 <th>Imagem</th>
                 <th>Categoria</th>
+                <th>Data</th>
                 <th>Título</th>
                 <th>Descrição</th>
                 <th>Valor em pontos</th>
@@ -28,6 +29,7 @@
                 <tr>
                   <td><%= image_tag raffle.avatar.url(:thumb) %></td>
                   <td><%= raffle.category %></td>
+                  <td><%= raffle.deadline %></td>
                   <td><%= raffle.title %></td>
                   <td><%= raffle.description %></td>
                   <td><%= raffle.points %></td>

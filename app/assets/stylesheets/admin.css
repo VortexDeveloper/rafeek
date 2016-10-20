@@ -19,7 +19,7 @@
 }
 
 .skin{
-  background: #333 !important;
+  background: #222 !important;
 }
 
 .skin a{
@@ -31,7 +31,7 @@
 }
 
 .sidebar-menu a{
-  border-left: solid 3px #333;
+  border-left: solid 3px #222;
 }
 
 .sidebar-menu a:hover{
@@ -61,4 +61,21 @@
 .form-group{
   width: 100%;
   float: left;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #333;
+    border-color: #337ab7;
+}
+.nav > li > a:hover, .nav > li > a:active, .nav > li > a:focus {
+    background: #333;
+}
+
+.main-header li.user-header {
+  background-color: #222;
+}
+
+.user-panel > .info,
+.user-panel > .info > a {
+  color: #fff;
 }
