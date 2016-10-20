@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
 
-  layout 'home', except: [:raffles, :packages]
+  layout 'home', except: [:raffles, :packages, :raffles_new, :raffles_hot, :winners, :help, :raffles_categories]
 
   def index
-    @raffles = Raffle.all
+    @raffles = Raffle.all.order('created_at DESC')
     @partners = Partner.all
   end
 
@@ -16,15 +16,25 @@ class PagesController < ApplicationController
   end
 
   def raffles_new
+    @raffles_new = Raffle.where(
+      'created_at >= :five_days_ago',
+      :five_days_ago  => Time.now - 7.days
+    )
   end
 
   def raffles_hot
+    #@raffles_hot = Raffle.where("", )
   end
 
   def winners
   end
 
-  def help    
+  def raffles_categories
+    @page_title = params[:category]
+    @raffles_categories = Raffle.where("category LIKE ?", params[:category])
+  end
+
+  def help
   end
 
 end

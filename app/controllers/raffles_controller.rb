@@ -5,16 +5,14 @@ class RafflesController < ApplicationController
 
   layout 'admin'
 
+
+
+
+
   # GET /raffles
   # GET /raffles.json
   def index
     @raffles = Raffle.all
-  end
-
-  # GET /new_raffles
-  # GET /new_raffles.json
-  def new_raffles
-    # @raffles = Raffle.where("created_at between #{Date.now - 15.days} and #{Date.now}")
   end
 
   # GET /raffles/1
@@ -85,6 +83,7 @@ class RafflesController < ApplicationController
       :points,
       :amount,
       :image,
-      :avatar)
+      :avatar,
+      :category)
     end
 end

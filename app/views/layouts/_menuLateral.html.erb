@@ -2,33 +2,34 @@
     <ul id="menu_side" class="menu_side">
         <li class="menu_side_item"><img src="../images/hq.png"/><a>HQs</a>
             <ul class="menu_side_sub">
-                <li class="menu_side_sub_item"><a href="categorias.php" title="DC">DC</a>
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Independentes">Independentes</a>
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Marvel">Marvel</a>
+                <li class="menu_side_sub_item"><%= link_to 'DC', action: 'raffles_categories', category: 'DC' %>
+                <li class="menu_side_sub_item"><%= link_to 'Independentes', action: 'raffles_categories', category: 'Independentes' %>
+                <li class="menu_side_sub_item"><%= link_to 'Marvel', action: 'raffles_categories', category: 'Marvel' %>
             </ul>
         </li>
         <li class="menu_side_item"><img src="../images/tickets.png"/><a>Ingressos</a>
             <ul class="menu_side_sub">
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Eventos">Eventos</a>
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Cinema">Cinema</a>
+                <li class="menu_side_sub_item"><%= link_to 'Eventos', action: 'raffles_categories', category: 'Eventos' %>
+                <li class="menu_side_sub_item"><%= link_to 'Cinema', action: 'raffles_categories', category: 'Cinema' %>
             </ul>
         </li>
-        <li class="menu_side_item"><img src="../images/colec.png"/><a href="categorias.php">Réplicas</a></li>
+        <li class="menu_side_item"><img src="../images/colec.png"/><%= link_to 'Réplicas', action: 'raffles_categories', category: 'Réplicas' %></li>
         <li class="menu_side_item"><img src="../images/jogos.png"/><a>Eletrônicos</a>
             <ul class="menu_side_sub">
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Games">Games</a>
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Acessórios">Acessórios</a>
+                <li class="menu_side_sub_item"><%= link_to 'Games', action: 'raffles_categories', category: 'Games' %>
+                <li class="menu_side_sub_item"><%= link_to 'Acessórios', action: 'raffles_categories', category: 'Acessórios' %>
             </ul>
         </li>
-        <li class="menu_side_item"><img src="../images/camisas.png"/><a href="categorias.php">Camisas</a></li>
-        <li class="menu_side_item"><img src="../images/acessorios.png"/><a href="categorias.php">Acessórios</a></li>
-        <li class="menu_side_item"><img src="../images/filmes.png"/><a href="categorias.php">Filmes</a></li>
+        <li class="menu_side_item"><img src="../images/camisas.png"/><%= link_to 'Camisas', action: 'raffles_categories', category: 'Camisas' %></li>
+        <li class="menu_side_item"><img src="../images/acessorios.png"/><%= link_to 'Acessórios', action: 'raffles_categories', category: 'Acessórios' %></li>
+        <li class="menu_side_item"><img src="../images/filmes.png"/><%= link_to 'Filmes', action: 'raffles_categories', category: 'Filmes' %></li>
         <li class="menu_side_item"><img src="../images/livros.png"/><a>Livros</a>
             <ul class="menu_side_sub">
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Independentes">Independentes</a>
-                <li class="menu_side_sub_item"><a href="categorias.php" title="Best Sellers">Best Sellers</a>
+                <li class="menu_side_sub_item"><%= link_to 'Independentes', action: 'raffles_categories', category: 'Livros Independentes' %>
+                <li class="menu_side_sub_item"><%= link_to 'Best sellers', action: 'raffles_categories', category: 'Best Sellers' %>
             </ul>
         </li>
+        <li class="menu_side_item"><img src="../images/viagens.png"/><%= link_to 'Viagens', action: 'raffles_categories', category: 'Viagens' %></li>
     </ul>
     <%= render partial: "layouts/slide" %>
 </div>
