@@ -44,7 +44,7 @@ RSpec.describe TicketTransactionController, type: :controller do
 
       it "should redirect to packges_path" do
         post 'purchase', params: params
-        expect(controller).to redirect_to packages_path
+        expect(controller).to redirect_to pages_packages_path
       end
     end
   end
