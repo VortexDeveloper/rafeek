@@ -38,6 +38,7 @@
                     <%= link_to '', raffle, class: 'btn btn-info fa fa-location-arrow' %>
                     <%= link_to '', edit_raffle_path(raffle), class: 'btn btn-primary fa fa-edit' %>
                     <%= link_to '', raffle, method: :delete, data: { confirm: 'Deseja mesmo deletar essa rifa?' }, class: 'btn btn-danger fa  fa-trash-o' %>
+                    <%= link_to '', raffle_select_path(raffle.id), class: 'btn btn-primary fa fa-random' %>
                   </td>
                 </tr>
               <% end %>

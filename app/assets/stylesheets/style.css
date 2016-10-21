@@ -180,6 +180,21 @@
 
 /*-------------------------INICIO MOBILE--------------------------*/
 
+.form-package{
+  width: 100%;
+  font-family: ERASMD;
+}
+
+.package-img{
+  width: 27% !important;
+}
+
+.saldo{
+  color: #1CCC5D;
+  font-size: 2em;
+  font-family: ERASBD;
+}
+
 .bloco{
     float: left;
     position: relative;
@@ -212,6 +227,47 @@
 @font-face {
     font-family: ERASMD;
     src: url(../fonts/ERASMD.TTF);
+}
+
+tr.t-head:nth-child(even) { background: white; }
+tr.t-head:nth-child(odd) { background: #d5d5d5 ; }
+
+tr.t-head:nth-child(even):hover { background: white; }
+tr.t-head:nth-child(odd):hover { background: #d5d5d5 ; }
+
+
+.winner_ticket{
+  width: 400px;
+  margin: 40px auto !important;
+  position: relative;;
+  top: 20px;
+  padding: 10px 50px;
+  border: solid 3px #fff;
+  background: rgba(0,0,0,0.7);
+}
+
+.winner_ticket img{
+  border: solid 2px #fff;
+}
+
+.winner_ticket h2, h3, h4, h5, h6{
+  color: #fff ;
+}
+
+.winner_ticket h2{
+  font-family: ERASBD !important;
+  font-size: 1.5em;
+}
+
+.winner_ticket h3{
+  font-family: ERASbd !important;
+  font-size: 1em;
+}
+
+
+table.t {
+  font-family: ERASLGHT !important;
+  border: none !important;
 }
 
 h3, h4, h5, h6{
@@ -259,7 +315,7 @@ h2, p, a{
     position: relative;
 }
 
-.raf_item_desc a, input{
+.raf_item_desc a, .btn-inv{
     width: 48% !important;
     float: right;
     padding: 15px !important;
@@ -1423,12 +1479,14 @@ h2, p, a{
         max-width: 679.5px;
     }
 
-    .pontos_img:nth-child(odd) {
+    .pontos_img {
         width: 31%;
     }
 
-    .pontos_img:nth-child(even) {
-        width: 31%;
+    .ponto:nth-child(odd) .pontos_img {
+    }
+
+    .ponto:nth-child(even) .pontos_img {
         left: auto;
         right: 0;
     }
@@ -1775,7 +1833,7 @@ h2, p, a{
         margin-top: 15px;
     }
 
-    .pontos_img:nth-child(odd){
+    .pontos_img{
         width: 18%;
         position: absolute;
         float: left;
@@ -1783,7 +1841,7 @@ h2, p, a{
         bottom: 0;
     }
 
-    .pontos_img:nth-child(even){
+    .pontos_img{
         width: 18%;
         position: absolute;
         float: right;

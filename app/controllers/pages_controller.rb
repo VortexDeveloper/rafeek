@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def index
     @raffles = Raffle.all.order('created_at DESC')
     @partners = Partner.all
+    @winners = self.winners
   end
 
   def raffles
@@ -27,6 +28,7 @@ class PagesController < ApplicationController
   end
 
   def winners
+    @winners = Raffle.where("winner_ticket_id IS NOT NULL").order(deadline: :desc)
   end
 
   def raffles_categories

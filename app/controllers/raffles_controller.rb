@@ -3,8 +3,17 @@ class RafflesController < ApplicationController
   before_action :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
-  layout 'admin', except: [:show]
+  layout 'admin', except: [:show, :raffle_select]
 
+  def raffle_select
+    set_raffle
+    @raffle.random_select if @raffle.winner_ticket.nil?
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @raffle.winner_ticket }
+    end
+  end
 
   # GET /raffles
   # GET /raffles.json
@@ -69,6 +78,7 @@ class RafflesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_raffle
+      # byebug
       @raffle = Raffle.find(params[:id])
     end
 

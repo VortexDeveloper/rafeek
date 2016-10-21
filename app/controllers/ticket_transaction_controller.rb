@@ -1,6 +1,6 @@
 class TicketTransactionController < ApplicationController
   def purchase
-    @transaction = TicketTransaction.create do |t|
+    @transaction = TicketTransaction.new do |t|
       t.status = :pending
       t.amount = params[:amount].to_i
       t.user = current_user
@@ -11,6 +11,8 @@ class TicketTransactionController < ApplicationController
   private
   def perfom_purchase
     if @transaction.verify_balance(raffle)
+      @transaction.status = :complete
+      @transaction.save
       @transaction.perfom_transaction(raffle)
       redirect_to root_path, notice: "Compra efetuada com sucesso!"
     else

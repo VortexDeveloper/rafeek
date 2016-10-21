@@ -1,0 +1,33 @@
+<div class="content">
+    <div class="dir">
+        <div class="perfil">
+            <%= render partial: 'user/user_nav' %>
+            <div class="perfil_desc">
+                  <div class="caption rifa">
+                      <h3>Meus pontos</h3>
+                      <p  class="pull-right">Saldo atual: <span class="saldo"><%= @points %> Pontos</span></p>
+                      <table id="example2" class="t table table-hover">
+                        <thead>
+                          <tr class="t-head verde">
+                            <th><p>Data</p></th>
+                            <th><p>Detalhe</p></th>
+                            <th><p>Valor</p></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% @tickets_transactions.each do |transaction| %>
+                            <tr class="t-head">
+                              <td><p><%= transaction.created_at %></p></td>
+                              <td><p><%= transaction.raffle.title %></p></td>
+                              <td><p><%= transaction.amount * transaction.raffle.points %></p></td>
+                            </tr>
+                          <% end %>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                      </table>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>

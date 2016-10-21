@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'user/edit'
   get 'user/show'
+  get 'user/tickets'
+  get 'user/points'
 
   get 'profile/edit'
   patch 'profile/update'
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
       :omniauth_callbacks => "users/omniauth_callbacks",
       :registrations => 'users/registrations'
    }
+
+
   root to: "pages#index"
 
   resources :packages
@@ -26,5 +30,7 @@ Rails.application.routes.draw do
   get 'pages/winners'
   get 'pages/raffles_categories'
   get 'pages/help'
+  get 'pages/winners'
 
+  get 'raffles/raffle_select/:id' => 'raffles#raffle_select', as: 'raffle_select'
 end

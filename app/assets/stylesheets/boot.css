@@ -170,6 +170,7 @@ input.btn{
 .vermelho_borda{border: solid 1px #E32741 !important;}
 .verde{
     background: #1CCC5D !important;
+    color: #fff;
 }
 .verde_borda{
     border: solid 1px #1CCC5D !important;

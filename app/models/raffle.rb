@@ -32,4 +32,5 @@ class Raffle < ApplicationRecord
   def participants
     tickets.group(:owner_id).collect { |ticket| ticket.owner }
   end
+
 end

@@ -1,0 +1,28 @@
+<div class="dir">
+    <div class="bloco">
+        <h2 class="title_padrao">Ganhadores</h2>
+        <% @winners.each do |raffle| %>
+          <div class="slideg ganhadores">
+              <div class="itemg">
+                  <div class="slideg_item">
+                      <div class="slideg_item_win">
+                          <div class="slideg_item_win_foto">
+                              <%= image_tag raffle.winner.profile.avatar.url(:thumb) %>
+                          </div>
+                          <div class="slideg_item_win_desc">
+                              <h2>Sorteio Finalizado</h2>
+                              <h3><%= raffle.winner_ticket.created_at.to_time.to_i + raffle.winner_ticket.id %></h3>
+                              <h4><%= "#{raffle.winner.profile.name} #{raffle.winner.profile.last_name}" %></h4>
+                              <h5>Ganhou este fantástico</h5>
+                              <h6><%= raffle.title %></h6>
+                          </div>
+                      </div>
+                      <div class="slideg_item_rifa">
+                          <%= image_tag raffle.avatar.url %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <% end %>
+    </div>
+</div>

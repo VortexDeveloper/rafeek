@@ -18,4 +18,18 @@ class TicketTransaction < ApplicationRecord
   def value(raffle)
     self.amount*raffle.points
   end
+
+  def raffle
+    # byebug
+    if self.pending?
+      Raffle.new title: "Transação não finalizada", description: "Transação não finalizada", amount: 0, points: 0
+    else
+      self.tickets.first.raffle
+    end
+  end
+
+  def save
+    raise "StatusError" unless self.complete?
+    super
+  end
 end

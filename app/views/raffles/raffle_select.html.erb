@@ -1,0 +1,8 @@
+<div class="winner_ticket">
+  <p><%= image_tag @raffle.winner.profile.avatar.url(:thumb) %></p>
+  <p><h2><%= "#{@raffle.winner.profile.name} #{@raffle.winner.profile.last_name}" %></h2></p>
+  <p><h3>Número do bilhete ganhador: <%= @raffle.winner_ticket.created_at.to_time.to_i + @raffle.winner_ticket.id %></h3></p>
+  <p><h4><%= @raffle.title %></h4></p>
+  <p><%= image_tag @raffle.avatar.url %></p>
+  <p><h5><%= @raffle.description %></h5></p>
+</div>
