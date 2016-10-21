@@ -12,7 +12,6 @@ class PackagesController < ApplicationController
   end
 
   def purchase
-    # byebug
     @transaction = Cielo::Transaction.new
     transaction_parameters = {
       numero: "XXX",
@@ -26,7 +25,6 @@ class PackagesController < ApplicationController
       cartao_portador: 'Lorem Ipsum Dolor'
     }
     tran = @transaction.create!(transaction_parameters, :store)
-    byebug
   end
 
   # GET /packages/1

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post 'package_transaction/purchase'
+  get 'package_transaction/validate_purchase'
+
   get 'user/edit'
   get 'user/show'
 
