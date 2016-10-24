@@ -9,7 +9,8 @@ class PackageTransaction < ApplicationRecord
     not_authorized: 5,
     captured: 6,
     in_canceled: 12,
-    canceled: 9
+    canceled: 9,
+    in_authentication: 10
   }
 
   STATUS_MESSAGE = {
@@ -19,7 +20,8 @@ class PackageTransaction < ApplicationRecord
     not_authorized: "Compra não autorizada",
     captured: "Compra efetuada com sucesso!",
     in_canceled: "Compra em cancelamento.",
-    canceled: "Compra cancelada."
+    canceled: "Compra cancelada.",
+    in_authentication: "Compra aguardando autenticação."
   }
 
   attr_accessor :card_data, :url_retorno
