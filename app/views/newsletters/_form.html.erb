@@ -1,0 +1,7 @@
+<%= form_tag newsletters_path, method: :post, class: 'navbar-form navbar-left' do %>
+    <h2 class="news" >Cadastre seu email e <br> receba nossas novidades</h2>
+    <div class="form-group">
+      <%= text_field_tag :email, nil, class:'form-control' %>
+      <%= submit_tag 'Enviar', class: 'btn news_button pull-right'  %>
+    </div>
+<% end %>
