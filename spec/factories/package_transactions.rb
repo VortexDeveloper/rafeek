@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :package_transaction do
     amount 1
-    user
     status 1
+    user
     package
-    tid "123456"
   end
 end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post 'package_transaction/purchase'
-  get 'package_transaction/validate_purchase'
+  get 'validate_purchase/:id' => 'package_transaction#validate_purchase', as: 'validate_purchase'
 
   get 'user/edit'
   get 'user/show'

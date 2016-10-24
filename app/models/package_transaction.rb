@@ -22,7 +22,7 @@ class PackageTransaction < ApplicationRecord
     canceled: "Compra cancelada."
   }
 
-  attr_accessor :card_data
+  attr_accessor :card_data, :url_retorno
 
   def cielo_value
     "#{package.value.fix.to_i}#{(package.value.frac*100).to_i}"
@@ -43,9 +43,7 @@ class PackageTransaction < ApplicationRecord
 
   def verify_status
     cielo_transaction = Cielo::Transaction.new
-    byebug
-    status = cielo_transaction.verify!(tid)[:transacao][:status]
-    save
+    update_attributes(status: cielo_transaction.verify!(tid)[:transacao][:status])
   end
 
   def captured?
@@ -56,6 +54,10 @@ class PackageTransaction < ApplicationRecord
     STATUS_MESSAGE[CIELO_STATUS.key(status)]
   end
 
+  def validate_card_number
+    true
+  end
+
   private
   def prepare_cielo_params
     {
@@ -63,15 +65,11 @@ class PackageTransaction < ApplicationRecord
       valor: cielo_value,
       moeda: "986",
       bandeira: card_data[:cartao_bandeira],
-      :"url-retorno" => 'http://localhost:3000',
+      :"url-retorno" => url_retorno,
       cartao_numero: card_number,
       cartao_validade: card_data[:cartao_validade],
       cartao_seguranca: card_data[:cartao_seguranca],
       cartao_portador: card_data[:cartao_portador]
     }
-  end
-
-  def validate_card_number
-    true
   end
 end
