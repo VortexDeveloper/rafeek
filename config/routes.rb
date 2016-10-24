@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :partners
   resources :raffles
   resources :coupons
+  resources :newsletters
 
   #Public Pages
   get 'pages/index'

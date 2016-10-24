@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<section class="content-header">
+  <h1>
+    Newsletter
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box inner-content">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Email</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @newsletters.each do |newsletter| %>
+                <tr>
+                  <td><%= newsletter.email %></td>
+                </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
