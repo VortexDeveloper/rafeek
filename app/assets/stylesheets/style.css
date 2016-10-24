@@ -180,6 +180,27 @@
 
 /*-------------------------INICIO MOBILE--------------------------*/
 
+.busca{
+  width: 264px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.busca-item-btn{
+  background: #333;
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-family: ERASMD;
+  position: relative;
+  top: -1px;
+}
+
+.busca-item-btn:hover{
+  background: #222;
+}
+
 .form-package{
   width: 100%;
   font-family: ERASMD;
@@ -190,27 +211,29 @@
 }
 
 .saldo{
-  color: #1CCC5D;
+  color: #3777ff;
   font-size: 2em;
   font-family: ERASBD;
 }
 
 .bloco{
-    float: left;
-    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .user-logged{
   color: #fff;
   position: relative;
-  top: -10px;
+  top: -27px;
+  z-index: 999;
 }
 
-.login-btn, .logout-btn {
-    padding: 5px !important;
-    font-size: 1em !important;
+.login-btn, .logout-btn{
+  padding: 5px !important;
+  font-size: 1em !important;
+  position: relative;
+  top: -29px;
 }
-
 
 @font-face {
     font-family: ERASBD;
@@ -351,6 +374,23 @@ h2, p, a{
     float: left;
     position: relative;
     box-shadow:  0 0 5px  #333;
+}
+
+.help{
+    width: 97%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 10px;
+    box-shadow:  0 0 5px  #333;
+}
+
+.help p{
+  font-size: 1em;
+}
+
+.help h2{
+  font-size: 1.5em;
 }
 
 .perfil img{
@@ -506,7 +546,7 @@ h2, p, a{
     float: left;
     top: 50px;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     transition: all 0.5s ease !important;
 }
 
@@ -1615,6 +1655,42 @@ h2, p, a{
 /*-------------------------INICIO 1280PX--------------------------*/
 @media (min-width: 79.9em){
 
+
+    .help{
+        width: 100%;
+        padding: 40px 77px;
+    }
+
+    .help p{
+      font-size: 24px;
+      margin: 0 15px;
+    }
+
+    .help h2{
+      font-size: 42px;
+      margin: 0 15px;
+    }
+
+    .busca{
+      position: absolute;
+      top: 6px;
+      right: 5px;
+      margin-bottom: 0;
+    }
+
+    .busca-item-btn:hover{
+      background: #222;
+    }
+
+    .user-logged{
+      color: #fff;
+      position: relative;
+      top: -10px;
+    }
+    .login-btn, .logout-btn {
+        top: 0;
+    }
+
     .top{
         margin-top: 80px;
     }
@@ -1632,11 +1708,10 @@ h2, p, a{
     }
 
     .esq{
-        width: 100%;
+        width: 96%;
         //position: relative;
         //float: left;
         margin: 0;
-        padding: 2%;
         padding-top: 2%;
         padding-bottom: 0;
         margin: 0 auto;
@@ -1799,9 +1874,10 @@ h2, p, a{
     }
 
     .perfil{
-        width: 70%;
-        margin: 0 15%;
-        margin-top: 2.6%;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-top: 2%;
     }
 
     .menu-perfil a{

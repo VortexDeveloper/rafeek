@@ -8,8 +8,11 @@ class PagesController < ApplicationController
     @winners = self.winners
   end
 
+  #helper_method :sort_column, :sort_direction
+
   def raffles
-    @raffles = Raffle.all
+    #@raffles = Raffle.all
+    @raffles = Raffle.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
   end
 
   def packages
@@ -24,7 +27,7 @@ class PagesController < ApplicationController
   end
 
   def raffles_hot
-    #@raffles_hot = Raffle.where("", )
+    @raffles_hot = Raffle.all.order(points: :desc)
   end
 
   def winners

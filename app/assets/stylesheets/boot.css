@@ -177,6 +177,7 @@ input.btn{
 }
 .azul{
     background: #3777ff !important;
+    color: #fff;
 }
 .azul_borda{
     border: solid 1px #3777ff !important;

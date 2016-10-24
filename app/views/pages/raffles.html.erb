@@ -1,3 +1,4 @@
+<!--
 <div class="dir">
     <div class="raf">
         <h2 class="title_padrao">Categorias</h2>
@@ -5,6 +6,26 @@
           <% @raffles.each do |raffle| %>
             <%= render 'pages/raffles', :raffle => raffle %>
           <% end %>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="dir">
+    <div class="raf">
+        <h2 class="title_padrao">Todas as Rifas</h2>
+        <div class="row">
+            <div class="busca">
+              <%= form_tag pages_raffles_path, :method => 'get', :id => "raffles_search" do %>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Buscar", :title => nil, class: 'busca-item-btn' %>
+              <% end %>
+            </div>
+
+            <div id="raffles">
+              <% @raffles.each do |raffle| %>
+                <%= render 'pages/raffles', :raffle => raffle %></div>
+              <% end %>
         </div>
     </div>
 </div>

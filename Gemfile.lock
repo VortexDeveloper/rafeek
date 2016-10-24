@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:crafters/cielo.git
+  remote: https://github.com/crafters/cielo.git
   revision: 7f03fd6489e146fe285bb66b30a7e131c5df85d3
   specs:
     cielo (1.1.0)

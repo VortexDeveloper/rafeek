@@ -64,6 +64,8 @@ $(function () {
         }
     }
 
+
+
     //BOTÃO SLIDE BACK
     function slideBack() {
         if ($('.slide_item.first').index() >= $('.slide_item').length) {
@@ -76,6 +78,10 @@ $(function () {
                 $('.slide_item:last-of-type').fadeIn().addClass('first');
             });
         }
+    }
+
+    window.onload = function() {
+	     $('.item:first').addClass('active')
     }
 
     $('#myModal').on('shown.bs.modal', function () {
