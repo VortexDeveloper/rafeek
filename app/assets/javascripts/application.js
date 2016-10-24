@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require admin-lte
+
+$(function() {
+  $("#raffles th a, #raffles .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#raffles_search input").keyup(function() {
+    $.get($("#raffles_search").attr("action"), $("#raffles_search").serialize(), null, "script");
+    return false;
+  });
+});

@@ -1,6 +1,6 @@
 <div class="esq">
     <ul id="menu_side" class="menu_side">
-        <li class="menu_side_item"><img src="../images/hq.png"/><a>HQs</a>
+        <li class="menu_side_item"><img src="../images/hq.png"/><a>Comics</a>
             <ul class="menu_side_sub">
                 <li class="menu_side_sub_item"><%= link_to 'DC', action: 'raffles_categories', category: 'DC' %>
                 <li class="menu_side_sub_item"><%= link_to 'Independentes', action: 'raffles_categories', category: 'Independentes' %>
@@ -13,7 +13,7 @@
                 <li class="menu_side_sub_item"><%= link_to 'Cinema', action: 'raffles_categories', category: 'Cinema' %>
             </ul>
         </li>
-        <li class="menu_side_item"><img src="../images/colec.png"/><%= link_to 'Réplicas', action: 'raffles_categories', category: 'Réplicas' %></li>
+        <li class="menu_side_item"><img src="../images/colec.png"/><%= link_to 'Colecionaveis', action: 'raffles_categories', category: 'Colecionaveis' %></li>
         <li class="menu_side_item"><img src="../images/jogos.png"/><a>Eletrônicos</a>
             <ul class="menu_side_sub">
                 <li class="menu_side_sub_item"><%= link_to 'Games', action: 'raffles_categories', category: 'Games' %>
@@ -31,5 +31,3 @@
         </li>
         <li class="menu_side_item"><img src="../images/viagens.png"/><%= link_to 'Viagens', action: 'raffles_categories', category: 'Viagens' %></li>
     </ul>
-    <%= render partial: "layouts/slide" %>
-</div>

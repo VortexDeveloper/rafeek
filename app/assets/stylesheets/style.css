@@ -180,22 +180,60 @@
 
 /*-------------------------INICIO MOBILE--------------------------*/
 
+.busca{
+  width: 264px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.busca-item-btn{
+  background: #333;
+  border: none;
+  padding: 12px;
+  color: #fff;
+  font-family: ERASMD;
+  position: relative;
+  top: -1px;
+}
+
+.busca-item-btn:hover{
+  background: #222;
+}
+
+.form-package{
+  width: 100%;
+  font-family: ERASMD;
+}
+
+.package-img{
+  width: 27% !important;
+}
+
+.saldo{
+  color: #3777ff;
+  font-size: 2em;
+  font-family: ERASBD;
+}
+
 .bloco{
-    float: left;
-    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .user-logged{
   color: #fff;
   position: relative;
-  top: -10px;
+  top: -27px;
+  z-index: 999;
 }
 
-.login-btn, .logout-btn {
-    padding: 5px !important;
-    font-size: 1em !important;
+.login-btn, .logout-btn{
+  padding: 5px !important;
+  font-size: 1em !important;
+  position: relative;
+  top: -29px;
 }
-
 
 @font-face {
     font-family: ERASBD;
@@ -212,6 +250,47 @@
 @font-face {
     font-family: ERASMD;
     src: url(../fonts/ERASMD.TTF);
+}
+
+tr.t-head:nth-child(even) { background: white; }
+tr.t-head:nth-child(odd) { background: #d5d5d5 ; }
+
+tr.t-head:nth-child(even):hover { background: white; }
+tr.t-head:nth-child(odd):hover { background: #d5d5d5 ; }
+
+
+.winner_ticket{
+  width: 400px;
+  margin: 40px auto !important;
+  position: relative;;
+  top: 20px;
+  padding: 10px 50px;
+  border: solid 3px #fff;
+  background: rgba(0,0,0,0.7);
+}
+
+.winner_ticket img{
+  border: solid 2px #fff;
+}
+
+.winner_ticket h2, h3, h4, h5, h6{
+  color: #fff ;
+}
+
+.winner_ticket h2{
+  font-family: ERASBD !important;
+  font-size: 1.5em;
+}
+
+.winner_ticket h3{
+  font-family: ERASbd !important;
+  font-size: 1em;
+}
+
+
+table.t {
+  font-family: ERASLGHT !important;
+  border: none !important;
 }
 
 h3, h4, h5, h6{
@@ -259,7 +338,7 @@ h2, p, a{
     position: relative;
 }
 
-.raf_item_desc a, input{
+.raf_item_desc a, .btn-inv{
     width: 48% !important;
     float: right;
     padding: 15px !important;
@@ -295,6 +374,23 @@ h2, p, a{
     float: left;
     position: relative;
     box-shadow:  0 0 5px  #333;
+}
+
+.help{
+    width: 97%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 10px;
+    box-shadow:  0 0 5px  #333;
+}
+
+.help p{
+  font-size: 1em;
+}
+
+.help h2{
+  font-size: 1.5em;
 }
 
 .perfil img{
@@ -450,7 +546,7 @@ h2, p, a{
     float: left;
     top: 50px;
     position: absolute;
-    z-index: 999;
+    z-index: 998;
     transition: all 0.5s ease !important;
 }
 
@@ -1423,12 +1519,14 @@ h2, p, a{
         max-width: 679.5px;
     }
 
-    .pontos_img:nth-child(odd) {
+    .pontos_img {
         width: 31%;
     }
 
-    .pontos_img:nth-child(even) {
-        width: 31%;
+    .ponto:nth-child(odd) .pontos_img {
+    }
+
+    .ponto:nth-child(even) .pontos_img {
         left: auto;
         right: 0;
     }
@@ -1557,6 +1655,42 @@ h2, p, a{
 /*-------------------------INICIO 1280PX--------------------------*/
 @media (min-width: 79.9em){
 
+
+    .help{
+        width: 100%;
+        padding: 40px 77px;
+    }
+
+    .help p{
+      font-size: 24px;
+      margin: 0 15px;
+    }
+
+    .help h2{
+      font-size: 42px;
+      margin: 0 15px;
+    }
+
+    .busca{
+      position: absolute;
+      top: 6px;
+      right: 5px;
+      margin-bottom: 0;
+    }
+
+    .busca-item-btn:hover{
+      background: #222;
+    }
+
+    .user-logged{
+      color: #fff;
+      position: relative;
+      top: -10px;
+    }
+    .login-btn, .logout-btn {
+        top: 0;
+    }
+
     .top{
         margin-top: 80px;
     }
@@ -1574,11 +1708,10 @@ h2, p, a{
     }
 
     .esq{
-        width: 100%;
+        width: 96%;
         //position: relative;
         //float: left;
         margin: 0;
-        padding: 2%;
         padding-top: 2%;
         padding-bottom: 0;
         margin: 0 auto;
@@ -1741,9 +1874,10 @@ h2, p, a{
     }
 
     .perfil{
-        width: 70%;
-        margin: 0 15%;
-        margin-top: 2.6%;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-top: 2%;
     }
 
     .menu-perfil a{
@@ -1775,7 +1909,7 @@ h2, p, a{
         margin-top: 15px;
     }
 
-    .pontos_img:nth-child(odd){
+    .pontos_img{
         width: 18%;
         position: absolute;
         float: left;
@@ -1783,7 +1917,7 @@ h2, p, a{
         bottom: 0;
     }
 
-    .pontos_img:nth-child(even){
+    .pontos_img{
         width: 18%;
         position: absolute;
         float: right;

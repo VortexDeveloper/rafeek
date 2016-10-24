@@ -17,7 +17,7 @@
                   <b><%= package.points %><c>PONTOS</c></b>
                   <b>R$ <%= package.value %></b>
               </div>
-              <a href="rifa.php" class="btn btn-primary bilhetes_button" role="button">COMPRE</a>
+              <%= link_to 'COMPRE', package, class: 'btn btn-primary bilhetes_button pull-right' %>
           </div>
         <% end %>
     </div>

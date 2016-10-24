@@ -32,4 +32,13 @@ class Raffle < ApplicationRecord
   def participants
     tickets.group(:owner_id).collect { |ticket| ticket.owner }
   end
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
 end
