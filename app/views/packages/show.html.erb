@@ -7,7 +7,7 @@
                     <h3><%= @package.name %></h3>
                     <p><%= @package.description %></p>
 
-                    <%= form_tag ticket_transaction_purchase_path, method: :post do %>
+                    <%= form_tag package_transaction_purchase_path, method: :post do %>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -33,8 +33,8 @@
                             <%= text_field_tag :cartao_portador, nil, class:'form-control form-package' %>
                         </div>
                         <div class="form-group">
-                            <%= label_tag :cartao_bandeira, "Bandeira do cartão", class: 'form-package' %>
-                            <%= text_field_tag :cartao_bandeira, nil, class:'form-control form-package' %>
+                            <%= label_tag :bandeira, "Bandeira do cartão", class: 'form-package' %>
+                            <%= text_field_tag :bandeira, nil, class:'form-control form-package' %>
                         </div>
                       </div>
                       </div>
@@ -59,10 +59,10 @@
                           </tbody>
                       </table>
                       <%= hidden_field_tag :package_id, @package.id %>
-                    <% end %>
                     <p>
-                        <%= link_to 'Comprar pontos', pages_packages_path, class: 'btn btn-primary raf_item_desc pontos'  %>
+                        <%= submit_tag 'Comprar pontos', class: 'btn btn-primary raf_item_desc pontos'  %>
                     </p>
+                    <% end %>
                 </div>
             </div>
         </div>
