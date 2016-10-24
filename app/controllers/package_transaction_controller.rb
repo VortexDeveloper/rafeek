@@ -11,6 +11,7 @@ class PackageTransactionController < ApplicationController
   def validate_purchase
     @transaction = PackageTransaction.find params[:id]
     @transaction.verify_status
+    byebug
     redirect_to after_validate_path, notice: @transaction.status_message
   end
 
