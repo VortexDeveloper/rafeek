@@ -44,6 +44,7 @@ class PackageTransaction < ApplicationRecord
   def verify_status
     cielo_transaction = Cielo::Transaction.new
     update_attributes(status: cielo_transaction.verify!(tid)[:transacao][:status])
+    assign_points if captured?
   end
 
   def captured?
@@ -71,5 +72,9 @@ class PackageTransaction < ApplicationRecord
       cartao_seguranca: card_data[:cartao_seguranca],
       cartao_portador: card_data[:cartao_portador]
     }
+  end
+
+  def assign_points
+    user.account.balance += package.points
   end
 end
