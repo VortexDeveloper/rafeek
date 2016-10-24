@@ -3,6 +3,7 @@ class PackageTransactionController < ApplicationController
     if params[:package_id].present?
       @transaction = PackageTransaction.create package_transaction_params
       @transaction.card_data = card_data_params
+      @transaction.url_retorno = validate_purchase_url(@transaction.id)
       redirect_to @transaction.make_transaction
     end
   end
@@ -15,8 +16,7 @@ class PackageTransactionController < ApplicationController
 
   private
   def after_validate_path
-    # byebug
-    pages_raffles_path if @transaction.captured?
+    return pages_raffles_path if @transaction.captured?
     pages_packages_path
   end
 

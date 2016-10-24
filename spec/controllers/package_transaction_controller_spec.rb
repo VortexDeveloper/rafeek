@@ -44,21 +44,23 @@ RSpec.describe PackageTransactionController, type: :controller do
   end
 
   describe "GET #validate_purchase" do
-    let(:package_transaction) { FactoryGirl.create(:package_transaction) }
-
-    it "returns http success" do
-      get :validate_purchase, params: {id: package_transaction.id}
-      expect(response).to have_http_status(:success)
+    before do
+      sign_in user
+      post :purchase, params: purchase_params
     end
 
-    it "should create a Package Transaction object" do
-      post :validate_purchase, params: {id: package_transaction.id}
+    it "find a Package Transaction object" do
+      package_transaction = PackageTransaction.order("created_at").last
+      get :validate_purchase, params: {id: package_transaction.id}
       expect(assigns(:transaction)).to be_kind_of PackageTransaction
     end
 
-    context "if status == :captured" do
+    context "if status == :captured after verify!" do
+      let(:package_transaction) { package_transaction = PackageTransaction.order("created_at").last }
+
       it "redirect to the pages_raffles_path" do
-        allow_any_instance_of(PackageTransaction).to receive(:verify_status).and_return({
+        allow_any_instance_of(Cielo::Transaction).to receive(:verify!)
+        .with(package_transaction.tid).and_return({
           :transacao=> {
             :status=>"6"
           }
@@ -69,9 +71,12 @@ RSpec.describe PackageTransactionController, type: :controller do
       end
     end
 
-    context "if status != :captured" do
+    context "if status != :captured after verify!" do
+      let(:package_transaction) { package_transaction = PackageTransaction.order("created_at").last }
+
       it "redirect to the pages_packages_path" do
-        allow_any_instance_of(PackageTransaction).to receive(:verify_status).and_return({
+        allow_any_instance_of(Cielo::Transaction).to receive(:verify!)
+        .with(package_transaction.tid).and_return({
           :transacao=> {
             :status=>"5"
           }
