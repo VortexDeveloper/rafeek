@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'user/show'
   get 'user/tickets'
   get 'user/points'
+  get 'user/index'
+  get 'user/edit_admin/:id' => 'user#edit_admin', as: 'edit_admin'
 
   get 'profile/edit'
   patch 'profile/update'
@@ -36,6 +38,7 @@ Rails.application.routes.draw do
   get 'pages/raffles_categories'
   get 'pages/help'
   get 'pages/winners'
+  get 'ticket/index' => 'ticket#index', as: 'tickets'
 
   get 'raffles/raffle_select/:id' => 'raffles#raffle_select', as: 'raffle_select'
 end

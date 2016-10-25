@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<section class="content-header">
+  <h1>
+    Tickets vendidos
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box inner-content">
+        <table id="example2" class="t table table-hover">
+          <thead>
+            <tr>
+              <th><p>Imagem</p></th>
+              <th><p>Número do Bilhete</p></th>
+              <th><p>Rifa</p></th>
+              <th><p>Descrição</p></th>
+              <th><p>Valor</p></th>
+              <th><p>Data do sorteio</p></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @tickets.each do |ticket| %>
+              <tr>
+                <td><p><%= image_tag ticket.raffle.avatar.url(:thumb) %></p></td>
+                <td><p><%= ticket.created_at.to_time.to_i + ticket.id %></p></td>
+                <td><p><%= ticket.raffle.title %></p></td>
+                <td><p><%= ticket.raffle.description %></p></td>
+                <td><p><%= ticket.raffle.points %></p></td>
+                <td><p><%= ticket.raffle.deadline %></p></td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>

@@ -1,6 +1,8 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
 
+  layout "admin", :only => [:index, :edit_admin]
+
   def show
     @user = User.find params[:id]
   end
@@ -20,6 +22,14 @@ class UserController < ApplicationController
 
   def raffle(raffle_id)
     Raffle.where("id = ?", raffle_id)
+  end
+
+  def index
+    @users = User.all
+  end
+
+  def edit_admin
+    @user = User.find params[:id]
   end
 
 end

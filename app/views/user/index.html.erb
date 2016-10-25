@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<section class="content-header">
+  <h1>
+    Usuários
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box inner-content">
+        <table id="example2" class="t table table-hover">
+          <thead>
+            <tr>
+              <th><p>Avatar</p></th>
+              <th><p>Nome</p></th>
+              <th><p>Data de Nascimento</p></th>
+              <th><p>Saldo de pontos</p></th>
+              <th><p>Ações</p></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><p><%= image_tag user.profile.avatar.url(:thumb) %></p></td>
+                <td><p><%= "#{user.profile.name} #{user.profile.last_name}" %></p></td>
+                <td><p><%= user.profile.birth_date %></p></td>
+                <td><p><%= user.account.balance %></p></td>
+                <td>
+                  <%= link_to '', edit_admin_path(user), class: 'btn btn-primary fa fa-edit' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+          </tfoot>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br>

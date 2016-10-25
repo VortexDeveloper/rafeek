@@ -1,0 +1,153 @@
+<section class="content">
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Usuário - Conta</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <%= form_for(user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this us er from being saved:</h2>
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.label :Senha %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> caracteres no mínimo</em>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :Confirmação_de_Senha %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :Senha_atual %> <i>(para confirmar as alterações, precisamos que digite sua senha atual)</i><br />
+              <%= f.password_field :current_password, autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Salvar', :class => 'btn btn-primary btn-lg  pull-right m-left' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastro de Usuário - Perfil</h3>
+
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+      </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <%= form_for user.profile, url: profile_update_path do |f| %>
+        <% if user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= image_tag user.profile.avatar.url(:thumb), class: 'img' %>
+              <div class="img-file"></div>
+              <%= f.file_field :avatar, class: 'btn-file' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :name, "Nome" %>
+              <%= f.text_field :name, value: user.profile.name, class: 'form-control i-perfil' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :last_name, "Sobrenome" %>
+              <%= f.text_field :last_name, value: user.profile.last_name, class: 'form-control i-perfil' %>
+            </div>
+            <div class="form-group radio">
+              <label>
+                <%= f.radio_button :sex, 'F', checked: (user.profile.sex == 'F') %>
+                <%= f.label :sex, "Feminino" %> <br>
+                <%= f.radio_button :sex, 'M', checked: (user.profile.sex == 'M') %>
+                <%= f.label :sex, "Masculino" %>
+              </label>
+            </div>
+            <div class="form-group">
+              <%= f.label :birth_date, "Data de Nascimento" %>
+              <%= f.date_select :birth_date,
+                    order: [:day, :month, :year],
+                    start_year: Date.today.year - 100,
+                    end_year: Date.today.year - 17,
+                    value: user.profile.birth_date,
+                    class: 'form-control i-perfil' %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= f.label :street, "Rua" %>
+              <%= f.text_field :street, value: user.profile.street, class: 'form-control i-perfil' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :complement, "Complemento" %>
+              <%= f.text_field :complement, value: user.profile.complement, class: 'form-control i-perfil' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :neighborhood, "Bairro" %>
+              <%= f.text_field :neighborhood, value: user.profile.neighborhood, class: 'form-control i-perfil' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :state, "Estado" %>
+              <%= f.select :state, states_for_select, class: 'form-control i-perfil', selected: user.profile.state_id %>
+            </div>
+            <div class="form-group">
+              <%= f.label :city, "Cidade" %>
+              <%= f.select :city, cities_for_select, class: 'form-control i-perfil', selected: user.profile.city_id %>
+            </div>
+            <div class="form-group">
+              <%= f.label :zip_code, "CEP" %>
+              <%= f.text_field :zip_code, value: user.profile.zip_code, class: 'form-control i-perfil' %>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Salvar', :class => 'btn btn-primary btn-lg  pull-right m-left' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
