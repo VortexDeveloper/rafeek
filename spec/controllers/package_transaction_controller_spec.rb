@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PackageTransactionController, type: :controller do
+  ActiveJob::Base.queue_adapter = :test
   let(:user) { FactoryGirl.create :user, group: 0 }
+  let!(:account) { FactoryGirl.create :account, user: user }
   let(:package) { FactoryGirl.create :package }
   let(:purchase_params) do
     {
@@ -53,6 +55,14 @@ RSpec.describe PackageTransactionController, type: :controller do
       package_transaction = PackageTransaction.order("created_at").last
       get :validate_purchase, params: {id: package_transaction.id}
       expect(assigns(:transaction)).to be_kind_of PackageTransaction
+    end
+
+    it "enques a StatusVerifierJob" do
+      package_transaction = PackageTransaction.order("created_at").last
+
+      expect {
+        get :validate_purchase, params: {id: package_transaction.id}
+      }.to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
     end
 
     context "if status == :captured after verify!" do

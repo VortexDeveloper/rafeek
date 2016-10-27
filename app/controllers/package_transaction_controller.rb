@@ -1,6 +1,6 @@
 class PackageTransactionController < ApplicationController
   skip_before_filter  :verify_authenticity_token
-  
+
   def purchase
     if params[:package_id].present?
       @transaction = PackageTransaction.create package_transaction_params
@@ -12,8 +12,7 @@ class PackageTransactionController < ApplicationController
 
   def validate_purchase
     @transaction = PackageTransaction.find params[:id]
-    @transaction.verify_status
-    byebug
+    j = StatusVerifierJob.perform_later(params[:id])
     redirect_to after_validate_path, notice: @transaction.status_message
   end
 

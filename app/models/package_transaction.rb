@@ -46,7 +46,8 @@ class PackageTransaction < ApplicationRecord
   def verify_status
     cielo_transaction = Cielo::Transaction.new
     update_attributes(status: cielo_transaction.verify!(tid)[:transacao][:status])
-    assign_points if captured?
+    raise unless captured?
+    assign_points
   end
 
   def captured?

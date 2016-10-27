@@ -36,6 +36,7 @@ gem 'adminlte-rails'
 gem "paperclip", "~> 5.0.0"
 gem 'will_paginate', '~> 3.1.0'
 gem 'cielo', git: 'https://github.com/crafters/cielo.git'
+gem 'sidekiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -46,6 +47,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'rspec-sidekiq'
   # gem 'database_cleaner'
 end
 
