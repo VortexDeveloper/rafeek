@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
   before_action :authenticate_admin!
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.json? }
 
-  layout 'admin', except: [:show]
+  layout 'admin', except: [:show, :performed]
 
   # GET /packages
   # GET /packages.json
@@ -81,6 +81,10 @@ class PackagesController < ApplicationController
     end
   end
 
+  def performed
+    @performed_transaction = PackageTransaction.first
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_package
@@ -91,4 +95,5 @@ class PackagesController < ApplicationController
     def package_params
       params.require(:package).permit(:name, :description, :image, :points, :value, :avatar)
     end
+
 end
