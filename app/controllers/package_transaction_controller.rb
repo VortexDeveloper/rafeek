@@ -1,6 +1,8 @@
 class PackageTransactionController < ApplicationController
   skip_before_filter  :verify_authenticity_token
-  
+
+  layout "admin", :only => [:performed_transactions]
+
   def purchase
     if params[:package_id].present?
       @transaction = PackageTransaction.create package_transaction_params
@@ -15,6 +17,10 @@ class PackageTransactionController < ApplicationController
     @transaction.verify_status
     byebug
     redirect_to after_validate_path, notice: @transaction.status_message
+  end
+
+  def performed_transactions
+    @performed_transactions = PackageTransaction.all
   end
 
   private

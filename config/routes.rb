@@ -40,5 +40,9 @@ Rails.application.routes.draw do
   get 'pages/winners'
   get 'ticket/index' => 'ticket#index', as: 'tickets'
 
+  get 'user/performed_transactions'
+  get 'package_transaction/performed_transactions'
   get 'raffles/raffle_select/:id' => 'raffles#raffle_select', as: 'raffle_select'
+  get 'packages/performed/:id' => 'packages#performed', as: 'performed'
+
 end

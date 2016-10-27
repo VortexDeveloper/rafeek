@@ -20,6 +20,10 @@ class UserController < ApplicationController
     @tickets_transactions = TicketTransaction.where("user_id = ?", current_user.id)
   end
 
+  def performed_transactions
+    @performed_transactions = PackageTransaction.where("user_id = ?", current_user.id)
+  end
+
   def raffle(raffle_id)
     Raffle.where("id = ?", raffle_id)
   end

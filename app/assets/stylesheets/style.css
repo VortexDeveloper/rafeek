@@ -180,6 +180,13 @@
 
 /*-------------------------INICIO MOBILE--------------------------*/
 
+.performed{
+  width: 100%;
+  max-width: 450px;
+  text-align: center !important;
+  margin: 30px auto;
+}
+
 .busca{
   width: 264px;
   margin: 0 auto;
@@ -364,6 +371,7 @@ h2, p, a{
   text-decoration: none !important;
   color: #337ab7 !important;
   text-transform: uppercase;
+  display: block;
 }
 
 .perfil{
@@ -1881,7 +1889,7 @@ h2, p, a{
     }
 
     .menu-perfil a{
-        width: 24.5%;
+        width: 19.5%;
         position: relative;
         display: inline-block;
     }
