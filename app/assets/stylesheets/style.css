@@ -376,11 +376,9 @@ h2, p, a{
 
 .perfil{
     width: 97%;
-    margin: 1.5%;
+    margin: 1.5% auto;
     background: #fff;
     padding: 1.5%;
-    float: left;
-    position: relative;
     box-shadow:  0 0 5px  #333;
 }
 
@@ -419,8 +417,6 @@ h2, p, a{
 
 .perfil_desc{
     width: 100%;
-    float: left;
-    position: relative;
 }
 
 .perfil_desc a{

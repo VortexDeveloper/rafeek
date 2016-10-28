@@ -1,7 +1,7 @@
 class PackageTransactionController < ApplicationController
   skip_before_filter  :verify_authenticity_token
   layout "admin", :only => [:performed_transactions]
-  
+
   def purchase
     if params[:package_id].present?
       @transaction = PackageTransaction.create package_transaction_params
@@ -13,8 +13,9 @@ class PackageTransactionController < ApplicationController
 
   def validate_purchase
     @transaction = PackageTransaction.find params[:id]
-    j = StatusVerifierJob.perform_later(params[:id])
-    redirect_to after_validate_path, notice: @transaction.status_message
+    StatusVerifierJob.set(wait: 1.second).perform_later(params[:id])
+    # StatusVerifierJob.perform_now(params[:id])
+    redirect_to performed_path(@transaction)
   end
 
   def performed_transactions
@@ -22,11 +23,6 @@ class PackageTransactionController < ApplicationController
   end
 
   private
-  def after_validate_path
-    return pages_raffles_path if @transaction.captured?
-    pages_packages_path
-  end
-
   def card_data_params
     {
       cartao_bandeira: params[:bandeira],

@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-sidekiq'
   # gem 'database_cleaner'
+  # gem 'redis-browser'
 end
 
 group :development do

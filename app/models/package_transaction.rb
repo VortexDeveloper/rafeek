@@ -3,6 +3,7 @@ class PackageTransaction < ApplicationRecord
   belongs_to :package
 
   CIELO_STATUS = {
+    created: 0,
     authenticated: 2,
     not_authenticated: 3,
     authorized: 4,
@@ -14,6 +15,7 @@ class PackageTransaction < ApplicationRecord
   }
 
   STATUS_MESSAGE = {
+    created: "Transação criada.",
     authenticated: "Compra autenticada, aguarde a validação do banco.",
     not_authenticated: "Compra não autenticada.",
     authorized: "Compra autorizada, aguarde a validação do banco.",

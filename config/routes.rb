@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   post 'package_transaction/purchase'
   post 'validate_purchase/:id' => 'package_transaction#validate_purchase', as: 'validate_purchase'
@@ -45,4 +46,6 @@ Rails.application.routes.draw do
   get 'raffles/raffle_select/:id' => 'raffles#raffle_select', as: 'raffle_select'
   get 'packages/performed/:id' => 'packages#performed', as: 'performed'
 
+  mount Sidekiq::Web => '/sidekiq'
+  # mount RedisBrowser::Web => '/redis-browser'
 end
