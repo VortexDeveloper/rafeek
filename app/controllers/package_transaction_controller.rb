@@ -13,8 +13,7 @@ class PackageTransactionController < ApplicationController
 
   def validate_purchase
     @transaction = PackageTransaction.find params[:id]
-    StatusVerifierJob.set(wait: 1.second).perform_later(params[:id])
-    # StatusVerifierJob.perform_now(params[:id])
+    StatusVerifierJob.perform_now(params[:id])
     redirect_to performed_path(@transaction)
   end
 

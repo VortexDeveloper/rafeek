@@ -22,6 +22,7 @@ class UserController < ApplicationController
 
   def performed_transactions
     @performed_transactions = PackageTransaction.where("user_id = ?", current_user.id)
+    .order(id: :desc)
   end
 
   def raffle(raffle_id)

@@ -1,7 +1,7 @@
 class DummyJob < ApplicationJob
   queue_as :default
 
-  def perform(params)
-    p "running dummy job with params #{params}"
+  def perform(*args)
+    puts "Running job with params #{args}"
   end
 end

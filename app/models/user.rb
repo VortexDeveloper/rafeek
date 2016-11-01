@@ -25,7 +25,7 @@ class User < ApplicationRecord
       user: user,
       name: auth.info.name,
       image: auth.info.image
-    )
-    Account.create!(user: user)
+    ) unless user.profile.present?
+    Account.create!(user: user) unless user.account.present?
   end
 end

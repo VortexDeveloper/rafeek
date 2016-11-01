@@ -1,15 +1,15 @@
 class StatusVerifierJob < ApplicationJob
   queue_as :default
-  # sidekiq_options retry: 5
 
   rescue_from(StandardError) do
-    retry_job wait: 1.minute, queue: :default
+    logger.info "Retriando:"
+    retry_job wait: 1.hour, queue: :default
   end
 
   def perform(id)
-    puts "executou aqui"
-    # raise
+    logger.info "Início da transação: #{id}"
     transaction = PackageTransaction.find id
-    transaction.verify_status
+    transaction.verify_status(Cielo::Transaction.new)
+    logger.info "Fim da transação: #{id}"
   end
 end

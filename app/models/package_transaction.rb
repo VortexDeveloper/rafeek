@@ -29,7 +29,7 @@ class PackageTransaction < ApplicationRecord
   attr_accessor :card_data, :url_retorno
 
   def cielo_value
-    "#{package.value.fix.to_i}#{(package.value.frac*100).to_i}"
+    "#{value.fix.to_i}#{(package.value.frac*100).to_i}"
   end
 
   def make_transaction
@@ -45,21 +45,28 @@ class PackageTransaction < ApplicationRecord
     end
   end
 
-  def verify_status
-    cielo_transaction = Cielo::Transaction.new
+  #TODO em caso de status 4, capturar
+  #TODO se autenticado, capturado ou cancelado, enviar emails
+  def verify_status(cielo_transaction)
     update_attributes(status: cielo_transaction.verify!(tid)[:transacao][:status])
-    raise unless captured?
+    raise unless captured? || canceled?
     assign_points
   end
 
+  #TODO utilizar a gem aasm para estes 2 métodos abaixo
   def captured?
     CIELO_STATUS.key(status) == :captured
+  end
+
+  def canceled?
+    CIELO_STATUS.key(status) == :canceled
   end
 
   def status_message
     STATUS_MESSAGE[CIELO_STATUS.key(status)]
   end
 
+  #TODO implementar o método de verificação do cartão
   def validate_card_number
     true
   end
@@ -80,6 +87,15 @@ class PackageTransaction < ApplicationRecord
   end
 
   def assign_points
-    user.account.balance += package.points
+    user.account.balance += package.points * amount
+  end
+
+  def value
+    apply_discounts(package.value * amount)
+  end
+
+  #TODO pegar o id do cupom e implementar o disconto
+  def apply_discounts(final_value)
+    return final_value unless params[:cupom].present?
   end
 end

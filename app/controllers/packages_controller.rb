@@ -82,7 +82,7 @@ class PackagesController < ApplicationController
   end
 
   def performed
-    @performed_transaction = PackageTransaction.first
+    @performed_transaction = PackageTransaction.find params[:id]
   end
 
   private
