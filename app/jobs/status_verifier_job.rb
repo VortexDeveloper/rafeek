@@ -1,8 +1,9 @@
 class StatusVerifierJob < ApplicationJob
   queue_as :default
 
+  #Resgatar parâmetros do Job para imprimir no log o id da transação
   rescue_from(StandardError) do
-    logger.info "Retriando:"
+    logger.info "Reagendando job"
     retry_job wait: 1.hour, queue: :default
   end
 

@@ -1782,7 +1782,7 @@ h2, p, a{
     }
 
     .fixar_logo{
-        top: 0 !important;
+        top: 9px !important;
         margin: 10px !important;
         width: 15% !important;
         position: fixed !important;
