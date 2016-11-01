@@ -1,59 +1,65 @@
 <%= form_for profile, url: profile_update_path do |f| %>
-  <div class="form-group">
-    <%= image_tag profile.avatar_url, class: 'img' %>
-    <div class="img-file"></div>
-    <%= f.file_field :avatar, class: 'btn-file' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name, "Nome" %>
-    <%= f.text_field :name, value: @profile.name, class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :last_name, "Sobrenome" %>
-    <%= f.text_field :last_name, value: @profile.last_name, class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group radio">
-    <label>
-      <%= f.radio_button :sex, 'F', checked: (@profile.sex == 'F') %>
-      <%= f.label :sex, "Feminino" %> <br>
-      <%= f.radio_button :sex, 'M', checked: (@profile.sex == 'M') %>
-      <%= f.label :sex, "Masculino" %>
-    </label>
-  </div>
-  <div class="form-group">
-    <%= f.label :birth_date, "Data de Nascimento" %>
-    <%= f.date_select :birth_date,
-          order: [:day, :month, :year],
-          start_year: Date.today.year - 100,
-          end_year: Date.today.year - 17,
-          value: @profile.birth_date,
-          class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :street, "Rua" %>
-    <%= f.text_field :street, value: @profile.street, class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :complement, "Complemento" %>
-    <%= f.text_field :complement, value: @profile.complement, class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :neighborhood, "Bairro" %>
-    <%= f.text_field :neighborhood, value: @profile.neighborhood, class: 'form-control i-perfil' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :state, "Estado" %>
-    <%= f.select :state, states_for_select, class: 'form-control i-perfil', selected: @profile.state_id %>
-  </div>
-  <div class="form-group">
-    <%= f.label :city, "Cidade" %>
-    <%= f.select :city, cities_for_select, class: 'form-control i-perfil', selected: @profile.city_id %>
-  </div>
-  <div class="form-group">
-    <%= f.label :zip_code, "CEP" %>
-    <%= f.text_field :zip_code, value: @profile.zip_code, class: 'form-control i-perfil' %>
-  </div>
-  <div class="actions-buttons">
-    <%= f.submit "Salvar" %>
-  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= image_tag profile.avatar_url, class: 'img' %>
+        <div class="img-file"></div>
+        <%= f.file_field :avatar, class: 'btn-file' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "Nome" %>
+        <%= f.text_field :name, value: @profile.name, class: 'form-control i-perfil' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :last_name, "Sobrenome" %>
+        <%= f.text_field :last_name, value: @profile.last_name, class: 'form-control i-perfil' %>
+      </div>
+      <div class="form-group radio">
+        <label>
+          <%= f.radio_button :sex, 'F', checked: (@profile.sex == 'F') %>
+          <%= f.label :sex, "Feminino" %> <br>
+          <%= f.radio_button :sex, 'M', checked: (@profile.sex == 'M') %>
+          <%= f.label :sex, "Masculino" %>
+        </label>
+      </div>
+      <div class="form-group">
+        <%= f.label :birth_date, "Data de Nascimento" %>
+        <%= f.date_select :birth_date,
+              order: [:day, :month, :year],
+              start_year: Date.today.year - 100,
+              end_year: Date.today.year - 17,
+              value: @profile.birth_date,
+              class: 'form-control i-perfil' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :street, "Rua" %>
+        <%= f.text_field :street, value: @profile.street, class: 'form-control i-perfil' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :complement, "Complemento" %>
+        <%= f.text_field :complement, value: @profile.complement, class: 'form-control i-perfil' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :neighborhood, "Bairro" %>
+        <%= f.text_field :neighborhood, value: @profile.neighborhood, class: 'form-control i-perfil' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :state, "Estado" %>
+        <%= f.select :state, states_for_select, class: 'form-control i-perfil', selected: @profile.state_id %>
+      </div>
+      <div class="form-group">
+        <%= f.label :city, "Cidade" %>
+        <%= f.select :city, cities_for_select, class: 'form-control i-perfil', selected: @profile.city_id %>
+      </div>
+      <div class="form-group">
+        <%= f.label :zip_code, "CEP" %>
+        <%= f.text_field :zip_code, value: @profile.zip_code, class: 'form-control i-perfil' %>
+      </div>
+      <div class="actions-buttons">
+        <%= f.submit "Salvar" %>
+      </div>
+    </div>
+  </div>  
 <% end %>
