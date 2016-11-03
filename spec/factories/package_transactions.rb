@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :package_transaction do
-    amount 1
+    amount Faker::Number.number 1
     status 1
     user
     package
+    coupon
   end
 end

@@ -5,31 +5,7 @@
             <div class="perfil_desc">
                   <div class="caption rifa">
                       <h3>Meus Pedidos</h3>
-                      <table id="example2" class="t table table-hover">
-                        <thead>
-                          <tr class="t-head azul">
-                            <th><p>ID da transação</p></th>
-                            <th><p>Data da transação</p></th>
-                            <th><p>Pacote</p></th>
-                            <th><p>Valor</p></th>
-                            <th><p>Status</p></th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <% @performed_transactions.each do |transaction| %>
-                            <tr class="t-head">
-                              <td><p><%= transaction.tid %></p></td>
-                              <td><p><%= transaction.created_at %></p></td>
-                              <td><p><%= transaction.package.name %></p></td>
-                              <td><p>R$<%= transaction.package.value * transaction.amount %></p></td>
-                              <td><p><%= transaction.status_message %></p></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                      </table>
+                      <%= show_performed_transaction(@performed_transactions) %>
                   </div>
               </div>
         </div>

@@ -1,6 +1,7 @@
 class PackageTransaction < ApplicationRecord
   belongs_to :user
   belongs_to :package
+  belongs_to :coupon, optional: true
 
   CIELO_STATUS = {
     created: 0,
@@ -71,6 +72,10 @@ class PackageTransaction < ApplicationRecord
     true
   end
 
+  def value
+    apply_discounts(package.value * amount)
+  end
+
   private
   def prepare_cielo_params
     {
@@ -90,12 +95,9 @@ class PackageTransaction < ApplicationRecord
     user.account.balance += package.points * amount
   end
 
-  def value
-    apply_discounts(package.value * amount)
-  end
-
-  #TODO pegar o id do cupom e implementar o disconto
   def apply_discounts(final_value)
-    return final_value unless params[:cupom].present?
+    return final_value unless coupon.present?
+    multiplier = (1 - coupon.discount.to_f/100)
+    final_value*multiplier
   end
 end

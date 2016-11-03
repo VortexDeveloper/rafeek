@@ -34,4 +34,25 @@ RSpec.describe PackageTransaction, type: :model do
   #     end
   #   end
   # end
+
+  describe "#value" do
+    let(:package) { FactoryGirl.create :package }
+
+    context "when there is no discount coupon" do
+      let(:package_transaction) { FactoryGirl.create :package_transaction, package: package, coupon: nil }
+
+      it "returns the actual value: package.value*amount" do
+        expect(package_transaction.value).to eq(package_transaction.amount * package.value)
+      end
+    end
+
+    context "when there is a discount coupon" do
+      let(:package_transaction) { FactoryGirl.create :package_transaction, package: package }
+
+      it "returns the actual value: package.value*amount" do
+        final_value = (package_transaction.amount * package.value) * (1 - package_transaction.coupon.discount.to_f/100)
+        expect(package_transaction.value).to eq final_value
+      end
+    end
+  end
 end

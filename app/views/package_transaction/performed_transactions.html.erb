@@ -3,7 +3,7 @@
 <section class="content-header">
   <h1>
     Pacotes
-  </h1> 
+  </h1>
 </section>
 <section class="content">
   <div class="row">
@@ -18,6 +18,7 @@
               <th><p>Data da transação</p></th>
               <th><p>Pacote</p></th>
               <th><p>Valor</p></th>
+              <th><p>Quantidade</p></th>
               <th><p>Status</p></th>
             </tr>
           </thead>
@@ -31,6 +32,7 @@
                 <td><p><%= transaction.created_at %></p></td>
                 <td><p><%= transaction.package.name %></p></td>
                 <td><p>R$<%= transaction.package.value * transaction.amount %></p></td>
+                <td><p><%= transaction.amount %></p></td>
                 <td><p><%= transaction.status_message %></p></td>
               </tr>
             <% end %>

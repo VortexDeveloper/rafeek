@@ -1,4 +1,5 @@
 class Coupon < ApplicationRecord
+  has_many :package_transaction
 
   has_attached_file(
     :avatar,
@@ -7,5 +8,5 @@ class Coupon < ApplicationRecord
   )
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-  
+
 end
