@@ -12,31 +12,30 @@
 
 ActiveRecord::Schema.define(version: 20161103205530) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
     t.integer  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user"
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_accounts_on_user_id"
+    t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
-  create_table "cities", force: :cascade do |t|
+  create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "state_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["state_id"], name: "index_cities_on_state_id"
+    t.index ["state_id"], name: "index_cities_on_state_id", using: :btree
   end
 
-  create_table "countries", force: :cascade do |t|
+  create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "coupons", force: :cascade do |t|
+  create_table "coupons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "code"
     t.date     "validity"
@@ -49,13 +48,13 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.datetime "avatar_updated_at"
   end
 
-  create_table "newsletters", force: :cascade do |t|
+  create_table "newsletters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "package_transactions", force: :cascade do |t|
+  create_table "package_transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "amount"
     t.integer  "user_id"
     t.integer  "status"
@@ -66,25 +65,25 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.string   "card_number"
     t.integer  "coupon_id"
     t.string   "aasm_state"
-    t.index ["coupon_id"], name: "index_package_transactions_on_coupon_id"
-    t.index ["package_id"], name: "index_package_transactions_on_package_id"
-    t.index ["user_id"], name: "index_package_transactions_on_user_id"
+    t.index ["coupon_id"], name: "index_package_transactions_on_coupon_id", using: :btree
+    t.index ["package_id"], name: "index_package_transactions_on_package_id", using: :btree
+    t.index ["user_id"], name: "index_package_transactions_on_user_id", using: :btree
   end
 
-  create_table "packages", force: :cascade do |t|
+  create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "points"
-    t.decimal  "value"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.decimal  "value",               precision: 10
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
 
-  create_table "partners", force: :cascade do |t|
+  create_table "partners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "url"
     t.integer  "user_id"
@@ -94,10 +93,10 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.index ["user_id"], name: "index_partners_on_user_id"
+    t.index ["user_id"], name: "index_partners_on_user_id", using: :btree
   end
 
-  create_table "profiles", force: :cascade do |t|
+  create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "avatar"
@@ -118,13 +117,13 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.datetime "avatar_updated_at"
     t.string   "image"
     t.string   "last_name"
-    t.index ["city_id"], name: "index_profiles_on_city_id"
-    t.index ["country_id"], name: "index_profiles_on_country_id"
-    t.index ["state_id"], name: "index_profiles_on_state_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
+    t.index ["city_id"], name: "index_profiles_on_city_id", using: :btree
+    t.index ["country_id"], name: "index_profiles_on_country_id", using: :btree
+    t.index ["state_id"], name: "index_profiles_on_state_id", using: :btree
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
-  create_table "raffles", force: :cascade do |t|
+  create_table "raffles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.string   "description"
     t.integer  "points"
@@ -139,41 +138,39 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.datetime "avatar_updated_at"
     t.string   "category"
     t.date     "deadline"
-    t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id"
+    t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id", using: :btree
   end
 
-  create_table "states", force: :cascade do |t|
+  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "uf"
     t.integer  "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_states_on_country_id"
+    t.index ["country_id"], name: "index_states_on_country_id", using: :btree
   end
 
-  create_table "ticket_transactions", force: :cascade do |t|
+  create_table "ticket_transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "amount"
+    t.integer  "status"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "amount"
-    t.integer  "user_id"
-    t.integer  "status"
-    t.integer  "value"
-    t.index ["user_id"], name: "index_ticket_transactions_on_user_id"
+    t.index ["user_id"], name: "index_ticket_transactions_on_user_id", using: :btree
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "raffle_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.integer  "owner_id"
     t.integer  "ticket_transaction_id"
-    t.integer  "ticket_transaction"
-    t.index ["owner_id"], name: "index_tickets_on_owner_id"
-    t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
-    t.index ["ticket_transaction_id"], name: "index_tickets_on_ticket_transaction_id"
+    t.index ["owner_id"], name: "index_tickets_on_owner_id", using: :btree
+    t.index ["raffle_id"], name: "index_tickets_on_raffle_id", using: :btree
+    t.index ["ticket_transaction_id"], name: "index_tickets_on_ticket_transaction_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -189,9 +186,25 @@ ActiveRecord::Schema.define(version: 20161103205530) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.integer  "group"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.integer  "group",                                            comment: "For now, 0 - admin, 1 - common user"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "accounts", "users"
+  add_foreign_key "cities", "states"
+  add_foreign_key "package_transactions", "coupons"
+  add_foreign_key "package_transactions", "packages"
+  add_foreign_key "package_transactions", "users"
+  add_foreign_key "partners", "users"
+  add_foreign_key "profiles", "cities"
+  add_foreign_key "profiles", "countries"
+  add_foreign_key "profiles", "states"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "raffles", "tickets", column: "winner_ticket_id"
+  add_foreign_key "states", "countries"
+  add_foreign_key "ticket_transactions", "users"
+  add_foreign_key "tickets", "raffles"
+  add_foreign_key "tickets", "ticket_transactions"
+  add_foreign_key "tickets", "users", column: "owner_id"
 end

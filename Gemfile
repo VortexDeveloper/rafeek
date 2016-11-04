@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 gem 'devise'
 gem 'omniauth-facebook'
