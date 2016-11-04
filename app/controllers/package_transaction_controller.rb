@@ -1,5 +1,5 @@
 class PackageTransactionController < ApplicationController
-  skip_before_filter  :verify_authenticity_token
+  skip_before_action  :verify_authenticity_token
   layout "admin", :only => [:performed_transactions]
 
   def purchase
@@ -7,7 +7,11 @@ class PackageTransactionController < ApplicationController
       @transaction = PackageTransaction.create package_transaction_params
       @transaction.card_data = card_data_params
       @transaction.url_retorno = validate_purchase_url(@transaction.id)
-      redirect_to @transaction.make_transaction
+      begin
+        redirect_to @transaction.make_transaction
+      rescue
+        redirect_to pages_packages_path(params[:package_id]), notice: 'Dados inválidos'
+      end
     end
   end
 
@@ -35,7 +39,6 @@ class PackageTransactionController < ApplicationController
     {
       amount: params[:amount] || 1,
       user: current_user,
-      status: 14,
       package_id: params[:package_id],
       card_number: params[:cartao_numero],
       tid: nil

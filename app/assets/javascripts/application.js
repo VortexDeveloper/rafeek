@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require admin-lte
+//= require jquery_payment.min
+//= require accounting.min
 
 $(function() {
   $("#raffles th a, #raffles .pagination a").on("click", function() {

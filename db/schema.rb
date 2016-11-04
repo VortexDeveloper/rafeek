@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103171933) do
+ActiveRecord::Schema.define(version: 20161103205530) do
 
   create_table "accounts", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user"
+    t.integer  "user_id"
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
@@ -59,12 +60,12 @@ ActiveRecord::Schema.define(version: 20161103171933) do
     t.integer  "user_id"
     t.integer  "status"
     t.integer  "package_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "tid"
     t.string   "card_number"
-    t.integer  "retry",       default: 0
     t.integer  "coupon_id"
+    t.string   "aasm_state"
     t.index ["coupon_id"], name: "index_package_transactions_on_coupon_id"
     t.index ["package_id"], name: "index_package_transactions_on_package_id"
     t.index ["user_id"], name: "index_package_transactions_on_user_id"
@@ -151,11 +152,12 @@ ActiveRecord::Schema.define(version: 20161103171933) do
   end
 
   create_table "ticket_transactions", force: :cascade do |t|
-    t.integer  "amount"
-    t.integer  "status"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "amount"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.integer  "value"
     t.index ["user_id"], name: "index_ticket_transactions_on_user_id"
   end
 
@@ -165,6 +167,7 @@ ActiveRecord::Schema.define(version: 20161103171933) do
     t.datetime "updated_at",            null: false
     t.integer  "owner_id"
     t.integer  "ticket_transaction_id"
+    t.integer  "ticket_transaction"
     t.index ["owner_id"], name: "index_tickets_on_owner_id"
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id"
     t.index ["ticket_transaction_id"], name: "index_tickets_on_ticket_transaction_id"

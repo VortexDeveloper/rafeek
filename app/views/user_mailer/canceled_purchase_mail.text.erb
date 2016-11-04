@@ -1,0 +1,8 @@
+Olá, <%= @profile.name %>!
+==================================================================
+
+O seu pedido do pacote <%= @package_transaction.package.name %>
+foi cancelado pela Cielo.
+O número de transação <%= @package_transaction.tid %>.
+
+Para saber mais, acesse: <%= user_performed_transactions_url  %>.

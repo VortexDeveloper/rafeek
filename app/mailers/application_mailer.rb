@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'Rafeek Rifas <noreply@vortexdeveloper.com>'
   layout 'mailer'
 end

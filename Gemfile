@@ -37,6 +37,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'will_paginate', '~> 3.1.0'
 gem 'cielo', git: 'https://github.com/crafters/cielo.git'
 gem 'sidekiq'
+gem 'aasm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

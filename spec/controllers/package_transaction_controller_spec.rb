@@ -57,6 +57,7 @@ RSpec.describe PackageTransactionController, type: :controller do
           :status=>"6"
         }
       })
+      allow_any_instance_of(PackageTransaction).to receive(:send_mail).and_return true
     end
 
     it "find a Package Transaction object" do
@@ -65,17 +66,16 @@ RSpec.describe PackageTransactionController, type: :controller do
       expect(assigns(:transaction)).to be_kind_of PackageTransaction
     end
 
-    it "enques a StatusVerifierJob" do
-      package_transaction = PackageTransaction.order("created_at").last
-      expect(assert_performed_jobs(1) do
-        get :validate_purchase, params: {id: package_transaction.id}
-      end).to eq(true)
-    end
-
     it "redirect to the packages_performed_path" do
       package_transaction = PackageTransaction.order("created_at").last
       get :validate_purchase, params: {id: package_transaction.id}
       expect(controller).to redirect_to performed_path(package_transaction.id)
+    end
+
+    it 'assigns points' do
+      package_transaction = PackageTransaction.order("created_at").last
+      expect_any_instance_of(Account).to receive(:credit)
+      get :validate_purchase, params: {id: package_transaction.id}
     end
   end
 end

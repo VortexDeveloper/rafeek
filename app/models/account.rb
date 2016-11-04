@@ -5,4 +5,9 @@ class Account < ApplicationRecord
     self.balance -= points
     save
   end
+
+  def credit(points)
+    self.balance += points
+    save
+  end
 end

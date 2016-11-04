@@ -3,11 +3,11 @@
         <div class="raf_item">
             <%= image_tag @package.avatar.url, class: 'package-img' %>
             <div class="raf_item_desc">
-                <div class="caption rifa"> 
+                <div class="caption rifa">
                     <h3><%= @package.name %></h3>
                     <p><%= @package.description %></p>
 
-                    <%= form_tag package_transaction_purchase_path, method: :post do %>
+                    <%= form_tag package_transaction_purchase_path, method: :post, autocomplete: :on, class: 'form-package' do %>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -25,7 +25,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                            <%= label_tag :cartao_seguranca, "Código de segurança do cartão (3 dígitos)", class: 'form-package' %>
+                            <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package' %>
                             <%= text_field_tag :cartao_seguranca, nil, class:'form-control form-package' %>
                         </div>
                         <div class="form-group">
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <%= label_tag :bandeira, "Bandeira do cartão", class: 'form-package' %>
-                            <%= text_field_tag :bandeira, nil, class:'form-control form-package' %>
+                            <%= text_field_tag :bandeira, nil, class:'form-control form-package', readonly: true %>
                         </div>
                       </div>
                       </div>
@@ -43,7 +43,7 @@
                               <tr>
                                   <td><p>Valor unitário</p></td>
                                   <td>
-                                      <p id="unidade">
+                                      <p data-value='<%= @package.value %>' id="unidade">
                                         <%= @package.value %>
                                       </p>
                                   </td>
@@ -70,11 +70,66 @@
 </main>
 
 <script type="text/javascript">
-  $("#total").text($("#unidade").text());
+  accounting.settings = {
+  	currency: {
+  		symbol : "R$",   // default currency symbol is '$'
+  		format: "%s %v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+  		decimal : ",",  // decimal point separator
+  		thousand: ".",  // thousands separator
+  		precision : 2   // decimal places
+  	},
+  	number: {
+  		precision : 0,  // default precision on numbers is 0
+  		thousand: ",",
+  		decimal : "."
+  	}
+  }
+  $("#unidade").text(accounting.formatMoney($("#unidade").attr('data-value')));
+  $("#total").text(accounting.formatMoney(unidade * amount));
 
   $("#amount").on('change', function () {
       var amount = $("#amount").val();
-      var unidade = $("#unidade").text();
-      $("#total").text(unidade * amount);
+      var unidade = $("#unidade").attr('data-value');
+      $("#total").text(accounting.formatMoney(unidade * amount));
+  });
+
+  $('#cartao_numero').payment('formatCardNumber');
+  $('#cartao_seguranca').payment('formatCardCVC');
+  $('#cartao_validade').payment('formatCardExpiry');
+
+  var migo = $;
+  var cardType = null;
+
+  $('.form-package').on('change','#cartao_numero', function(){
+    cardType = migo.payment.cardType($('#cartao_numero').val());
+    $('#bandeira').val(cardType);
+
+    if (migo.payment.validateCardNumber($('#cartao_numero').val())) {
+      $('#cartao_numero').parent().addClass('has-success');
+      $('#cartao_numero').parent().removeClass('has-error');
+    } else {
+      $('#cartao_numero').parent().removeClass('has-success');
+      $('#cartao_numero').parent().addClass('has-error');
+    }
+  });
+
+  $('.form-package').on('change', '#cartao_validade', function(){
+    if (migo.payment.validateCardExpiry($('#cartao_validade').payment('cardExpiryVal'))) {
+      $('#cartao_validade').parent().addClass('has-success');
+      $('#cartao_validade').parent().removeClass('has-error');
+    } else {
+      $('#cartao_validade').parent().removeClass('has-success');
+      $('#cartao_validade').parent().addClass('has-error');
+    }
+  });
+
+  $('.form-package').on('change','#cartao_seguranca', function(){
+    if (migo.payment.validateCardCVC($('#cartao_seguranca').val(), cardType)) {
+      $('#cartao_seguranca').parent().addClass('has-success');
+      $('#cartao_seguranca').parent().removeClass('has-error');
+    } else {
+      $('#cartao_seguranca').parent().removeClass('has-success');
+      $('#cartao_seguranca').parent().addClass('has-error');
+    }
   });
 </script>
