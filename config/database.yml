@@ -18,6 +18,7 @@ test:
   database: rafeek_test
 
 production:
+  <<: *default
   adapter: mysql2
   encoding: utf8
   database: rafeek_production
