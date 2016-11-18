@@ -59,7 +59,7 @@ task deploy: :environment do
 
     on :launch do
       in_path(fetch(:current_path)) do
-        command "rake db:seed"
+        command "RAILS_ENV='production' rake db:seed"
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
       end
