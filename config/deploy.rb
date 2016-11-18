@@ -11,7 +11,7 @@ require 'mina_sidekiq/tasks'
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :domain, '159.203.165.168'
-set :deploy_to, '/root/rafeek/'
+set :deploy_to, '/root/rafeek'
 set :repository, 'git@github.com:VortexDeveloper/rafeek.git'
 set :branch, 'master'
 
