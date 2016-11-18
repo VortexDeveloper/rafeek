@@ -4,8 +4,8 @@
 # You can define all roles on a single server, or split them:
 
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
+server 'ftp.web1625.kinghost.net', user: 'rafeek', roles: %w{app web}
+server 'mysql05-farm68.kinghost.net', user: 'rafeek', roles: %w{db}
 
 
 
@@ -59,3 +59,5 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+set :rails_env, 'staging'

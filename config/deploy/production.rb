@@ -4,8 +4,8 @@
 # You can define all roles on a single server, or split them:
 
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
-# server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'db.example.com', user: 'deploy', roles: %w{db}
+server 'ftp.web1625.kinghost.net', user: 'rafeek', roles: %w{app web}
+server 'mysql05-farm68.kinghost.net', user: 'rafeek', roles: %w{db}
 
 
 
@@ -49,13 +49,15 @@
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-server 'rafeek.com.br',
-  user: 'rafeek',
-  roles: %w{web app},
-  ssh_options: {
-    user: 'rafeek', # overrides user setting above
-    keys: %w(/home/user_name/.ssh/id_rsa),
-    forward_agent: false,
-    auth_methods: %w(publickey password)
-    password: 'vorte20**X'
-  }
+# server 'rafeek.com.br',
+#   user: 'rafeek',
+#   roles: %w{web app},
+#   ssh_options: {
+#     user: 'rafeek', # overrides user setting above
+#     keys: %w(/home/user_name/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     password: 'vorte20**X'
+#   }
+
+  set :rails_env, 'production'

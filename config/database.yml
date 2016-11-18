@@ -18,5 +18,10 @@ test:
   database: rafeek_test
 
 production:
-  <<: *default
-  database: rafeek_production
+  adapter: mysql2
+  encoding: utf8
+  username: rafeek
+  password: v0rt3xr4f33k
+  host: mysql05-farm68.kinghost.net
+  port: 3306
+  database: rafeek
