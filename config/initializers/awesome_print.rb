@@ -1,3 +1,3 @@
-unless Rails.env.production? do
+unless Rails.env.production?
     require "awesome_print"
 end
