@@ -19,6 +19,5 @@ test:
 
 production:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
+  password: vorteX20**
   database: rafeek_production
