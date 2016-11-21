@@ -18,12 +18,6 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger = ActiveSupport::TaggedLogging.new(logger)
-  end
-
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -31,7 +25,6 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
   config.assets.precompile += %w( *.js *.css )
-  config.serve_static_assets = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -91,4 +84,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: 'rafeek.com.br', port: 3000 }
+  config.action_mailer.smtp_settings = {
+    address: ENV['SMTP_ADDRESS'],
+    port: 587,
+    domain: ENV['SMTP_DOMAIN'],
+    authentication: :login,
+    enable_starttls_auto: true,
+    user_name: ENV['SMTP_USERNAME'],
+    password: ENV['SMTP_PASSWORD']
+  }
 end
