@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'pages/winners'
   get 'pages/raffles_categories'
   get 'pages/help'
+  get 'pages/terms'
   get 'pages/winners'
   get 'ticket/index' => 'ticket#index', as: 'tickets'
 

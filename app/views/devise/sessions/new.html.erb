@@ -1,29 +1,17 @@
 <div class="content">
     <div class="dir">
-        <div class="perfil">
-            <div class="perfil_desc">
-                  <div class="caption rifa">
-                    <h3>Log in</h3>
-
-                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                      <div class="field">
-                        <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true %>
-                      </div>
-
-                      <div class="field">
-                        <%= f.label :password %><br />
-                        <%= f.password_field :password, autocomplete: "off" %>
-                      </div>
-
-                      <div class="actions">
-                        <%= f.submit "Log in" %>
-                      </div>
-                    <% end %>
-
-                    <%= render "devise/shared/links" %>
-                  </div>
-            </div>
+        <div class="login-box">
+          <div class="loginmodal-container">
+            <h3>Log in</h3>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true %>
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+                <%= f.submit "Entrar", class: 'btn-login-facebook login-button  '  %>
+                <%= render partial: 'devise/shared/links' %>
+            <% end %>
+          </div>
         </div>
     </div>
 </div>

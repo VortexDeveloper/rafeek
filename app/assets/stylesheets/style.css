@@ -374,12 +374,35 @@ h2, p, a{
   display: block;
 }
 
+.empty_table_text_box{
+  width: 95%;
+  margin: 0 auto;
+  line-height: 5;
+  text-align: center;
+  border: solid 3px #337ab7;
+}
+
+.empty_table_text_title{
+  font-size: 3em;
+  color: #337ab7;
+}
+
+.empty_table_text_p{
+  font-size: 2em;
+}
+
+.empty_winner_text_p{
+  font-size: 2em;
+  color: #fff;
+}
+
 .perfil{
     width: 97%;
     margin: 1.5% auto;
     background: #fff;
     padding: 1.5%;
     box-shadow:  0 0 5px  #333;
+    min-height: 390px;
 }
 
 .help{
@@ -424,6 +447,11 @@ h2, p, a{
     float: right;
     padding: 15px;
     margin-bottom: 0;
+}
+
+.login-box {
+    width: 400px !important;
+    margin: 0 auto;
 }
 
 .perfil_desc h3{

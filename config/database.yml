@@ -19,5 +19,6 @@ test:
 
 production:
   <<: *default
-  password: vorteX20**
-  database: rafeek_production
+  host: <%= ENV['DATABASE_HOST'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>

@@ -5,31 +5,7 @@
             <div class="perfil_desc">
                   <div class="caption rifa">
                       <h3>Meus Tickets</h3>
-                      <table id="example2" class="t table table-hover">
-                        <thead>
-                          <tr class="t-head azul">
-                            <th><p>Imagem</p></th>
-                            <th><p>Número do Bilhete</p></th>
-                            <th><p>Rifa</p></th>
-                            <th><p>Descrição</p></th>
-                            <th><p>Data do sorteio</p></th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <% @tickets.each do |ticket| %>
-                            <tr class="t-head">
-                              <td><p><%= image_tag ticket.raffle.avatar.url(:thumb) %></p></td>
-                              <td><p><%= ticket.created_at.to_time.to_i + ticket.id %></p></td>
-                              <td><p><%= ticket.raffle.title %></p></td>
-                              <td><p><%= ticket.raffle.description %></p></td>
-                              <td><p><%= ticket.raffle.deadline %></p></td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                        <tfoot>
-                        </tfoot>
-                      </table>
+                      <%= show_tickets(@tickets) %>
                   </div>
               </div>
         </div>

@@ -1,11 +1,14 @@
 class PagesController < ApplicationController
 
-  layout 'home', except: [:raffles, :packages, :raffles_new, :raffles_hot, :winners, :help, :raffles_categories]
+  layout 'home', except: [:terms, :raffles, :packages, :raffles_new, :raffles_hot, :winners, :help, :raffles_categories]
 
   def index
     @raffles = Raffle.all.order('created_at DESC limit 8')
     @partners = Partner.all
     @winners = self.winners
+  end
+
+  def terms
   end
 
   #helper_method :sort_column, :sort_direction
