@@ -10,9 +10,9 @@ require 'mina_sidekiq/tasks'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :user, 'deploy'          # Username in the server to SSH to.
+set :user, 'root'          # Username in the server to SSH to.
 set :domain, '159.203.165.168'
-set :deploy_to, "/deploy/rafeek"
+set :deploy_to, "/root/deploy/rafeek"
 set :repository, 'git@github.com:VortexDeveloper/rafeek.git'
 set :branch, 'master'
 #   set :port, '30000'      # SSH port number.
@@ -21,7 +21,7 @@ set :forward_agent, true    # SSH forward_agent.
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 set :shared_dirs, fetch(:shared_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
+# set :shared_files, fetch(:shared_files, []).push('database.yml', 'secrets.yml')
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
@@ -45,14 +45,18 @@ task deploy: :environment do
   deploy do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
+    command %{source ~/.profile}
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
+    command %{echo $SECRET_KEY_BASE}
+    command %{echo $DATABASE_PASSWORD}
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
 
     on :launch do
       in_path(fetch(:current_path)) do
+        command %{source ~/.profile}
         command "RAILS_ENV='production' rake db:seed"
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
