@@ -8,13 +8,13 @@
 
 Country.create(name: 'Brasil', code: 'BR')
 
-u = User.create(email: 'douglas@rafeek.com.br', password: '123456', group: :admin)
-Profile.create(user: u, name: 'Douglas')
-Account.create(user: u)
-
-u = User.create(email: 'rhodrigo@rafeek.com.br', password: '123456', group: :admin)
-Profile.create(user: u, name: 'Rodrigo')
-Account.create(user: u)
+# u = User.create(email: 'douglas@rafeek.com.br', password: '123456', group: :admin)
+# Profile.create(user: u, name: 'Douglas')
+# Account.create(user: u)
+#
+# u = User.create(email: 'rhodrigo@rafeek.com.br', password: '123456', group: :admin)
+# Profile.create(user: u, name: 'Rodrigo')
+# Account.create(user: u)
 
 State.create(name: 'Acre', uf: 'AC', country_id: 1)
 State.create(name: 'Alagoas', uf: 'AL', country_id: 1)
