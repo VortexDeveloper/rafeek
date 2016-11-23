@@ -56,6 +56,8 @@ task deploy: :environment do
       in_path(fetch(:current_path)) do
         command %{source ~/.profile}
         command "RAILS_ENV='production' rake db:seed"
+        command "chown -R www-data:www-data /root/deploy/rafeek/current/"
+        command "chown -R www-data:www-data /root/deploy/rafeek/current/public/"
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
       end

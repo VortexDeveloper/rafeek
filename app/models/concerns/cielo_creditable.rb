@@ -52,7 +52,9 @@ module CieloCreditable
   end
 
   def cielo_value
-    "#{value.fix.to_i}#{(package.value.frac*100).to_i}"
+    individual_value = BigDecimal.new value
+    package_value = BigDecimal.new(package.value)
+    "#{individual_value.fix.to_i}#{(package_value.frac*100).to_i}"
   end
 
   def value
@@ -71,8 +73,7 @@ module CieloCreditable
   end
 
   def format_validity
-    data = card_data[:cartao_validade].gsub(' ','').split('/')
-    "#{data[1]}#{data[0]}"
+    card_data[:cartao_validade].split('/').reverse.join("").gsub(" ", '')
   end
 
   #TODO implementar o método de verificação do cartão
