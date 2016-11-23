@@ -8,6 +8,12 @@ module ApplicationHelper
     end
   end
 
+  def admin_button
+    if user_signed_in? && current_user.admin?
+      link_to "Painel Admin", user_index_path, class: 'btn news_button logout-btn', target: '_blank'
+    end
+  end
+
   def profile_button
     if user_signed_in?
       link_to "Perfil", profile_edit_path(current_user), class: 'btn news_button login-btn'

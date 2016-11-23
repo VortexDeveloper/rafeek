@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    edit_user_registration_path
+    profile_edit_path
   end
 
   def authenticate_admin!

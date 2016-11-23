@@ -20,15 +20,74 @@
                               <%= f.password_field :password, autocomplete: "off" %>
                             </div>
                             <div class="field">
-                              <%= f.label :Confirmação_de_senha %><br />
+                              <%= f.label :password_confirmation, 'Confirmação de Senha' %><br />
                               <%= f.password_field :password_confirmation, autocomplete: "off" %>
                             </div>
+                            <div class="field">
+                              <style media="screen">
+                              .modal-terms {
+                                width: auto !important;
+                                float: none !important;
+                                padding: 0 !important;
+                              }
+                              #termos-de-uso .modal-body { overflow: hidden; }
+                              #termos-de-uso .title_padrao { display: none;}
+                              #termos-de-uso .help p { font-size: 1em; }
+                              .actions-buttons input[disabled] { background: #ccc !important; }
+                              </style>
+                              <p>
+                                <%= check_box_tag 'termos' %>
+                                Li e Aceito os
+                                <%= link_to('#', class: 'modal-terms', 'data-toggle': "modal", 'data-target': '#termos-de-uso') do %>
+                                  Termos e Condições Gerais de Uso
+                                <% end %>
+                              </p>
+                              <div id="termos-de-uso" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Termos e Condições Gerais de Uso</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <%= render partial: 'pages/terms' %>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id='aceitar-termos'>Aceitar</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <script type="text/javascript">
+                                function toggle_registration_button() {
+                                  if($('#termos').is(':checked'))
+                                    $('#cadastrar').removeAttr('disabled');
+                                  else
+                                    $('#cadastrar').attr('disabled','disabled');
+                                }
+                                $('#termos-de-uso').on('click', '#aceitar-termos', function(e){
+                                  e.preventDefault();
+                                  $('#termos').attr('checked', true);
+                                  toggle_registration_button();
+                                  $('#termos-de-uso').modal('hide');
+                                })
+
+                                $('#termos').on('change', function(){
+                                  if($(this).is(':checked'))
+                                    $('#cadastrar').removeAttr('disabled');
+                                  else
+                                    $('#cadastrar').attr('disabled','disabled');
+                                });
+                              </script>
+
+                              </div>
+                            </div>
                             <div class="actions-buttons">
-                              <%= f.submit "Cadastrar" %>
+                              <%= f.submit "Cadastrar", disabled: 'disabled', id: 'cadastrar' %>
                             </div>
                           <% end %>
                         </div>
-                      </div>  
+                      </div>
                   </div>
               </div>
         </div>
