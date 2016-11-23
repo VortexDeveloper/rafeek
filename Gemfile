@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'adminlte-rails'
+gem 'adminlte-rails', git: 'https://github.com/VortexDeveloper/adminlte-rails.git'
 gem "paperclip", "~> 5.0.0"
 gem 'will_paginate', '~> 3.1.0'
 gem 'cielo', git: 'https://github.com/crafters/cielo.git'
