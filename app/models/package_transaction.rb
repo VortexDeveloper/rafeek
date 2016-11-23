@@ -10,6 +10,7 @@ class PackageTransaction < ApplicationRecord
   def make_transaction
     if validate_card_number
       transaction = initialize_transaction(prepare_params)
+      logger.debug transaction
       raise unless transaction[:transacao].present?
       update_attributes(tid: transaction[:transacao][:tid])
       transaction[:transacao][:"url-autenticacao"]

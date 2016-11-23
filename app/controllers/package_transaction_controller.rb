@@ -10,7 +10,7 @@ class PackageTransactionController < ApplicationController
       begin
         redirect_to @transaction.make_transaction
       rescue
-        redirect_to pages_packages_path(params[:package_id]), notice: 'Dados inválidos'
+        redirect_to package_path(params[:package_id]), notice: 'Dados inválidos'
       end
     end
   end
