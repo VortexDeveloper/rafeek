@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :resource, :resource_name, :devise_mapping, :resource_class
+  before_filter :store_current_location, :unless => :devise_controller?
 
   def index
 
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    profile_edit_path
+    session[:previous_url] || profile_edit_path
   end
 
   def authenticate_admin!
@@ -32,5 +33,13 @@ class ApplicationController < ActionController::Base
     else
       redirect_to root_path
     end
+  end
+
+  private
+  # override the devise helper to store the current location so we can
+  # redirect to it after loggin in or out. This override makes signing in
+  # and signing up work automatically.
+  def store_current_location
+    store_location_for(:user, request.url)
   end
 end

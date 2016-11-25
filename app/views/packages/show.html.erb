@@ -4,71 +4,87 @@
             <%= image_tag @package.avatar.url, class: 'package-img' %>
             <div class="raf_item_desc">
                 <div class="caption rifa">
-                    <h3><%= @package.name %></h3>
-                    <p><%= @package.description %></p>
+                  <% if !user_signed_in? %>
+                    <div class="alert alert-info">
+                      É necessário estar logado para comprar um pacote.
+                    </div>
+                  <% end %>
+                  <h3><%= @package.name %></h3>
+                  <p><%= @package.description %></p>
 
-                    <%= form_tag package_transaction_purchase_path, method: :post, autocomplete: :on, class: 'form-package' do %>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                            <%= label_tag :amount, "Quantidade", class: 'form-package' %>
-                            <%= number_field_tag :amount, 1, class: 'form-control form-package', placeholder: "Qtd" %>
-                        </div>
-                        <div class="form-group">
-                            <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package' %>
-                            <%= text_field_tag :cartao_numero, nil, class:'form-control form-package' %>
-                        </div>
-                        <div class="form-group">
-                            <%= label_tag :cartao_validade, "Validade do cartão", class: 'form-package' %>
-                            <%= text_field_tag :cartao_validade, nil, class:'form-control form-package' %>
-                        </div>
+                  <%= form_tag package_transaction_purchase_path, method: :post, autocomplete: :on, class: 'form-package' do %>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <%= label_tag :amount, "Quantidade", class: 'form-package' %>
+                          <%= number_field_tag :amount, 1, class: 'form-control form-package', placeholder: "Qtd" %>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                            <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package' %>
-                            <%= text_field_tag :cartao_seguranca, nil, class:'form-control form-package' %>
-                        </div>
-                        <div class="form-group">
-                            <%= label_tag :cartao_portador, "Nome do portador do cartão", class: 'form-package' %>
-                            <%= text_field_tag :cartao_portador, nil, class:'form-control form-package' %>
-                        </div>
-                        <div class="form-group">
-                            <%= label_tag :bandeira, "Bandeira do cartão", class: 'form-package' %>
-                            <%= text_field_tag :bandeira, nil, class:'form-control form-package', readonly: true %>
-                        </div>
+                      <div class="form-group">
+                          <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package' %>
+                          <%= text_field_tag :cartao_numero, nil, class:'form-control form-package' %>
                       </div>
+                      <div class="form-group">
+                          <%= label_tag :cartao_validade, "Validade do cartão", class: 'form-package' %>
+                          <%= text_field_tag :cartao_validade, nil, class:'form-control form-package' %>
                       </div>
-                      <table class="table">
-                          <tbody>
-                              <tr>
-                                  <td><p>Valor unitário</p></td>
-                                  <td>
-                                      <p data-value='<%= @package.value %>' id="unidade">
-                                        <%= @package.value %>
-                                      </p>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><p>Valor Total</p></td>
-                                  <td>
-                                    <p id="total">
-
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package' %>
+                          <%= text_field_tag :cartao_seguranca, nil, class:'form-control form-package' %>
+                      </div>
+                      <div class="form-group">
+                          <%= label_tag :cartao_portador, "Nome do portador do cartão", class: 'form-package' %>
+                          <%= text_field_tag :cartao_portador, nil, class:'form-control form-package' %>
+                      </div>
+                      <div class="form-group">
+                          <%= label_tag :bandeira, "Bandeira do cartão", class: 'form-package' %>
+                          <%= text_field_tag :bandeira, nil, class:'form-control form-package', readonly: true %>
+                      </div>
+                    </div>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td><p>Valor unitário</p></td>
+                                <td>
+                                    <p data-value='<%= @package.value %>' id="unidade">
+                                      <%= @package.value %>
                                     </p>
-                                  </td>
-                              </tr>
-                          </tbody>
-                      </table>
-                      <%= hidden_field_tag :package_id, @package.id %>
-                    <p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><p>Valor Total</p></td>
+                                <td>
+                                  <p id="total">
+
+                                  </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <%= hidden_field_tag :package_id, @package.id %>
+
+                    <% if user_signed_in? %>
+                      <p>
                         <%= submit_tag 'Comprar pontos', class: 'btn btn-primary raf_item_desc pontos'  %>
-                    </p>
+                      </p>
+                    <% else %>
+                      <p>
+                        <%= button_tag 'Login',
+                          class: 'btn news_button login-btn',
+                          :'data-toggle' => "modal",
+                          :'data-target' => "#login-modal"
+                        %>
+                      </p>
                     <% end %>
+                  <% end %>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
+login-modal
 <script type="text/javascript">
   accounting.settings = {
   	currency: {
