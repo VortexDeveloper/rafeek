@@ -41,4 +41,26 @@ module ApplicationHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
+  def sold_percentage(r)
+    (r.amount_sold/r.amount.to_f)*100
+  end
+
+  def available_percentage(r)
+    (r.tickets_available/r.amount.to_f)*100
+  end
+
+  def points_encoding(points)
+    parts = points.humanize(2, '.').split('.')
+    first = parts.first
+    parts.delete_at 0
+    last = parts.join('.')
+
+    points_html_encoding(first, last)
+  end
+
+  def points_html_encoding(first, last)
+    content = content_tag(:span, "#{first}", class: 'unity-first')
+    content << content_tag(:span, ".#{last}", class: 'unity-last') unless last.empty?
+    content_tag(:span, content, class: 'unidade')
+  end
 end

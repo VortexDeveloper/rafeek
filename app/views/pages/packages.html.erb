@@ -14,7 +14,7 @@
                   </div>
               </div>
               <div class="pontos_desc_price">
-                  <b><%= package.points %><c>PONTOS</c></b>
+                  <b><%= points_encoding(package.points) %><c>PONTOS</c></b>
                   <b>R$<%= package.value %></b>
               </div>
               <%= link_to 'COMPRE', package, class: 'btn btn-primary bilhetes_button pull-right' %>

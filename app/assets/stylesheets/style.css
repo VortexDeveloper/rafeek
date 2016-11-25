@@ -1392,6 +1392,14 @@ h2, p, a{
     font-size: 1.5em;
 }
 
+.unity-first {
+  font-size: 1.4em;
+}
+
+.unity-last {
+  font-size: .8em;
+}
+
 /*---------------------------FIM MOBILE--------------------------*/
 
 

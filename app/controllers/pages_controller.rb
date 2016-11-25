@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @raffles = Raffle.all.order('created_at DESC limit 8')
     @partners = Partner.all
     @winners = self.winners
+    @packages = Package.all
   end
 
   def terms

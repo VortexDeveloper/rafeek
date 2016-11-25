@@ -1,5 +1,4 @@
-<% if @winners.present? %>
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -9,27 +8,47 @@
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
-        <% @winners.each do |raffle| %>
-            <div class="item">
-                <div class="slide_item">
-                    <div class="slide_item_win">
-                        <div class="slide_item_win_foto">
-                            <%= image_tag raffle.winner.profile.avatar.url(:thumb) %>
-                        </div>
-                        <div class="slide_item_win_desc">
-                            <h2>Sorteio Finalizado</h2>
-                            <h3><%= raffle.winner_ticket.created_at.to_time.to_i + raffle.winner_ticket.id %></h3>
-                            <h4><%= "#{raffle.winner.profile.name} #{raffle.winner.profile.last_name}" %></h4>
-                            <h5>Ganhou este fantástico</h5>
-                            <h6><%= raffle.title %></h6>
-                        </div>
-                    </div>
-                    <div class="slide_item_rifa">
-                        <%= image_tag raffle.avatar.url %>
-                    </div>
-                </div>
-            </div>
+        <% if @winners.present? %>
+          <% @winners.each do |raffle| %>
+              <div class="item">
+                  <div class="slide_item">
+                      <div class="slide_item_win">
+                          <div class="slide_item_win_foto">
+                              <%= image_tag raffle.winner.profile.avatar.url(:thumb) %>
+                          </div>
+                          <div class="slide_item_win_desc">
+                              <h2>Sorteio Finalizado</h2>
+                              <h3><%= raffle.winner_ticket.created_at.to_time.to_i + raffle.winner_ticket.id %></h3>
+                              <h4><%= "#{raffle.winner.profile.name} #{raffle.winner.profile.last_name}" %></h4>
+                              <h5>Ganhou este fantástico</h5>
+                              <h6><%= raffle.title %></h6>
+                          </div>
+                      </div>
+                      <div class="slide_item_rifa">
+                          <%= image_tag raffle.avatar.url %>
+                      </div>
+                  </div>
+              </div>
           <% end %>
+        <% else %>
+          <% @packages.each do |package| %>
+              <div class="item">
+                  <div class="slide_item">
+                      <div class="slide_item_win">
+                          <div class="slide_item_win_desc">
+                              <h2>Confira nossos pacotes</h2>
+                              <h3><%= package.name %></h3>
+                              <h4>Compre nossos pacotes para começar a investir em nossas rifas!</h4>
+                              <h5><%= package.description %></h5>
+                              <h6><%= link_to "Veja mais", pages_packages_path %></h6>
+                          </div>
+                      </div>
+                      <div class="slide_item_rifa">
+                          <%= image_tag package.avatar.url %>
+                      </div>
+                  </div>
+              </div>
+          <% end %>
+        <% end %>
       </div>
-  </div>
-<% end %>
+</div>
