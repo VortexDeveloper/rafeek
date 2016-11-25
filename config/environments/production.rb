@@ -100,7 +100,7 @@ Rails.application.configure do
 
   Cielo.setup do |config_cielo|
     # Altere para production ao final dos seus testes
-    config_cielo.environment = :test
+    config_cielo.environment = :production
 
     # Número de afiliação fornecido pela cielo.
     # O numero padrão é o número usado para testes.
