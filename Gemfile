@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails-i18n', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
@@ -28,13 +29,23 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+gem 'devise-i18n'
+
 gem 'omniauth-facebook'
 gem 'adminlte-rails', git: 'https://github.com/VortexDeveloper/adminlte-rails.git'
+
 gem "paperclip", "~> 5.0.0"
+gem 'paperclip-i18n'
+
 gem 'will_paginate', '~> 3.1.0'
+gem 'will-paginate-i18n'
+
 gem 'cielo', git: 'https://github.com/crafters/cielo.git'
 gem 'sidekiq'
 gem 'aasm'
+
+gem 'i18n-country-translations'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,6 +56,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'i18n-spec'
+  gem 'i18n-tasks', '~> 0.9.6'
 end
 
 group :development do
