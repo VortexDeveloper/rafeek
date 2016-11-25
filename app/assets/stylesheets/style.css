@@ -123,6 +123,11 @@
   background: #4DCEFF;
 }
 
+.img-slide{
+  top: -10px;
+  position: relative;
+}
+
 .cancel-button input{
   background: #f2f2f2;
   color: #ccc;
@@ -1398,6 +1403,11 @@ h2, p, a{
 
 .unity-last {
   font-size: .8em;
+}
+
+.green-bg {
+  background: #1CCC5D !important;
+  color: #fff;
 }
 
 /*---------------------------FIM MOBILE--------------------------*/
