@@ -75,10 +75,15 @@ class RafflesController < ApplicationController
     end
   end
 
+  def payback
+    @raffle = Raffle.find(params[:raffle_id])
+    @raffle.payback
+    redirect_to raffles_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_raffle
-      # byebug
       @raffle = Raffle.find(params[:id])
     end
 

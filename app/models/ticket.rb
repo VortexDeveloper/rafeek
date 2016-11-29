@@ -3,6 +3,8 @@ class Ticket < ApplicationRecord
   belongs_to :owner, class_name: 'User'
   belongs_to :ticket_transaction
 
+  enum active: [:active, :inactive]
+
   def points
     raffle.points
   end

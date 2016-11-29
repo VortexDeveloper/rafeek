@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get 'user/index'
   get 'user/edit_admin/:id' => 'user#edit_admin', as: 'edit_admin'
 
-  get 'profile/edit'
-  patch 'profile/update'
   post 'ticket_transaction/purchase'
   post 'packages/purchase'
 
@@ -26,9 +24,13 @@ Rails.application.routes.draw do
 
   resources :packages
   resources :partners
-  resources :raffles
+  resources :raffles do
+    get 'payback'
+  end
   resources :coupons
   resources :newsletters
+  resources :profile, only: [:edit, :update]
+  get 'profile/edit'
 
   #Public Pages
   get 'pages/index'

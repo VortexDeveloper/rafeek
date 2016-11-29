@@ -6,12 +6,13 @@ class ProfileController < ApplicationController
   end
 
   def update
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
     @profile.update(profile_params)
 
-    redirect_to profile_edit_path
+    redirect_to request.referrer
   end
 
+  private
   def profile_params
     params.require(:profile).permit(
       :name,
@@ -23,7 +24,9 @@ class ProfileController < ApplicationController
       :complement,
       :neighborhood,
       :city_id,
+      :city,
       :state_id,
+      :state,
       :country_id,
       :zip_code,
       :avatar

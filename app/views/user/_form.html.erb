@@ -70,7 +70,7 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <%= form_for user.profile, url: profile_update_path do |f| %>
+      <%= form_for user.profile, url: profile_path(id: user.profile.id) do |f| %>
         <% if user.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -131,11 +131,22 @@
             </div>
             <div class="form-group">
               <%= f.label :state, "Estado" %>
-              <%= f.select :state, states_for_select, class: 'form-control i-perfil', selected: user.profile.state_id %>
+              <%= f.select :state_id, states_for_select(user.profile.state_id), class: 'form-control i-perfil' %>
             </div>
             <div class="form-group">
               <%= f.label :city, "Cidade" %>
-              <%= f.select :city, cities_for_select, class: 'form-control i-perfil', selected: user.profile.city_id %>
+              <%= f.grouped_collection_select(
+                    :city_id,
+                    State.all,
+                    :cities,
+                    :name,
+                    :id,
+                    :name,
+                    selected: (user.profile.city.present?) ? user.profile.city.id : State.first.cities.first,
+                    class: 'form-control i-perfil',
+                    include_blank: true
+                  )
+              %>
             </div>
             <div class="form-group">
               <%= f.label :zip_code, "CEP" %>
@@ -151,3 +162,4 @@
     </div>
   </div>
 </section>
+<%= javascript_include_tag 'populate_city_select' %>

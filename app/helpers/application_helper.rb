@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def welcome_text
     if user_signed_in?
-      content_tag(:p, "Saudações, #{(current_user.profile.name || 'Complete seu cadastro!')}", :class => 'user-logged')
+      content_tag(:p, "Saudações #{(current_user.profile.name || 'Complete seu cadastro') }, seu saldo de pontos é:  #{( current_user.account.balance || 0) }", :class => 'user-logged')
     end
   end
 
@@ -30,8 +30,9 @@ module ApplicationHelper
     options_from_collection_for_select(City.all, 'id', 'name', 1)
   end
 
-  def states_for_select
-    options_from_collection_for_select(State.all, 'id', 'name', 1)
+  def states_for_select(selected)
+    selected = selected || 1
+    options_from_collection_for_select(State.all, 'id', 'name', selected)
   end
 
   def sortable(column, title = nil)

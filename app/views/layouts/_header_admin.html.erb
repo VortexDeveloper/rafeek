@@ -43,7 +43,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <%= link_to "Perfil", profile_edit_path(current_user), class: 'btn btn-default btn-flat' %>
+                <%= link_to "Perfil", edit_profile_path(current_user), class: 'btn btn-default btn-flat' %>
               </div>
               <div class="pull-right">
                 <%= link_to "Sair", destroy_user_session_path, class: 'btn btn-default btn-flat' %>

@@ -1,5 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
+
+.fa-arrow-down {
+  float: right;
+  width: 15px !important;
+  height: 15px !important;
+  margin-right: 0 !important;
+  margin-top: 8px !important;
+}
+
+
 /****** LOGIN MODAL ******/
 .loginmodal-container {
     padding: 30px;
@@ -731,6 +741,7 @@ h2, p, a{
     padding: 10px;
     float: left;
     color: #fff;
+    border-right: solid 5px transparent;
 }
 
 .menu_side_item a{

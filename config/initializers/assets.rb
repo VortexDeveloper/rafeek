@@ -22,6 +22,8 @@ Rails.application.config.assets.precompile += %w( data-table-rafeek.js )
 Rails.application.config.assets.precompile += %w( image-click.js )
 Rails.application.config.assets.precompile += %w( jquery_payment.min.js )
 Rails.application.config.assets.precompile += %w( accounting.min.js )
+Rails.application.config.assets.precompile += %w( populate_city_select.js )
+Rails.application.config.assets.precompile += %w( admin-lte.js )
 
 
 # Add additional assets to the asset load path

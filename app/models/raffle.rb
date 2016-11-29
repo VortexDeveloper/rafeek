@@ -33,6 +33,22 @@ class Raffle < ApplicationRecord
     tickets.group(:owner_id).collect { |ticket| ticket.owner }
   end
 
+  def all_sold?
+    amount_sold == amount
+  end
+
+  def payback
+    transactions.each { |t| t.payback }
+  end
+
+  def transactions
+    transactions = []
+    tickets.group(:ticket_transaction_id, :id).each do |t|
+      transactions << t.ticket_transaction
+    end
+    transactions
+  end
+
   def self.search(search)
     if search
       where('title LIKE ?', "%#{search}%")
@@ -40,5 +56,4 @@ class Raffle < ApplicationRecord
       all
     end
   end
-
 end

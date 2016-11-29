@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103205530) do
+ActiveRecord::Schema.define(version: 20161129182701) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -161,10 +161,11 @@ ActiveRecord::Schema.define(version: 20161103205530) do
 
   create_table "tickets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "raffle_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.integer  "owner_id"
     t.integer  "ticket_transaction_id"
+    t.integer  "active",                limit: 1, default: 1
     t.index ["owner_id"], name: "index_tickets_on_owner_id", using: :btree
     t.index ["raffle_id"], name: "index_tickets_on_raffle_id", using: :btree
     t.index ["ticket_transaction_id"], name: "index_tickets_on_ticket_transaction_id", using: :btree
