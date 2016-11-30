@@ -41,10 +41,26 @@ class PagesController < ApplicationController
   def raffles_categories
     category = Category.find params[:category_id]
     @page_title = category.name
-    @raffles_categories = category.raffles
+    related_categories = all_related_categories(category)
+    @raffles_categories = Raffle.where(category: related_categories)
   end
 
   def help
+  end
+
+  private
+  def all_related_categories(c)
+    categories = []
+    childz = []
+    childz << c
+
+    while childz.size > 0 do
+    	first = childz.shift
+    	first.childs.each { |d| childz << d }
+    	categories << first.id
+    end
+
+    categories
   end
 
 end

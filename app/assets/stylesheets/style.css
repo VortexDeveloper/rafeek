@@ -1421,6 +1421,17 @@ h2, p, a{
   color: #fff;
 }
 
+.lateral-menu-points {
+  background: #434343;
+  overflow: hidden;
+}
+
+.lateral-menu-points span {
+  font-weight: bold;
+  color: #fff;
+  padding: .5em .7em;
+}
+
 /*---------------------------FIM MOBILE--------------------------*/
 
 

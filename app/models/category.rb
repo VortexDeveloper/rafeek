@@ -12,4 +12,9 @@ class Category < ApplicationRecord
   def self.fathers
     Category.where(father: nil)
   end
+
+  def category_select
+    return childs if childs.size > 0
+    [self]
+  end
 end
