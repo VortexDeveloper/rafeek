@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129182701) do
+ActiveRecord::Schema.define(version: 20161130001618) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 20161129182701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "father_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "icon"
+    t.index ["father_id"], name: "index_categories_on_father_id", using: :btree
   end
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -136,8 +145,9 @@ ActiveRecord::Schema.define(version: 20161129182701) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "category"
     t.date     "deadline"
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_raffles_on_category_id", using: :btree
     t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id", using: :btree
   end
 
@@ -202,6 +212,7 @@ ActiveRecord::Schema.define(version: 20161129182701) do
   add_foreign_key "profiles", "countries"
   add_foreign_key "profiles", "states"
   add_foreign_key "profiles", "users"
+  add_foreign_key "raffles", "categories"
   add_foreign_key "raffles", "tickets", column: "winner_ticket_id"
   add_foreign_key "states", "countries"
   add_foreign_key "ticket_transactions", "users"

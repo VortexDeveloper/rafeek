@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get 'pages/raffles_new'
   get 'pages/raffles_hot'
   get 'pages/winners'
-  get 'pages/raffles_categories'
+  get 'pages/raffles_categories/:category_id' => 'pages#raffles_categories', as: 'raffles_categories'
   get 'pages/help'
   get 'pages/terms'
   get 'pages/winners'

@@ -39,8 +39,9 @@ class PagesController < ApplicationController
   end
 
   def raffles_categories
-    @page_title = params[:category]
-    @raffles_categories = Raffle.where("category LIKE ?", params[:category])
+    category = Category.find params[:category_id]
+    @page_title = category.name
+    @raffles_categories = category.raffles
   end
 
   def help

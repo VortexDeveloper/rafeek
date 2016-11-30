@@ -1,5 +1,6 @@
 class Raffle < ApplicationRecord
   has_many :tickets
+  belongs_to :category
   belongs_to :winner_ticket, class_name: 'Ticket', optional: true
 
   has_attached_file(

@@ -35,6 +35,11 @@ module ApplicationHelper
     options_from_collection_for_select(State.all, 'id', 'name', selected)
   end
 
+  def categories_for_select(selected)
+    selected = selected || ""
+    options_from_collection_for_select(Category.enabled_categories, 'id', 'name', selected)
+  end
+
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil

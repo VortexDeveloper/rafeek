@@ -96,7 +96,7 @@ class RafflesController < ApplicationController
       :amount,
       :image,
       :avatar,
-      :category,
+      :category_id,
       :deadline)
     end
 end

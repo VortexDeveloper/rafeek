@@ -31,7 +31,19 @@
             </div>
             <div class="form-group">
               <%= f.label :category, "Categoria" %>
-              <%= f.text_field :category, class:'form-control' %>
+              <%= f.select :category_id, categories_for_select(raffle.category_id), include_blank: true, class: 'form-control i-perfil' %>
+              <%#= f.grouped_collection_select(
+                    :category_id,
+                    Category.fathers,
+                    :childs,
+                    :name,
+                    :id,
+                    :name,
+                    selected: raffle.category_id,
+                    class: 'form-control i-perfil',
+                    include_blank: true
+                  )
+              %>
             </div>
             <div class="form-group">
               <%= f.label :title, "Título" %>

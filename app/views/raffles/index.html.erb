@@ -28,7 +28,7 @@
               <% @raffles.each do |raffle| %>
                 <tr>
                   <td><%= image_tag raffle.avatar.url(:thumb) %></td>
-                  <td><%= raffle.category %></td>
+                  <td><%= raffle.category.try(:name) %></td>
                   <td><%= raffle.deadline %></td>
                   <td><%= raffle.title %></td>
                   <td><%= raffle.description %></td>
