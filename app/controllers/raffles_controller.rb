@@ -56,6 +56,7 @@ class RafflesController < ApplicationController
   def update
     respond_to do |format|
       if @raffle.update(raffle_params)
+        # redirect to request.referrer
         format.html { redirect_to @raffle, notice: 'Rifa atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @raffle }
       else

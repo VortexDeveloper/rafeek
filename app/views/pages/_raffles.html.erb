@@ -3,20 +3,21 @@
           <%= image_tag raffle.avatar.url %>
           <div class="caption rifa">
               <h3><%= raffle.title %></h3>
+              <h3><small><%= raffle.category.name %></small></h3>
               <p><%= raffle.description %></p>
-              <h3 class="bilhetes_preco_t"><%= raffle.points %></h3>
+              <h3 class="bilhetes_preco_t"><%= points_encoding(raffle.points) %></h3>
               <p>
                   <%= link_to 'Investir', raffle, class: 'btn btn-primary bilhetes_button' %>
               </p>
               <h2 class="bilhetes"><img src="../images/bol.png"/> Disponíveis <img src="../images/bol_r.png"/> Vendidos</h2>
               <div class="progress">
 
-                  <div class="progress-bar progress-bar-danger" style="width: 90%">
-                      <span class="sr-only">90 Compradas</span>
+                  <div class="progress-bar progress-bar-danger" style='width: <%= sold_percentage(raffle) %>%'>
+                      <span class="sr-only"><%= raffle.amount_sold %> Compradas</span>
                   </div>
-                  <div class="progress-bar" style="width: 10%">
-                      <span class="sr-only">10 Restantes</span>
-                      10
+                  <div class="progress-bar progress-bar-success" style='width: <%= available_percentage(raffle) %>%'>
+                      <span class="sr-only"><%= raffle.tickets_available %>  Restantes</span>
+                      <%= raffle.tickets_available %>
                   </div>
               </div>
           </div>

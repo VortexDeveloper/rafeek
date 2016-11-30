@@ -4,7 +4,7 @@
             <%= image_tag @raffle.avatar.url %>
             <div class="raf_item_desc">
                 <div class="caption rifa">
-                    <h3><%= @raffle.title %></h3>
+                    <h3><%= @raffle.title %> <small><%= @raffle.category.name %></small></h3>
                     <p><%= @raffle.description %></p>
                     <h2 class="bilhetes">
                         <img src="../images/bol.png"/>
