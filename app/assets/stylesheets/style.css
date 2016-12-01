@@ -245,9 +245,11 @@
 
 .user-logged{
   color: #fff;
-  position: relative;
-  top: -27px;
   z-index: 999;
+}
+
+.welcome-text {
+  margin-top: 1em;
 }
 
 .login-btn, .logout-btn{
@@ -1432,6 +1434,17 @@ h2, p, a{
   padding: .5em .7em;
 }
 
+.lateral-menu-points .unidade span {
+  padding: 0;
+}
+.lateral-menu-points .unidade {
+  padding: 0 !important;
+}
+
+.lateral-menu-points .points-text {
+  padding-top: .7em;
+}
+
 /*---------------------------FIM MOBILE--------------------------*/
 
 
@@ -1803,7 +1816,7 @@ h2, p, a{
     }
 
     .login{
-        width: 18%;
+        width: 20%;
         position: fixed;
         padding: 0;
         float: right;

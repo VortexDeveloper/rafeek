@@ -116,6 +116,6 @@ Rails.application.configure do
     # Após o processamento pela cielo, o usuário será redirecionado para uma página.
     # que é configurada abaixo, nessa action você pode consultar o status do TID
     # para poder mostrar na tela.
-    config_cielo.return_path = "http://159.203.165.168"
+    config_cielo.return_path = "https://www.rafeek.com.br"
   end
 end

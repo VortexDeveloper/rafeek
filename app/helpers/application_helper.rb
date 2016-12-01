@@ -22,7 +22,8 @@ module ApplicationHelper
 
   def welcome_text
     if user_signed_in?
-      content_tag(:p, "Saudações #{(current_user.profile.name || 'Complete seu cadastro') }, seu saldo de pontos é:  #{( current_user.account.balance || 0) }", :class => 'user-logged')
+      content_tag(:div,
+        content_tag(:span, "Saudações #{(current_user.profile.name || 'Complete seu cadastro') }, seu saldo de pontos é:  #{( current_user.account.balance || 0) }", :class => 'user-logged'), class: 'welcome-text')
     end
   end
 

@@ -1,9 +1,11 @@
 <div class="esq">
     <ul id="menu_side" class="menu_side">
-      <li class='lateral-menu-points'>
-        <span class='pull-left'>SEUS PONTOS:</span>
-        <span class='pull-right'>500.000</span>
-      </li>
+      <% if user_signed_in? %>
+        <li class='lateral-menu-points'>
+          <span class='pull-left points-text'>SEUS PONTOS:</span>
+          <span class='pull-right'><%= points_encoding(current_user.account.balance) || 0 %></span>
+        </li>
+      <% end %>
       <% Category.fathers.each do |c| %>
         <li class="menu_side_item">
           <%= image_tag(c.icon) %>
