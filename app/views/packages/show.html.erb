@@ -39,7 +39,7 @@
                       </div>
                       <div class="form-group">
                           <%= label_tag :bandeira, "Bandeira do cartão", class: 'form-package' %>
-                          <%= text_field_tag :bandeira, nil, class:'form-control form-package', readonly: true %>
+                          <%= select_tag :bandeira, bandeira_for_select, include_blank: true, class: 'form-control form-package'%>
                       </div>
                     </div>
                     </div>

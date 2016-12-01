@@ -19,7 +19,7 @@
                             <span class="sr-only"><%= @raffle.amount_sold %> Compradas</span>
                             <%= @raffle.amount_sold %>
                         </div>
-                        <div class="progress-bar progress-bar-success" style='width: <%= available_percentage(@raffle) %>%'>
+                        <div class="progress-bar progress-bar-primary" style='width: <%= available_percentage(@raffle) %>%'>
                             <span class="sr-only"><%= @raffle.tickets_available %> Restantes</span>
                             <%= @raffle.tickets_available %>
                         </div>
