@@ -193,6 +193,16 @@
     background: #6ae196 !important;
 }
 
+.super-alert a {
+  padding: 0 !important;
+  float: none !important;
+}
+
+.thumbnail { padding: 1.5em; }
+.thumbnail .rifa h3 { font-size: 1.4em; }
+.progress { margin-bottom: 0 !important; }
+
+
 /*-------------------------INICIO MOBILE--------------------------*/
 
 .performed{
@@ -1411,7 +1421,7 @@ h2, p, a{
 }
 
 .unity-first {
-  font-size: 1.4em;
+  font-size: 1em;
 }
 
 .unity-last {

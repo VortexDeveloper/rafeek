@@ -4,14 +4,14 @@
           <div class="caption rifa">
               <h3><%= truncate(raffle.title, :length => 46) %></h3>
               <h3><small><%= raffle.category.name %></small></h3>
-              <p><%= truncate(raffle.description, :length => 129) %></p>
-              <h3 class="bilhetes_preco_t"><%= points_encoding(raffle.points) %></h3>
-              <p>
+              <div class="row">
+                <h3 class="bilhetes_preco_t pull-left"><%= points_encoding(raffle.points) %></h3>
+                <div class="pull-right">
                   <%= link_to 'Investir', raffle, class: 'btn btn-primary bilhetes_button' %>
-              </p>
+                </div>
+              </div>
               <h2 class="bilhetes"><img src="../images/bol.png"/> Disponíveis <img src="../images/bol_r.png"/> Vendidos</h2>
               <div class="progress">
-
                   <div class="progress-bar progress-bar-danger" style='width: <%= sold_percentage(raffle) %>%'>
                       <span class="sr-only"><%= raffle.amount_sold %> Compradas</span>
                   </div>

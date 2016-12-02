@@ -15,8 +15,7 @@ class PagesController < ApplicationController
   #helper_method :sort_column, :sort_direction
 
   def raffles
-    #@raffles = Raffle.all
-    @raffles = Raffle.all
+    @raffles = Raffle.search(params[:search])
   end
 
   def packages
@@ -27,7 +26,7 @@ class PagesController < ApplicationController
     @raffles_new = Raffle.where(
       'created_at >= :five_days_ago',
       :five_days_ago  => Time.now - 7.days
-    )
+    ).order(created_at: :desc)
   end
 
   def raffles_hot
