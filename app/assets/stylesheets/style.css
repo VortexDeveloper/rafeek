@@ -200,12 +200,12 @@
 
 .thumbnail { padding: 5%; height: 100%; position: relative;}
 .thumbnail .rifa h3 { font-size: 1.4em; }
+.thumbnail .raffle-image {height: 282px; display: flex; justify-content: center; align-items: center; overflow: hidden;}
 .progress { margin-bottom: 0 !important; }
 
 #raffles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: stretch;
 }
 

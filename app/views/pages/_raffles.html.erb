@@ -1,27 +1,29 @@
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
+      <div class="raffle-image">
         <%= image_tag raffle.avatar.url %>
-        <div class="caption rifa">
-          <h3><%= truncate(raffle.title, :length => 46) %></h3>
-          <h3><small><%= raffle.category.name %></small></h3>
+      </div>
+      <div class="caption rifa">
+        <h3><%= truncate(raffle.title, :length => 46) %></h3>
+        <h3><small><%= raffle.category.name %></small></h3>
+      </div>
+      <div class="caption rifa rifa_actions">
+        <div class="row">
+          <h3 class="bilhetes_preco_t pull-left"><%= points_encoding(raffle.points) %></h3>
+          <div class="pull-right">
+            <%= link_to 'Investir', raffle, class: 'btn btn-primary bilhetes_button' %>
+          </div>
         </div>
-        <div class="caption rifa rifa_actions">
-          <div class="row">
-            <h3 class="bilhetes_preco_t pull-left"><%= points_encoding(raffle.points) %></h3>
-            <div class="pull-right">
-              <%= link_to 'Investir', raffle, class: 'btn btn-primary bilhetes_button' %>
+        <h2 class="bilhetes"><img src="../images/bol.png"/> Disponíveis <img src="../images/bol_r.png"/> Vendidos</h2>
+        <div class="progress">
+            <div class="progress-bar progress-bar-danger" style='width: <%= sold_percentage(raffle) %>%'>
+                <span class="sr-only"><%= raffle.amount_sold %> Compradas</span>
             </div>
-          </div>
-          <h2 class="bilhetes"><img src="../images/bol.png"/> Disponíveis <img src="../images/bol_r.png"/> Vendidos</h2>
-          <div class="progress">
-              <div class="progress-bar progress-bar-danger" style='width: <%= sold_percentage(raffle) %>%'>
-                  <span class="sr-only"><%= raffle.amount_sold %> Compradas</span>
-              </div>
-              <div class="progress-bar progress-bar-primary" style='width: <%= available_percentage(raffle) %>%'>
-                  <span class="sr-only"><%= raffle.tickets_available %>  Restantes</span>
-                  <%= raffle.tickets_available %>
-              </div>
-          </div>
+            <div class="progress-bar progress-bar-primary" style='width: <%= available_percentage(raffle) %>%'>
+                <span class="sr-only"><%= raffle.tickets_available %>  Restantes</span>
+                <%= raffle.tickets_available %>
+            </div>
         </div>
+      </div>
     </div>
 </div>
