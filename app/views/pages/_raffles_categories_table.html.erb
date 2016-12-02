@@ -1,3 +1,1 @@
-<% @raffles_categories.each do |raffle| %>
-  <%= render 'pages/raffles', :raffle => raffle %>
-<% end %>
+<%= render partial: 'raffles_collection', locals: { raffles: @raffles_categories } %>

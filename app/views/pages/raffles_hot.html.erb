@@ -2,9 +2,7 @@
     <div class="raf">
         <h2 class="title_padrao">Hot</h2>
         <div class="row">
-          <% @raffles_hot.each do |raffle| %>
-            <%= render 'pages/raffles', :raffle => raffle %>
-          <% end %>
+          <%= render partial: 'raffles_collection', locals: { raffles: @raffles_hot } %>
         </div>
     </div>
 </div>

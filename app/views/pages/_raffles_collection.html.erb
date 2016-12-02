@@ -1,0 +1,21 @@
+<div id="raffles">
+  <% raffles.each do |raffle| %>
+    <%= render 'pages/raffles', :raffle => raffle %>
+  <% end %>
+</div>
+
+<script type="text/javascript">
+  var biggestHeight = 0;
+  // Loop through elements children to find & set the biggest height
+  $("#raffles > div").each(function(){
+  // If this elements height is bigger than the biggestHeight
+  if ($(this).height() > biggestHeight ) {
+   // Set the biggestHeight to this Height
+   biggestHeight = $(this).height();
+  }
+  });
+
+  // Set the container height
+  $("#raffles > div").height(biggestHeight);
+  $(".rifa_actions").css({'position': 'absolute', 'bottom': '1em', 'width': '90%'});
+</script>

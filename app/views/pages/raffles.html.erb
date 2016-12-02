@@ -1,16 +1,3 @@
-<!--
-<div class="dir">
-    <div class="raf">
-        <h2 class="title_padrao">Categorias</h2>
-        <div class="row">
-          <% @raffles.each do |raffle| %>
-            <%= render 'pages/raffles', :raffle => raffle %>
-          <% end %>
-        </div>
-    </div>
-</div>
--->
-
 <div class="dir">
     <div class="raf">
         <h2 class="title_padrao">Todas as Rifas</h2>
@@ -21,11 +8,7 @@
                 <%= submit_tag "Buscar", :title => nil, class: 'busca-item-btn' %>
               <% end %>
             </div>
-            <div id="raffles">
-              <% @raffles.each do |raffle| %>
-                <%= render 'pages/raffles', :raffle => raffle %>
-              <% end %>
-            </div>
+            <%= render partial: 'raffles_collection', locals: { raffles: @raffles } %>
         </div>
     </div>
 </div>

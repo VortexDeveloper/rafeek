@@ -198,15 +198,9 @@
   float: none !important;
 }
 
-.thumbnail { margin: 5%; height: 100%; }
+.thumbnail { padding: 5%; height: 100%; position: relative;}
 .thumbnail .rifa h3 { font-size: 1.4em; }
 .progress { margin-bottom: 0 !important; }
-
-.rifa_actions {
-  position: absolute;
-  bottom: 1em;
-  width: 90%;
-}
 
 #raffles {
   display: flex;
