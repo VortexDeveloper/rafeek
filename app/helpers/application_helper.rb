@@ -57,6 +57,7 @@ module ApplicationHelper
   end
 
   def points_encoding(points)
+    points ||= 0
     parts = points.humanize(2, '.').split('.')
     first = parts.first
     parts.delete_at 0

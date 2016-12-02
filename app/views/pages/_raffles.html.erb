@@ -2,9 +2,9 @@
       <div class="thumbnail">
           <%= image_tag raffle.avatar.url %>
           <div class="caption rifa">
-              <h3><%= raffle.title %></h3>
+              <h3><%= truncate(raffle.title, :length => 46) %></h3>
               <h3><small><%= raffle.category.name %></small></h3>
-              <p><%= raffle.description %></p>
+              <p><%= truncate(raffle.description, :length => 129) %></p>
               <h3 class="bilhetes_preco_t"><%= points_encoding(raffle.points) %></h3>
               <p>
                   <%= link_to 'Investir', raffle, class: 'btn btn-primary bilhetes_button' %>

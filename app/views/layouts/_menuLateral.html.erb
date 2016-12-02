@@ -3,7 +3,7 @@
       <% if user_signed_in? %>
         <li class='lateral-menu-points'>
           <span class='pull-left points-text'>SEUS PONTOS:</span>
-          <span class='pull-right'><%= points_encoding(current_user.account.balance) || 0 %></span>
+          <span class='pull-right'><%= points_encoding(current_user.account.balance) %></span>
         </li>
       <% end %>
       <% Category.fathers.each do |c| %>

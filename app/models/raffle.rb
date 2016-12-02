@@ -50,6 +50,18 @@ class Raffle < ApplicationRecord
     transactions
   end
 
+  def self.hot
+    hot = []
+    raffles = Raffle
+    .select('raffles.*, count(t.id)/raffles.amount as sold_percentage')
+    .joins('INNER JOIN tickets t ON raffles.id = t.raffle_id')
+    .group('raffles.id')
+    .all
+
+    raffles.each { |r| hot << r if r.sold_percentage > 0.5 }
+    hot
+  end
+
   def self.search(search)
     if search
       where('title LIKE ?', "%#{search}%")
