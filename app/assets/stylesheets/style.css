@@ -198,9 +198,26 @@
   float: none !important;
 }
 
-.thumbnail { padding: 1.5em; }
+.thumbnail { margin: 5%; height: 100%; }
 .thumbnail .rifa h3 { font-size: 1.4em; }
 .progress { margin-bottom: 0 !important; }
+
+.rifa_actions {
+  position: absolute;
+  bottom: 1em;
+  width: 90%;
+}
+
+#raffles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#raffles > div {
+  margin-bottom: 20px;
+}
 
 
 /*-------------------------INICIO MOBILE--------------------------*/
