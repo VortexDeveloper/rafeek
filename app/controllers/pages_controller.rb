@@ -47,6 +47,11 @@ class PagesController < ApplicationController
   def help
   end
 
+  def send_partner_email
+    UserMailer.be_partner_mail(params).deliver
+    redirect_to root_path
+  end
+
   private
   def all_related_categories(c)
     categories = []

@@ -6,15 +6,6 @@
         <div class="row">
           <%= render partial: 'raffles_collection', locals: { raffles: @raffles } %>
         </div>
-        <% if @partners.present? %>
-          <h2 class="title_padrao">Nossos parceiros</h2>
-          <div class="parceiros">
-            <% @partners.each do |partner| %>
-                  <div class="parceiros_item">
-                    <%= link_to image_tag(partner.avatar.url), partner.url, target: '_blank' %>
-                  </div>
-            <% end %>
-          </div>
-        <% end %>
+        <%= render partial: 'partners', locals: { partners: @partners } if @partners.present? %>
     </div>
 </div>

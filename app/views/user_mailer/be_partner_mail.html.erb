@@ -1,0 +1,55 @@
+<h1>Olá, Rafeek!</h1>
+
+<p>
+  A empresa <%= @data[:company] %> quer estabeler uma parceria!
+  Veja abaixo os dados dela:
+</p>
+
+<table>
+  <tr>
+    <td>
+      Nome do Contato
+    </td>
+    <td>
+      <%= @data[:name] %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Nome da Empresa
+    </td>
+    <td>
+      <%= @data[:company] %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      CNPJ
+    </td>
+    <td>
+      <%= @data[:cnpj] %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Site
+    </td>
+    <td>
+      <%= @data[:site] %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      Proposta
+    </td>
+    <td>
+      <%= @data[:propousal] %>
+    </td>
+  </tr>
+</table>
+
+Bom negócio de parceria! :)

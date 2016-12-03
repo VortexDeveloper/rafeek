@@ -3,20 +3,26 @@
         <div class="img-rifa-bot">
             <%= image_tag("bilhetes-logo.png") %>
         </div>
-        <div class="newsletter">
-            <%= render partial: "newsletters/form" %>
-        </div>
-        <div class="sobre">
-            <h2>Sobre a Raffek</h2>
-            <h3>Olá, somos a Rafeek Rifas Nerds, seja bem vindo ao nosso site! Somos o primeiro site de rifas dedicadas ao mundo Geek do mundo, compre seus pontos e teste sua sorte. Maiores dúvidas clique em "Como funciona".</h3>
-        </div>
-        <ul class="social">
+
+        <div class="footer-content">
+          <div class="footer-content-item">
+            <div class="newsletter">
+                <%= render partial: "newsletters/form" %>
+            </div>
+            <div class="sobre">
+                <h2>Sobre a Raffek</h2>
+                <h3>Olá, somos a Rafeek Rifas Nerds, seja bem vindo ao nosso site! Somos o primeiro site de rifas dedicadas ao mundo Geek do mundo, compre seus pontos e teste sua sorte. Maiores dúvidas clique em "Como funciona".</h3>
+            </div>
+          </div>
+          <div class="footer-content-item">
             <h2>Redes Sociais</h2>
-            <li><a target="_blank" href="https://www.instagram.com/rafeekbr/" title="Rafeek no Instagram"><%= image_tag("Instagram.png") %></a></li>
-            <li><a target="_blank" href="https://plus.google.com/" title="Rafeek no Google +"><%= image_tag("Google.png") %></a></li>
-            <li><a target="_blank" href="https://www.facebook.com/Rafeekbr/" title="Rafeek no Facebook"><%= image_tag("Facebook.png") %></a></li>
-        </ul>
-        <div class="contato">
+            <div class="social">
+              <div><a target="_blank" href="https://www.instagram.com/rafeekbr/" title="Rafeek no Instagram"><%= image_tag("Instagram.png") %></a></div>
+              <div><a target="_blank" href="https://plus.google.com/" title="Rafeek no Google +"><%= image_tag("Google.png") %></a></div>
+              <div><a target="_blank" href="https://www.facebook.com/Rafeekbr/" title="Rafeek no Facebook"><%= image_tag("Facebook.png") %></a></div>
+            </div>
+          </div>
+          <div class="footer-content-item">
             <h2>Contato</h2>
             <div class="contato_item">
                 <%= image_tag("tel.png") %>
@@ -33,7 +39,9 @@
             <div class="contato_item">
               <%= link_to "Termos e Condições Gerais de Uso", pages_terms_path %>
             </div>
+          </div>
         </div>
+
         <div class="copyright">
             <span>© <%= Date.today.year %>: RAFEEK RIFAS - TODOS OS DIREITOS RESERVADOS</span><br>
             <span>© <%= Date.today.year %> - Desenvolvido por <%= link_to 'Vortex Developer', 'http://vortexdeveloper.com', target: '_blank' %></span><br>

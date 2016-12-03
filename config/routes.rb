@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   get 'raffles/raffle_select/:id' => 'raffles#raffle_select', as: 'raffle_select'
   get 'packages/performed/:id' => 'packages#performed', as: 'performed'
 
+  post 'send_partner_email' => 'pages#send_partner_email'
+
   # mount Sidekiq::Web => '/sidekiq'
   # mount RedisBrowser::Web => '/redis-browser'
 end

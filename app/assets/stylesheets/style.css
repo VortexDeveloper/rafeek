@@ -1166,9 +1166,10 @@ h2, p, a{
 }
 
 .newsletter{
-    width: 100%;
-    float: left;
-    position: relative;
+  width: 100%;
+  float: left;
+  position: relative;
+  margin-bottom: 3em;
 }
 
 .newsletter img{
@@ -1189,7 +1190,7 @@ h2, p, a{
 
 /*PARCEIROS*/
 
-.parceiros{
+/*.parceiros{
     width: 96%;
     float: left;
     position: relative;
@@ -1197,31 +1198,49 @@ h2, p, a{
     background: rgba(200,200,200,0.4);
 }
 
-.parceiros_item{
-    width: 20%;
-    margin: 2% 6.65%;
-    float: left;
-    height: auto;
-    position: relative;
-}
-
 .parceiros_item img{
     width: 100%;
     float: left;
     margin: 0;
     margin-bottom: 10px;
+}*/
+
+.parceiros {
+  background: rgba(0,0,0,.6);
+  overflow: hidden;
+  padding: 1em;
 }
+
+.parceiros-inner{
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.parceiros_item{
+  background: #fff;
+  padding: 1em;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: .5em;
+}
+
+.be-partner { text-align: center; margin-top: 2em;}
 
 /*FIM PARCEIROS*/
 
 .bottom{
-    width: 100%;
-    float: left;
-    position: relative;
-    background: #519bd1;
+  width: 100%;
+  float: left;
+  position: relative;
+  background: #519bd1;
+  padding: 3em;
 }
 
-.sobre,
+/*.sobre,
 .social,
 .contato{
     width: 90%;
@@ -1229,16 +1248,12 @@ h2, p, a{
     float: left;
     position: relative;
     padding: 10px;
-}
+}*/
 
 .copyright{
     width: 100%;
     float: left;
     position: relative;
-}
-
-.sobre{
-    background: rgba(200,200,200,0.4);
 }
 
 .sobre h2{
@@ -1254,24 +1269,6 @@ h2, p, a{
     color: #fff;
     text-align: justify;
     font-weight: 300;
-}
-
-.social{
-    border-top: solid 1px #fff;
-}
-
-.social img{
-    width: 25%;
-    float: left;
-    margin: 4%;
-}
-
-.social h2{
-    font-size: 1.5em;
-    color: #fff;
-    text-align: center;
-    font-weight: 300;
-    margin-bottom: 10px;
 }
 
 .contato{
@@ -1294,15 +1291,13 @@ h2, p, a{
 }
 
 .contato_item{
-    width: 100%;
-    float: left;
-    margin-bottom: 10px;
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
 }
 
-.contato img{
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
+.contato_item img {
+  width: 36px;
 }
 
 .copyright{
@@ -1466,6 +1461,39 @@ h2, p, a{
   padding-top: .7em;
 }
 
+footer {
+}
+
+.footer-content {
+  display: flex;
+}
+
+.footer-content-item {
+  width: 30%;
+  margin: 2%;
+  padding: 1em;
+  border-right: 1px solid #fff;
+}
+
+.footer-content-item:last-child {
+  border-right: none;
+}
+
+.footer-content-item a {
+  color: #fff;
+}
+.footer-content-item h2 {
+  color: #fff;
+}
+
+.social{
+  border: none;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4em;
+}
+.social img { width: 40%; }
+
 /*---------------------------FIM MOBILE--------------------------*/
 
 
@@ -1543,24 +1571,12 @@ h2, p, a{
         margin-left: 25%;
     }
 
-    .parceiros_item{
-        width: 45%;
-        margin: 2.5%;
-    }
-
 
     .contato{
         width: 50%;
         float: right;
         border: none;
         border-left: solid 1px #fff;
-        margin: 0;
-    }
-
-    .social{
-        width: 50%;
-        float: left;
-        border: none;
         margin: 0;
     }
 
@@ -1682,31 +1698,10 @@ h2, p, a{
         margin-left: 35%;
     }
 
-    .parceiros{
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .parceiros_item{
-        width: 20%;
-        margin: 2% 6.5%;
-    }
-
-    .sobre{
-        width: 29.33%;
-        margin: 2%;
-        float: left;
-    }
-
     .contato{
         width: 29.33%;
         margin: 2%;
         float: left;
-    }
-
-    .social{
-        width: 29.33%;
-        margin: 2%;
     }
 
     .img-logo-bot{
