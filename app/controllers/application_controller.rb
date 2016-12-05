@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || profile_edit_path
+    session[:previous_url] || request.referrer
   end
 
   def authenticate_admin!

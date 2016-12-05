@@ -11,10 +11,11 @@
   </thead>
 
   <tbody>
+    <% %>
     <% transactions.each do |transaction| %>
       <tr class="t-head">
         <td><p><%= transaction.tid %></p></td>
-        <td><p><%= transaction.created_at %></p></td>
+        <td><p><%= l transaction.created_at.in_time_zone, format: :default %></p></td>
         <td><p><%= transaction.package.name %></p></td>
         <td><p>R$<%= transaction.package.value * transaction.amount %></p></td>
         <td><p><%= transaction.amount %></p></td>

@@ -4,13 +4,14 @@ class PackageTransactionController < ApplicationController
 
   def purchase
     if params[:package_id].present?
-      @transaction = PackageTransaction.create package_transaction_params
-      @transaction.card_data = card_data_params
-      @transaction.url_retorno = validate_purchase_url(@transaction.id)
       begin
+        @transaction = PackageTransaction.create package_transaction_params
+        @transaction.card_data = card_data_params
+        @transaction.url_retorno = validate_purchase_url(@transaction.id)
         redirect_to @transaction.make_transaction
-      rescue
-        redirect_to package_path(params[:package_id]), notice: 'Dados inválidos'
+      rescue StandardError => e
+        msg = e.message || 'Dados Inválidos'
+        redirect_to package_path(params[:package_id]), notice: msg
       end
     end
   end
@@ -36,12 +37,15 @@ class PackageTransactionController < ApplicationController
   end
 
   def package_transaction_params
+    c = Coupon.find_by_code params[:coupon]
+    raise "Cupom de Desconto Inválido" if params[:coupon].present? && c.nil?
     {
       amount: params[:amount] || 1,
       user: current_user,
       package_id: params[:package_id],
       card_number: params[:cartao_numero],
-      tid: nil
+      tid: nil,
+      coupon: c
     }
   end
 end

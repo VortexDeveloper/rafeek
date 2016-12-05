@@ -1,4 +1,4 @@
-# require 'sidekiq/web'
+require 'sidekiq/web'
 Rails.application.routes.draw do
   post 'package_transaction/purchase'
   post 'validate_purchase/:id' => 'package_transaction#validate_purchase', as: 'validate_purchase'
@@ -53,6 +53,6 @@ Rails.application.routes.draw do
   post 'send_partner_email' => 'pages#send_partner_email'
   post 'send_contact_email' => 'pages#send_contact_email'
 
-  # mount Sidekiq::Web => '/sidekiq'
+  mount Sidekiq::Web => '/sidekiq'
   # mount RedisBrowser::Web => '/redis-browser'
 end
