@@ -4,7 +4,7 @@
     <% partners.each do |partner| %>
     <div class="col-sm-6 col-md-4">
       <div class="parceiros_item">
-        <%= link_to image_tag(partner.avatar.url), partner.url, target: '_blank' %>
+        <%= link_to image_tag(partner.avatar.url), "http://#{partner.url}", target: '_blank' %>
       </div>
     </div>
     <% end %>

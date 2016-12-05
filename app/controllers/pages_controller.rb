@@ -52,6 +52,11 @@ class PagesController < ApplicationController
     redirect_to root_path
   end
 
+  def send_contact_email
+    UserMailer.contact_mail(params).deliver
+    redirect_to request.referrer
+  end
+
   private
   def all_related_categories(c)
     categories = []

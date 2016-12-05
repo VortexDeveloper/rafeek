@@ -31,8 +31,16 @@ class UserMailer < ApplicationMailer
   def be_partner_mail(data)
     @data = data
     mail(
-      to: "Rafeek Contato <contato@rafeek.com.br>",
+      to: "Rafeek Parceria <contato@rafeek.com.br>",
       subject: "A empresa #{data[:company]} quer ser parceira!"
+    )
+  end
+
+  def contact_mail(data)
+    @data = data
+    mail(
+      to: "Rafeek Contato <contato@rafeek.com.br>",
+      subject: "Um novo contato feito pelo site!"
     )
   end
 end

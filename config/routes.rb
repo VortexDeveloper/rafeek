@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'packages/performed/:id' => 'packages#performed', as: 'performed'
 
   post 'send_partner_email' => 'pages#send_partner_email'
+  post 'send_contact_email' => 'pages#send_contact_email'
 
   # mount Sidekiq::Web => '/sidekiq'
   # mount RedisBrowser::Web => '/redis-browser'
