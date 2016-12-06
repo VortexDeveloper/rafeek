@@ -267,11 +267,19 @@
 .user-logged{
   color: #fff;
   z-index: 999;
+  position: relative;
+  top: -14px;
+  font-size: 0.875em;
 }
 
 .welcome-text {
   margin-top: 1em;
 }
+
+.btn-rifa{
+  font-size: 11px !important
+}
+
 
 .login-btn, .logout-btn{
   padding: 5px !important;
@@ -672,6 +680,7 @@ h2, p, a{
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+    z-index: 9999;
 }
 
 .mobile_action:hover{
@@ -694,6 +703,7 @@ h2, p, a{
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+    z-index: 9999;
 
 }
 
@@ -1181,7 +1191,7 @@ h2, p, a{
 }
 
 .news{
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: #fff;
     font-weight: 300;
 }
@@ -1681,6 +1691,10 @@ footer {
 
 /*-------------------------INICIO 960PX--------------------------*/
 @media (min-width: 60em){
+
+  .btn-rifa{
+    font-size: 18px !important
+  }
 
     .title_padrao {
       font-size: 2em;

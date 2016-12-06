@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
+    return profile_edit_path if params["controller"].include?('registrations')
     session[:previous_url] || request.referrer
   end
 

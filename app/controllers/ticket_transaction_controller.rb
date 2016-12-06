@@ -14,7 +14,7 @@ class TicketTransactionController < ApplicationController
       @transaction.status = :complete
       @transaction.save
       @transaction.perfom_transaction(raffle)
-      redirect_to root_path, notice: "Compra efetuada com sucesso!"
+      redirect_to raffle_path(raffle), notice: "Compra efetuada com sucesso!"
     else
       redirect_to pages_packages_path, notice: "Você não possui pontos suficientes"
     end

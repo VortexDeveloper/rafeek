@@ -5,6 +5,7 @@ class TicketTransaction < ApplicationRecord
   enum status: [:pending, :complete, :paidback]
 
   def verify_balance(raffle)
+    user.account.balance ||= 0
     return false if user.account.balance < value(raffle)
     true
   end
