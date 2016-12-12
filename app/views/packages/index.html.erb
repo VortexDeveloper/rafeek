@@ -18,22 +18,35 @@
               <th>Descrição</th>
               <th>Pontos</th>
               <th>Valor</th>
+              <th>Ativo</th>
               <th>Ações</th>
             </tr>
           </thead>
 
           <tbody>
             <% @packages.each do |package| %>
+              <%
+                if package.active?
+                  status = 'Sim'
+                  icon = 'btn-danger fa-trash-o'
+                  wish_message = 'desativar'
+                else
+                  status = 'Não'
+                  icon = 'btn-success fa-check-circle'
+                  wish_message = 'ativar'
+                end
+              %>
               <tr>
                 <td><%= image_tag package.avatar.url(:thumb) %></td>
                 <td><%= package.name %></td>
                 <td><%= package.description %></td>
                 <td><%= package.points %></td>
                 <td><%= package.value %></td>
+                <td><%= status %></td>
                 <td>
                   <%= link_to '', package, class: 'btn btn-info fa fa-location-arrow' %>
                   <%= link_to '', edit_package_path(package), class: 'btn btn-primary fa fa-edit' %>
-                  <%= link_to '', package, method: :delete, data: { confirm: 'Deseja mesmo deletar esse pacote?' }, class: 'btn btn-danger fa  fa-trash-o' %>
+                  <%= link_to '', package, method: :delete, data: { confirm: "Deseja mesmo #{wish_message} esse pacote?" }, class: "btn fa #{icon}" %>
                 </td>
               </tr>
             <% end %>

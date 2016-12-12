@@ -18,7 +18,7 @@ class RafflesController < ApplicationController
   # GET /raffles
   # GET /raffles.json
   def index
-    @raffles = Raffle.all
+    @raffles = Raffle.presentation.all
   end
 
   # GET /raffles/1
@@ -77,7 +77,7 @@ class RafflesController < ApplicationController
   end
 
   def payback
-    @raffle = Raffle.find(params[:raffle_id])
+    @raffle = Raffle.presentation.find(params[:raffle_id])
     @raffle.payback
     redirect_to raffles_path
   end

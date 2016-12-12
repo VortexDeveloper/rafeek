@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   enum group: [:admin, :user]
 
+  validates :cpf, presence: true, uniqueness: true
+
   def self.from_omniauth(auth)
       user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
           user.email = auth.info.email

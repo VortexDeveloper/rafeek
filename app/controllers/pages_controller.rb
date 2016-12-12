@@ -16,7 +16,7 @@ class PagesController < ApplicationController
 
   def raffles
     @raffles = Raffle.presentation.search(params[:search]).paginate(page: params[:page], per_page: 12)
-    @pagination_data = {search: params[:search].present?, page: params[:page]} 
+    @pagination_data = {search: params[:search].present?, page: params[:page]}
 
     respond_to do |format|
       format.html
@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   end
 
   def packages
-    @packages = Package.all
+    @packages = Package.where(active: 1)
   end
 
   def raffles_new
@@ -45,7 +45,7 @@ class PagesController < ApplicationController
   end
 
   def winners
-    Raffle.presentation.where("winner_ticket_id IS NOT NULL").order(deadline: :desc)
+    @winners = Raffle.presentation.where("winner_ticket_id IS NOT NULL").order(deadline: :desc)
   end
 
   def raffles_categories

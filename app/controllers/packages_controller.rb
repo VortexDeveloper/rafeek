@@ -74,9 +74,16 @@ class PackagesController < ApplicationController
   # DELETE /packages/1
   # DELETE /packages/1.json
   def destroy
-    @package.destroy
+    state = ""
+    if @package.active?
+      @package.inactive!
+      state = 'desativado'
+    else
+      @package.active!
+      state = 'ativado'
+    end
     respond_to do |format|
-      format.html { redirect_to packages_url, notice: 'Pacote excluido com sucesso.' }
+      format.html { redirect_to packages_url, notice: "Pacote #{state} com sucesso." }
       format.json { head :no_content }
     end
   end
