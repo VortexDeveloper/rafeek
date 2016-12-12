@@ -1,1 +1,13 @@
-$("#raffles").html("<%= escape_javascript(render("raffles")) %>");
+<% if @pagination_data[:search] && @pagination_data[:page]==1 %>
+    $('#raffles').html('<%= j render partial: "pages/raffles", locals: { raffles: @raffles } %>');
+<% else %>
+    $('#raffles').append('<%= j render partial: "pages/raffles", locals: { raffles: @raffles } %>');
+<% end %>
+
+$('#raffles').append('<%= j render partial: "pages/raffles", locals: { raffles: @raffles } %>');
+<% if @raffles.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @raffles %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

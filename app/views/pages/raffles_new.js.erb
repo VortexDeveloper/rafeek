@@ -1,0 +1,7 @@
+$('#raffles').append('<%= j render partial: "pages/raffles", locals: { raffles: @raffles_new } %>');
+<% if @raffles_new.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @raffles_new %>');
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>

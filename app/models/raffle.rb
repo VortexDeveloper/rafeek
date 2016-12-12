@@ -52,16 +52,18 @@ class Raffle < ApplicationRecord
     transactions
   end
 
-  def self.hot
+  def self.hot(page=nil)
     hot = []
+    page ||= 1
     raffles = Raffle.presentation
     .select('count(t.id)/raffles.amount as sold_percentage')
     .joins('INNER JOIN tickets t ON raffles.id = t.raffle_id')
     .group('raffles.id')
     .all
+    .paginate(page: page, per_page: 12)
 
-    raffles.each { |r| hot << r if r.sold_percentage > 0.5 }
-    hot
+    raffles.each { |r| r.delete if r.sold_percentage > 0.5 }
+    raffles
   end
 
   def self.new_raffles

@@ -2,7 +2,13 @@
   <%= render 'pages/raffles', :raffles => raffles %>
 </div>
 
-<%= javascript_include_tag 'jquery.lazyload' %>
+<% unless controller.action_name.include? 'index' %>
+    <div id="infinite-scrolling">
+      <%= will_paginate raffles %>
+    </div>
+<% end %>
+
+<%= javascript_include_tag 'jquery.lazyload', 'pagination' %>
 <script type="text/javascript">
   $("img").lazyload();
   $(document).ready(function(){

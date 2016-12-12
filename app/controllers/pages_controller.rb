@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   layout 'home', except: [:terms, :raffles, :packages, :raffles_new, :raffles_hot, :winners, :help, :raffles_categories]
 
   def index
-    @raffles = Raffle.presentation.order('created_at DESC limit 8')
+    @raffles_index = Raffle.presentation.order('created_at DESC limit 8')
     @partners = Partner.all
     @winners = self.winners
     @packages = Package.all
@@ -15,7 +15,13 @@ class PagesController < ApplicationController
   #helper_method :sort_column, :sort_direction
 
   def raffles
-    @raffles = Raffle.presentation.search(params[:search])
+    @raffles = Raffle.presentation.search(params[:search]).paginate(page: params[:page], per_page: 12)
+    @pagination_data = {search: params[:search].present?, page: params[:page]} 
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def packages
@@ -23,11 +29,19 @@ class PagesController < ApplicationController
   end
 
   def raffles_new
-    @raffles_new = Raffle.new_raffles
+    @raffles_new = Raffle.new_raffles.paginate(page: params[:page], per_page: 12)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def raffles_hot
-    @raffles_hot = Raffle.hot
+    @raffles_hot = Raffle.hot(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def winners
@@ -38,7 +52,12 @@ class PagesController < ApplicationController
     category = Category.find params[:category_id]
     @page_title = category.name
     related_categories = all_related_categories(category)
-    @raffles_categories = Raffle.presentation.where(category: related_categories)
+    @raffles_categories = Raffle.presentation.where(category: related_categories).paginate(page: params[:page], per_page: 12)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def help

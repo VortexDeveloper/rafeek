@@ -1,11 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :resource, :resource_name, :devise_mapping, :resource_class
-  before_filter :store_current_location, :unless => :devise_controller?
-
-  def index
-
-  end
+  before_action :store_current_location, :unless => :devise_controller?
 
   def resource_name
     :user

@@ -4,7 +4,7 @@
     <div class="raf">
         <h2 class="title_padrao">Lançamentos</h2>
         <div class="row">
-          <%= render partial: 'raffles_collection', locals: { raffles: @raffles } %>
+          <%= render partial: 'raffles_collection', locals: { raffles: @raffles_index } %>
         </div>
         <%= render partial: 'partners', locals: { partners: @partners } if @partners.present? %>
     </div>
