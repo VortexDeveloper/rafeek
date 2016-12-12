@@ -53,7 +53,7 @@
       <%= f.label :city, "Cidade" %>
       <%= f.grouped_collection_select(
             :city_id,
-            State.all,
+            State.all.includes(:cities),
             :cities,
             :name,
             :id,

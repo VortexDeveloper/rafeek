@@ -6,7 +6,7 @@
           <span class='pull-right'><%= points_encoding(current_user.account.balance) %></span>
         </li>
       <% end %>
-      <% Category.fathers.each do |c| %>
+      <% Category.fathers.includes(:childs).each do |c| %>
         <li class="menu_side_item">
           <%= image_tag(c.icon) %>
           <%= link_to c.name, raffles_categories_path(c) %>
