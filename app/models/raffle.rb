@@ -62,7 +62,7 @@ class Raffle < ApplicationRecord
     .all
     .paginate(page: page, per_page: 12)
 
-    raffles.each { |r| r.delete if r.sold_percentage > 0.5 }
+    raffles.reject { |r| r.sold_percentage > 0.5 }
     raffles
   end
 
