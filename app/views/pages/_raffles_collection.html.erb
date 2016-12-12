@@ -6,11 +6,11 @@
     <div id="infinite-scrolling">
       <%= will_paginate raffles %>
     </div>
+
+    <%= javascript_include_tag 'pagination' %>
 <% end %>
 
-<%= javascript_include_tag 'jquery.lazyload', 'pagination' %>
 <script type="text/javascript">
-  $("img").lazyload();
   $(document).ready(function(){
     normal_height('#raffles > div')
     $(".rifa_actions").css({'position': 'absolute', 'bottom': '1em', 'width': '90%'});
