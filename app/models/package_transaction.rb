@@ -19,9 +19,9 @@ class PackageTransaction < ApplicationRecord
 
   def verify_status(cielo_transaction)
     update_status(cielo_transaction)
+    assign_points if captured? || canceled?
     send_mail
     raise unless captured? || canceled?
-    assign_points
   end
 
   private
