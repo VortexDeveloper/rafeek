@@ -24,7 +24,7 @@ Rails.application.config.assets.precompile += %w( jquery_payment.min.js )
 Rails.application.config.assets.precompile += %w( accounting.min.js )
 Rails.application.config.assets.precompile += %w( populate_city_select.js )
 Rails.application.config.assets.precompile += %w( admin-lte.js )
-
+Rails.application.config.assets.precompile += %w( jquery.lazyload.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

@@ -1,10 +1,10 @@
 <div id="raffles">
-  <% raffles.each do |raffle| %>
-    <%= render 'pages/raffles', :raffle => raffle %>
-  <% end %>
+  <%= render 'pages/raffles', :raffles => raffles %>
 </div>
 
+<%= javascript_include_tag 'jquery.lazyload' %>
 <script type="text/javascript">
+  $("img").lazyload();
   $(document).ready(function(){
     normal_height('#raffles > div')
     $(".rifa_actions").css({'position': 'absolute', 'bottom': '1em', 'width': '90%'});

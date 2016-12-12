@@ -52,9 +52,8 @@ module CieloCreditable
   end
 
   def cielo_value
-    individual_value = BigDecimal.new value
-    package_value = BigDecimal.new(package.value)
-    "#{individual_value.fix.to_i}#{(package_value.frac*100).to_i}"
+    value = sprintf('%1.2f', package.value)
+    value.gsub('.','')
   end
 
   def value

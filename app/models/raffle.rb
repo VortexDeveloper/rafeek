@@ -11,13 +11,15 @@ class Raffle < ApplicationRecord
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
-  def amount_sold
-    tickets.count
-  end
+  # def amount_sold
+  #   tickets.count
+  # end
+  #
+  # def tickets_available
+  #   amount - amount_sold
+  # end
 
-  def tickets_available
-    amount - amount_sold
-  end
+  scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').includes(:category) }
 
   def random_select
     winner_ticket = tickets.sample
@@ -52,14 +54,22 @@ class Raffle < ApplicationRecord
 
   def self.hot
     hot = []
-    raffles = Raffle
-    .select('raffles.*, count(t.id)/raffles.amount as sold_percentage')
+    raffles = Raffle.presentation
+    .select('count(t.id)/raffles.amount as sold_percentage')
     .joins('INNER JOIN tickets t ON raffles.id = t.raffle_id')
     .group('raffles.id')
     .all
 
     raffles.each { |r| hot << r if r.sold_percentage > 0.5 }
     hot
+  end
+
+  def self.new_raffles
+      Raffle.presentation
+      .where(
+        'created_at >= :five_days_ago',
+        :five_days_ago  => Time.now - 7.days
+      ).order(created_at: :desc)
   end
 
   def self.search(search)
