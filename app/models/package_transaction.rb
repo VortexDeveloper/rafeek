@@ -13,6 +13,7 @@ class PackageTransaction < ApplicationRecord
       logger.debug transaction
       raise unless transaction[:transacao].present?
       update_attributes(tid: transaction[:transacao][:tid])
+      UserMailer.created_purchase_mail(self).deliver_now
       transaction[:transacao][:"url-autenticacao"]
     end
   end

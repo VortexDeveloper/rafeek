@@ -1,4 +1,9 @@
 class UserMailer < ApplicationMailer
+  def created_purchase_mail(package_transaction)
+    return nil if package_transaction.nil? || !package_transaction.authorized?
+    mail_data(package_transaction, "iniciada")
+  end
+
   def authorized_purchase_mail(package_transaction)
     return nil if package_transaction.nil? || !package_transaction.authorized?
     mail_data(package_transaction, "autorizada")
