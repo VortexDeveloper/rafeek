@@ -44,6 +44,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |s| s.permit :cpf }
+    devise_parameter_sanitizer.permit(:sign_up) { |s| s.permit :cpf, :email, :password, :password_confirmation }
   end
 end

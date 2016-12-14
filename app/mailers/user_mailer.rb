@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+  default from: 'noreply@vortexdeveloper.com'
+
   def created_purchase_mail(package_transaction)
     return nil if package_transaction.nil? || !package_transaction.authorized?
     mail_data(package_transaction, "iniciada")
