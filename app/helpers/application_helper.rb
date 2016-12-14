@@ -31,12 +31,12 @@ module ApplicationHelper
     options_from_collection_for_select(City.all, 'id', 'name', 1)
   end
 
-  def states_for_select(selected)
+  def states_for_select(selected=nil)
     selected = selected || 1
     options_from_collection_for_select(State.all, 'id', 'name', selected)
   end
 
-  def categories_for_select(selected)
+  def categories_for_select(selected=nil)
     selected = selected || ""
     options_from_collection_for_select(Category.enabled_categories, 'id', 'name', selected)
   end

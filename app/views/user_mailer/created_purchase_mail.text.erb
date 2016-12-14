@@ -1,0 +1,8 @@
+Olá, <%= @profile.name %>!
+==================================================================
+
+O seu pedido do pacote <%= @package_transaction.package.name %>
+foi realizada com sucesso e transação foi iniciada pela Cielo,
+com número <%= @package_transaction.tid %>.
+
+Para saber mais, acesse: <%= user_performed_transactions_url  %>.

@@ -9,28 +9,139 @@
                             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                               <%= devise_error_messages! %>
 
-                              <div class="field">
-                                <%= f.label :email %><br />
-                                <%= f.email_field :email, class: 'form-control', autofocus: true, required: true %>
+                              <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= label_tag 'Nome' %>
+                                    <%= text_field_tag 'profile[name]', nil, class: 'form-control', autofocus: true, required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= label_tag 'Sobrenome' %>
+                                    <%= text_field_tag 'profile[last_name]', nil, class: 'form-control', autofocus: true, required: true %>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div class="field">
-                                <%= f.label :password %><br />
-                                <% if @minimum_password_length %>
-                                <em>(Mínimo de <%= @minimum_password_length %> caracteres)</em>
-                                <% end %><br />
-                                <%= f.password_field :password, class: 'form-control', autocomplete: "off", required: true %>
+                              <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= f.label :email %>
+                                    <%= f.email_field :email, class: 'form-control', autofocus: true, required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= f.label :cpf %>
+                                    <%= f.text_field :cpf, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div class="field">
-                                <%= f.label :password_confirmation %><br />
-                                <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off", required: true %>
+                              <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= f.label :password %>
+                                    <% if @minimum_password_length %>
+                                    <em>(Mínimo de <%= @minimum_password_length %> caracteres)</em>
+                                    <% end %>
+                                    <%= f.password_field :password, class: 'form-control', autocomplete: "off", required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= f.label :password_confirmation %>
+                                    <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off", required: true %>
+                                  </div>
+                                </div>
                               </div>
 
-                              <div class="field">
-                                <%= f.label :cpf %><br />
-                                <%= f.text_field :cpf, class: 'form-control', required: true %>
+                              <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                  <div class="radio">
+                                    <strong>Sexo</strong><br />
+                                    <label>
+                                      <%= radio_button_tag 'profile[sex]', 'F', checked: true %>
+                                      <%= label_tag 'profile[sex]', "Feminino" %> <br>
+                                      <%= radio_button_tag 'profile[sex]', 'M' %>
+                                      <%= label_tag 'profile[sex]', "Masculino" %>
+                                    </label>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= label_tag 'profile[birth_date]', "Data de Nascimento" %><br />
+                                    <%= date_select 'profile[birth_date]',
+                                          order: [:day, :month, :year],
+                                          end_year: Date.today.year - 100,
+                                          start_year: Date.today.year - 17,
+                                          class: 'form-control i-perfil',
+                                          required: true %>
+                                  </div>
+                                </div>
                               </div>
+
+                              <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= label_tag 'profile[street]', "Rua" %>
+                                    <%= text_field_tag 'profile[street]', nil, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                  <div class="field">
+                                    <%= label_tag 'profile[complement]', "Complemento" %>
+                                    <%= text_field_tag 'profile[complement]', nil, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                  <div class="field">
+                                    <%= label_tag 'profile[neighborhood]', "Bairro" %>
+                                    <%= text_field_tag 'profile[neighborhood]', nil, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="form-group col-md-12">
+                                <div class="col-md-3">
+                                  <div class="field">
+                                    <%= label_tag 'profile[state]', "Estado" %>
+                                    <%= select_tag 'profile[state_id]', states_for_select(''), include_blank: true, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                  <div class="field">
+                                    <%= label_tag 'profile[city_id]', "Cidade" %>
+                                    <%= grouped_collection_select(
+                                          :profile,
+                                          :city_id,
+                                          State.all.includes(:cities),
+                                          :cities,
+                                          :name,
+                                          :id,
+                                          :name,
+                                          {include_blank: true, selected: '',},
+                                          {selected: '', class: 'form-control', required: true}
+                                        )
+                                    %>
+                                  </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                  <div class="field">
+                                    <%= label_tag 'profile[zip_code]', "CEP" %>
+                                    <%= text_field_tag 'profile[zip_code]', nil, class: 'form-control', required: true %>
+                                  </div>
+                                </div>
+                            </div>
 
                               <div class="field">
                                 <style media="screen">
@@ -102,3 +213,4 @@
         </div>
     </div>
 </div>
+<%= javascript_include_tag 'populate_city_select' %>
