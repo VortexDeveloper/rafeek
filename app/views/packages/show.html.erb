@@ -17,7 +17,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= label_tag :amount, "Quantidade", class: 'form-package' %>
-                        <%= number_field_tag :amount, 1, class: 'form-control form-package', placeholder: "Qtd" %>
+                        <%= number_field_tag :amount, 1, class: 'form-control form-package', min: 0, placeholder: "Qtd" %>
                       </div>
                       <div class="form-group">
                         <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package' %>
@@ -78,6 +78,20 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="col-md-12">
+                      <div class="images-payment">
+                        <p>
+                          Pagamento seguro. Homologado por
+                        </p>
+                        <img src="../images/cielo.png" alt="Cielo" />
+                      </div>
+                      <div class="images-payment cards-img">
+                        <p>
+                          Aceitamos os principais cartões
+                        </p>
+                        <img src="../images/cards.png" alt="Cartões" />
+                      </div>
+                    </div>
                     <%= hidden_field_tag :package_id, @package.id %>
 
                     <% if user_signed_in? %>

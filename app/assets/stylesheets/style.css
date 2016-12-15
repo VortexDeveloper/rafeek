@@ -115,6 +115,12 @@
   width: 100%;
 }
 
+.images-secur img{
+  width: 150px;
+  float: left;
+  margin: 15px;
+}
+
 .actions-buttons input{
   width: auto;
   position: relative;
@@ -1482,11 +1488,12 @@ footer {
   width: 100%;
   margin: 2%;
   padding: 1em;
-  border-bottom: solid 1px #fff;
+  //border-bottom: solid 1px #fff;
+  float: left;
 }
 
 .footer-content-item:last-child{
-  border-bottom: none !important;
+  //border-bottom: none !important;
 }
 
 
@@ -1597,7 +1604,7 @@ footer {
     }
 
     .raf_item img{
-        width: 48%;
+        width: 32%;
         margin: 1%;
         float: left;
     }
@@ -1607,8 +1614,18 @@ footer {
         margin: 0 10px;
     }
 
+    .images-payment{
+      width: 22%;
+      float: right;
+      margin: 20px;
+    }
+
+    .cards-img img {
+      width: 100% !important;
+    }
+
     .raf_item_desc{
-        width: 48%;
+        width: 62%;
         margin: 1%;
         float: right;
     }
@@ -1773,13 +1790,13 @@ footer {
       width: 29%;
       margin: 2%;
       padding: 1em;
-      border-right: 1px solid #fff;
+      //border-right: 1px solid #fff;
       border-bottom: none;
       float: left;
     }
 
     .footer-content-item:last-child {
-      border-right: none;
+      //border-right: none;
 
     }
 
