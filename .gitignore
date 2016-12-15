@@ -117,3 +117,4 @@ build-iPhoneSimulator/
 .rvmrc
 
 config/initializers/awesome_print.rb
+sendgrid.env

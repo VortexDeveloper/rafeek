@@ -88,16 +88,17 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { host: 'rafeek.com.br' }
-  config.action_mailer.delivery_method = :sendmail
-  # config.action_mailer.smtp_settings = {
-  #   address: ENV['SMTP_ADDRESS'],
-  #   port: 587,
-  #   domain: ENV['SMTP_DOMAIN'],
-  #   authentication: :login,
-  #   enable_starttls_auto: true,
-  #   user_name: ENV['SMTP_USERNAME'],
-  #   password: ENV['SMTP_PASSWORD']
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['SG_USERNAME'],
+    :password => ENV['SG_PASSWORD'],
+    :domain => 'vortexdeveloper.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+
+  }
 
 
   Cielo.setup do |config_cielo|
