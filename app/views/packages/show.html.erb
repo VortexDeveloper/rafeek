@@ -129,7 +129,11 @@
   	}
   }
   $("#unidade").text(accounting.formatMoney($("#unidade").attr('data-value')));
-  $("#total").text(accounting.formatMoney(unidade * amount));
+  $("#total").text(accounting.formatMoney($("#unidade").attr('data-value') * $("#amount").val()));
+
+  console.log($("#unidade").attr('data-value'));
+  console.log($("#amount").val());
+
 
   $("#amount").on('change', function () {
       var amount = $("#amount").val();
