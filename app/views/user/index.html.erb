@@ -23,10 +23,10 @@
           <tbody>
             <% @users.each do |user| %>
               <tr>
-                <td><p><%= image_tag user.profile.avatar.url(:thumb) %></p></td>
-                <td><p><%= "#{user.profile.name} #{user.profile.last_name}" %></p></td>
-                <td><p><%= user.profile.birth_date %></p></td>
-                <td><p><%= user.account.balance %></p></td>
+                <td><p><%= image_tag user.profile.avatar.url(:thumb) if user.profile.present? %></p></td>
+                <td><p><%= "#{user.profile.name} #{user.profile.last_name}" if user.profile.present? %></p></td>
+                <td><p><%= user.profile.birth_date if user.profile.present? %></p></td>
+                <td><p><%= user.account.balance if user.account.present? %></p></td>
                 <td>
                   <%= link_to '', edit_admin_path(user), class: 'btn btn-primary fa fa-edit' %>
                 </td>

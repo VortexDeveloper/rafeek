@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def index
     @raffles_index = Raffle.presentation.order('created_at DESC limit 8')
     @partners = Partner.all
-    @winners = self.winners
+    @winners = self.winners.order('created_at DESC limit 5')
     @packages = Package.all
   end
 
