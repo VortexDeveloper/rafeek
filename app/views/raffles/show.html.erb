@@ -59,9 +59,20 @@
                       </div>
 
                       <%= hidden_field_tag :raffle_id, @raffle.id %>
-                      <p>
+                      <% if user_signed_in? %>
+                        <p>
                           <%= submit_tag 'Investir pontos', class: 'btn btn-primary raf_item_desc btn-inv btn-rifa'  %>
-                      </p>
+                        </p>
+                      <% else %>
+                        <p>
+                          <%= button_tag 'Login',
+                            class: 'btn raf_item_desc btn-inv btn-rifa news_button login-btn',
+                            :'data-toggle' => "modal",
+                            :'data-target' => "#login-modal"
+                          %>
+                        </p>
+                      <% end %>
+
                     <% end %>
                     <p>
                         <%= link_to 'Comprar pontos', pages_packages_path, class: 'btn btn-primary raf_item_desc pontos btn-rifa'  %>
