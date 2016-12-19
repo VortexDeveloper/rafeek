@@ -1677,10 +1677,10 @@ footer {
         width: 31%;
     }
 
-    .ponto:nth-child(odd) .pontos_img {
+    .ponto:nth-child(even) .pontos_img {
     }
 
-    .ponto:nth-child(even) .pontos_img {
+    .ponto:nth-child(odd) .pontos_img {
         left: auto;
         right: 0;
     }
