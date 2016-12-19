@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   end
 
   def packages
-    @packages = Package.where(active: 1)
+    @packages = Package.where(active: 1).order(value: :desc)
   end
 
   def raffles_new
