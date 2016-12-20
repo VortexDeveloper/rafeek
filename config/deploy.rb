@@ -35,7 +35,7 @@ end
 # All paths in `shared_dirs` and `shared_paths` will be created on their own.
 task :setup do
   # command %{rbenv install 2.3.0}
-  command %{gem install rails}
+  # command %{gem install rails}
   command %(mkdir -p "#{fetch(:deploy_to)}/shared/pids/")
   command %(mkdir -p "#{fetch(:deploy_to)}/shared/log/")
 end
