@@ -36,6 +36,8 @@ end
 task :setup do
   # command %{rbenv install 2.3.0}
   command %{gem install rails}
+  command %(mkdir -p "#{fetch(:deploy_to)}/shared/pids/")
+  command %(mkdir -p "#{fetch(:deploy_to)}/shared/log/")
 end
 
 desc "Deploys the current version to the server."
@@ -46,6 +48,7 @@ task deploy: :environment do
     # Put things that will set up an empty directory into a fully set-up
     # instance of your project.
     command %{source ~/.profile}
+    invoke :'sidekiq:quiet'
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
@@ -60,6 +63,7 @@ task deploy: :environment do
         command "chown -R www-data:www-data /root/deploy/rafeek/current/public/"
         command %{mkdir -p tmp/}
         command %{touch tmp/restart.txt}
+        command %{touch tmp/sidekiq.pid}
       end
       invoke :'sidekiq:restart'
     end
