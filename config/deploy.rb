@@ -65,6 +65,8 @@ task deploy: :environment do
         command %{touch tmp/restart.txt}
         command %{touch tmp/sidekiq.pid}
       end
+      command %{source ~/.profile}
+      command %{echo $DATABASE_PASSWORD }
       invoke :'sidekiq:restart'
     end
 

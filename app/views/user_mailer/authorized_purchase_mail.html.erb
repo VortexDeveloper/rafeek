@@ -7,8 +7,8 @@
     <h1>Olá, <%= @package_transaction.user.profile.name %>!</h1>
     <p>
       O seu pedido do pacote <%= @package_transaction.package.name %>
-      foi realizada com sucesso e está autorizado pela Cielo,
-      com número de transação <%= @package_transaction.tid %>.<br>
+      foi realizada com sucesso e está autorizado pela admnistradora do seu cartão! \o/<br />
+      O número de transação <%= @package_transaction.tid %>.<br>
     </p>
     <p>
       Para saber mais, acesse: <%= "#{@url}#{user_performed_transactions_url}"  %>.

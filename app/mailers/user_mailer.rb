@@ -2,27 +2,32 @@ class UserMailer < ApplicationMailer
   default from: 'noreply@vortexdeveloper.com'
 
   def created_purchase_mail(package_transaction)
-    return nil if package_transaction.nil? || !package_transaction.authorized?
+    return nil if package_transaction.nil?
     mail_data(package_transaction, "iniciada")
   end
 
   def authorized_purchase_mail(package_transaction)
-    return nil if package_transaction.nil? || !package_transaction.authorized?
+    return nil if package_transaction.nil?
     mail_data(package_transaction, "autorizada")
   end
 
+  def not_authorized_purchase_mail(package_transaction)
+    return nil if package_transaction.nil?
+    mail_data(package_transaction, "não autorizada")
+  end
+
   def canceled_purchase_mail(package_transaction)
-    return nil if package_transaction.nil? || !package_transaction.canceled?
+    return nil if package_transaction.nil?
     mail_data(package_transaction, "cancelada")
   end
 
   def authenticated_purchase_mail(package_transaction)
-    return nil if package_transaction.nil? || !package_transaction.authenticated?
+    return nil if package_transaction.nil?
     mail_data(package_transaction, "autenticada")
   end
 
   def captured_purchase_mail(package_transaction)
-    return nil if package_transaction.nil? || !package_transaction.captured?
+    return nil if package_transaction.nil?
     mail_data(package_transaction, "efetuada com sucesso")
   end
 
@@ -38,7 +43,7 @@ class UserMailer < ApplicationMailer
   def be_partner_mail(data)
     @data = data
     mail(
-      to: "Rafeek Parceria <contato@rafeek.com.br>",
+      to: "Rafeek Parceria <suporte@vortexdeveloper.com>",
       subject: "A empresa #{data[:company]} quer ser parceira!"
     )
   end
@@ -46,7 +51,7 @@ class UserMailer < ApplicationMailer
   def contact_mail(data)
     @data = data
     mail(
-      to: "Rafeek Contato <contato@rafeek.com.br>",
+      to: "Rafeek Contato <suporte@vortexdeveloper.com>",
       subject: "Um novo contato feito pelo site!"
     )
   end
