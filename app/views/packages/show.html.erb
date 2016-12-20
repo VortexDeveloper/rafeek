@@ -2,6 +2,20 @@
     <div class="dir">
         <div class="raf_item">
             <%= image_tag @package.avatar.url, class: 'package-img' %>
+            <style media="screen">
+              .tip {
+                display: none;
+                position: relative;
+                top: 2px;
+                left: 8px;
+                color: red;
+                height: 0;
+              }
+              .form-control {
+                height: 52px !important;
+                padding: 20px 12px 6px !important;
+              }
+            </style>
             <div class="raf_item_desc">
                 <div class="caption rifa">
                   <% if !user_signed_in? %>
@@ -17,24 +31,29 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= label_tag :amount, "Quantidade", class: 'form-package' %>
+                        <small class='tip'>Quantidade de pacotes desejados</small>
                         <%= number_field_tag :amount, 1, class: 'form-control form-package', min: 1, placeholder: "Qtd" %>
                       </div>
                       <div class="form-group">
                         <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package validation' %>
+                        <small class='tip'>O número do seu cartão</small>
                         <%= text_field_tag :cartao_numero, nil, class:'form-control form-package' %>
                       </div>
                       <div class="form-group">
                         <%= label_tag :cartao_validade, "Validade do cartão", class: 'form-package validation' %>
+                        <small class='tip'>Formato: mm/aaaa</small>
                         <%= text_field_tag :cartao_validade, nil, class:'form-control form-package', placeholder: 'mm / aaaa' %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package validation' %>
+                        <small class='tip'>Formato: 999 ou 9999</small>
                         <%= text_field_tag :cartao_seguranca, nil, class:'form-control form-package' %>
                       </div>
                       <div class="form-group">
                         <%= label_tag :cartao_portador, "Nome do portador do cartão", class: 'form-package' %>
+                        <small class='tip'>Nome como no cartão</small>
                         <%= text_field_tag :cartao_portador, nil, class:'form-control form-package' %>
                       </div>
                       <div class="form-group">
@@ -45,6 +64,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <%= label_tag :coupon, "Cupom de Desconto", class: 'form-package' %>
+                        <small class='tip'>Caso não tenha, deixe em branco</small>
                         <%= text_field_tag :coupon, nil, class:'form-control form-package' %>
                       </div>
                     </div>
@@ -140,7 +160,7 @@
 
   $('#cartao_numero').payment('formatCardNumber');
   $('#cartao_seguranca').payment('formatCardCVC');
-  $('#cartao_validade').payment('formatCardExpiry');
+  $('#cartao_validade').mask("99/9999");
 
   var form = $;
   $('.form-package').on('click','#submit-form', function(){
@@ -152,8 +172,7 @@
     }
 
     var elems = form.payment.cardExpiryVal($('input#cartao_validade').val());
-    var valid_date = (elems.year.toString().length == 4) ? form.payment.validateCardExpiry(elems.month, elems.year) : false;
-
+    var valid_date = form.payment.validateCardExpiry(elems.month, elems.year);
     if (!valid_date) {
       alert('A data de validade inserida está em um formato inválido, favor corrija a data de acordo com o seguinte padrão "mm/aaaa".');
       return false;
@@ -186,6 +205,14 @@
       $('#cartao_validade').parent().removeClass('has-success');
       $('#cartao_validade').parent().addClass('has-error');
     }
+  });
+
+  $('.form-control').on('focus', function(){
+    $(this).prev('.tip').css('display', 'block');
+  });
+
+  $('.form-control').on('focusout', function(){
+    $(this).prev('.tip').css('display', 'none');
   });
 
   $('.form-package').on('change','#cartao_seguranca', function(){

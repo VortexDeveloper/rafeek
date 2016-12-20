@@ -15,6 +15,7 @@
 //= require bootstrap.min
 //= require jquery_payment.min
 //= require accounting.min
+//= require maskedinput
 
 $(function() {
   $("#raffles th a, #raffles .pagination a").on("click", function() {

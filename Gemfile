@@ -45,8 +45,8 @@ gem 'sidekiq'
 gem 'aasm'
 
 gem 'i18n-country-translations'
-
 gem 'sendgrid-ruby'
+gem 'maskedinput-rails'
 
 
 group :development, :test do
