@@ -131,9 +131,6 @@
   $("#unidade").text(accounting.formatMoney($("#unidade").attr('data-value')));
   $("#total").text(accounting.formatMoney($("#unidade").attr('data-value') * $("#amount").val()));
 
-  console.log($("#unidade").attr('data-value'));
-  console.log($("#amount").val());
-
 
   $("#amount").on('change', function () {
       var amount = $("#amount").val();
@@ -162,7 +159,8 @@
   });
 
   $('.form-package').on('change', '#cartao_validade', function(){
-    if (migo.payment.validateCardExpiry($('#cartao_validade').payment('cardExpiryVal'))) {
+    var elems = migo.payment.cardExpiryVal($(this).val());
+    if (migo.payment.validateCardExpiry(elems.month, elems.year)) {
       $('#cartao_validade').parent().addClass('has-success');
       $('#cartao_validade').parent().removeClass('has-error');
     } else {
