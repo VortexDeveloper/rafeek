@@ -20,17 +20,17 @@
                         <%= number_field_tag :amount, 1, class: 'form-control form-package', min: 1, placeholder: "Qtd" %>
                       </div>
                       <div class="form-group">
-                        <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package' %>
+                        <%= label_tag :cartao_numero, "Número do cartão", class: 'form-package validation' %>
                         <%= text_field_tag :cartao_numero, nil, class:'form-control form-package' %>
                       </div>
                       <div class="form-group">
-                        <%= label_tag :cartao_validade, "Validade do cartão", class: 'form-package' %>
+                        <%= label_tag :cartao_validade, "Validade do cartão", class: 'form-package validation' %>
                         <%= text_field_tag :cartao_validade, nil, class:'form-control form-package', placeholder: 'mm / aaaa' %>
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package' %>
+                        <%= label_tag :cartao_seguranca, "Código de segurança do cartão", class: 'form-package validation' %>
                         <%= text_field_tag :cartao_seguranca, nil, class:'form-control form-package' %>
                       </div>
                       <div class="form-group">
@@ -96,7 +96,7 @@
 
                     <% if user_signed_in? %>
                       <p>
-                        <%= submit_tag 'Comprar pontos', class: 'btn btn-primary raf_item_desc pontos'  %>
+                        <%= submit_tag 'Comprar pontos', class: 'btn btn-primary raf_item_desc pontos', id: 'submit-form'  %>
                       </p>
                     <% else %>
                       <p>
@@ -141,6 +141,25 @@
   $('#cartao_numero').payment('formatCardNumber');
   $('#cartao_seguranca').payment('formatCardCVC');
   $('#cartao_validade').payment('formatCardExpiry');
+
+  var form = $;
+  $('.form-package').on('click','#submit-form', function(){
+
+    var valid_card = form.payment.validateCardNumber($('input#cartao_numero').val());
+    if (!valid_card) {
+      alert('O número do cartão digitado é inválido, por favor corrija o número e tente novamente.');
+      return false;
+    }
+
+    var elems = form.payment.cardExpiryVal($('input#cartao_validade').val());
+    var valid_date = (elems.year.toString().length == 4) ? form.payment.validateCardExpiry(elems.month, elems.year) : false;
+
+    if (!valid_date) {
+      alert('A data de validade inserida está em um formato inválido, favor corrija a data de acordo com o seguinte padrão "mm/aaaa".');
+      return false;
+    }
+
+  });
 
   var migo = $;
   var cardType = null;
