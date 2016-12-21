@@ -17,7 +17,7 @@
         <td><p><%= transaction.tid %></p></td>
         <td><p><%= l transaction.created_at.in_time_zone, format: :default %></p></td>
         <td><p><%= transaction.package.name %></p></td>
-        <td><p>R$<%= transaction.package.value * transaction.amount %></p></td>
+        <td><p>R$<%= transaction.value_with_discounts %></p></td>
         <td><p><%= transaction.amount %></p></td>
         <td><p><%= transaction.status_message %></p></td>
       </tr>
