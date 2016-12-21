@@ -78,7 +78,6 @@ class CouponsController < ApplicationController
 
     def coupon_params
       params.require(:coupon).permit(
-      :avatar,
       :name,
       :code,
       :validity,

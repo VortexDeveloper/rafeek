@@ -13,7 +13,6 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Logo</th>
                 <th>Nome da Empresa</th>
                 <th>Código</th>
                 <th>Validade</th>
@@ -25,7 +24,6 @@
             <tbody>
               <% @coupons.each do |coupon| %>
                 <tr>
-                  <td><%= image_tag coupon.avatar.url(:thumb) %></td>
                   <td><%= coupon.name %></td>
                   <td><%= coupon.code %></td>
                   <td><%= coupon.validity %></td>
