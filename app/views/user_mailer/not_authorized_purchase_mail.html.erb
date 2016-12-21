@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Olá, <%= @package_transaction.user.profile.name %>!</h1>
+    <p>
+      O seu pedido do pacote <%= @package_transaction.package.name %>
+      foi realizada com sucesso mas não foi autorizado pela administradora do seu cartão! :(<br />
+      O número de transação <%= @package_transaction.tid %>.<br>
+    </p>
+    <p>
+      Para saber mais, acesse: <%= "#{@url}#{user_performed_transactions_url}"  %>.
+    </p>
+  </body>
+</html>
