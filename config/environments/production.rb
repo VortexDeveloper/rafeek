@@ -69,19 +69,6 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.logstasher.enabled = true
-
-  # Each of the following lines are optional. If you want to selectively disable log subscribers.
-  config.logstasher.controller_enabled = true
-  config.logstasher.mailer_enabled = true
-  config.logstasher.record_enabled = true
-  config.logstasher.view_enabled = true
-  config.logstasher.job_enabled = true
-
-  # This line is optional if you do not want to suppress app logs in your <environment>.log
-  config.logstasher.suppress_app_log = false
-
-
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
