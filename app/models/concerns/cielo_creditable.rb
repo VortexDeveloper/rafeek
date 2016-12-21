@@ -43,6 +43,7 @@ module CieloCreditable
 
   def initialize_transaction(params)
     cielo_transaction = Cielo::Transaction.new
+    logger.debug "Cielo Params: #{params}"
     cielo_transaction = cielo_transaction.create!(params, :store)
     cielo_transaction
   end
@@ -52,7 +53,7 @@ module CieloCreditable
   end
 
   def cielo_value
-    value = sprintf('%1.2f', value_with_discounts)
+    value = sprintf('%1.2f', value)
     value.gsub('.','')
   end
 
