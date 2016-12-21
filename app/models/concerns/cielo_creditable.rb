@@ -53,7 +53,7 @@ module CieloCreditable
   end
 
   def cielo_value
-    value = sprintf('%1.2f', package.value)
+    value = sprintf('%1.2f', value_with_discounts)
     value.gsub('.','')
   end
 
