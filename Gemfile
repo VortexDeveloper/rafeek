@@ -47,7 +47,7 @@ gem 'aasm'
 gem 'i18n-country-translations'
 gem 'sendgrid-ruby'
 gem 'maskedinput-rails'
-gem 'logstasher', group: :production
+gem 'logstasher'
 
 
 group :development, :test do
