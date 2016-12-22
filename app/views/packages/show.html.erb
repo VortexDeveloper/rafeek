@@ -25,6 +25,12 @@
                   <% end %>
                   <h3><%= @package.name %></h3>
                   <p><%= @package.description %></p>
+                  <div class="alert alert-success super-alert" role="alert">
+                    <h3>ATENÇÃO:</h3>
+                    <p>Até o momento só estamos trabalhando com cartões de CRÉDITO.
+                    Não aceitamos cartões de DÉBITO ou transferência bancária.
+                    Em caso de dúvidas envie um email para suporte@vortexdeveloper.com</p>
+                  </div>
 
                   <%= form_tag package_transaction_purchase_path, method: :post, autocomplete: :on, class: 'form-package' do %>
                   <div class="row">
@@ -107,7 +113,7 @@
                       </div>
                       <div class="images-payment cards-img">
                         <p>
-                          Aceitamos os principais cartões
+                          Aceitamos os principais cartões de crédito.
                         </p>
                         <img src="../images/cards.png" alt="Cartões" />
                       </div>
