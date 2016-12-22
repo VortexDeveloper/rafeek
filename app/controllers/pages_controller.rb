@@ -45,7 +45,7 @@ class PagesController < ApplicationController
   end
 
   def winners
-    @winners = Raffle.presentation.where("winner_ticket_id IS NOT NULL").order(deadline: :desc)
+    @winners = Raffle.presentation_admin.where("winner_ticket_id IS NOT NULL").order(deadline: :desc)
   end
 
   def raffles_categories

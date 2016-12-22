@@ -20,6 +20,7 @@ class Raffle < ApplicationRecord
   # end
 
   scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').where('deadline >= :today', today: Date.today).includes(:category) }
+  scope :presentation_admin, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').includes(:category) }
 
   def random_select
     winner_ticket = tickets.sample

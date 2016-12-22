@@ -18,7 +18,7 @@ class RafflesController < ApplicationController
   # GET /raffles
   # GET /raffles.json
   def index
-    @raffles = Raffle.presentation.all
+    @raffles = Raffle.presentation_admin.all
   end
 
   # GET /raffles/1
@@ -77,7 +77,7 @@ class RafflesController < ApplicationController
   end
 
   def payback
-    @raffle = Raffle.presentation.find(params[:raffle_id])
+    @raffle = Raffle.presentation_admin.find(params[:raffle_id])
     @raffle.payback
     redirect_to raffles_path
   end
@@ -85,7 +85,7 @@ class RafflesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_raffle
-      @raffle = Raffle.presentation.find(params[:id])
+      @raffle = Raffle.presentation_admin.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
