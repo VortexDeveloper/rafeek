@@ -891,7 +891,7 @@ h2, p, a{
     position: relative;
     margin: 0;
     float: right;
-    background: #fff;
+    background: none;
     height: 214px;
     overflow: hidden;
 }
