@@ -19,7 +19,7 @@ class PackageTransaction < ApplicationRecord
       rescue => e
         logger.debug "Email não pôde ser enviado: #{e.message}"
       end
-      
+
       transaction[:transacao][:"url-autenticacao"]
     end
   end
@@ -27,7 +27,13 @@ class PackageTransaction < ApplicationRecord
   def verify_status(cielo_transaction)
     update_status(cielo_transaction)
     assign_points if captured? || canceled?
-    send_mail
+
+    begin
+      send_mail
+    rescue => e
+      logger.debug "Email não pôde ser enviado: #{e.message}"
+    end
+
     raise unless captured? || canceled?
   end
 
