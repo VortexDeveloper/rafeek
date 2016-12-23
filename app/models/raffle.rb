@@ -21,8 +21,8 @@ class Raffle < ApplicationRecord
   #   amount - amount_sold
   # end
 
-  scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').where(active: "active").includes(:category) }
-  scope :presentation_admin, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').includes(:category) }
+  scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id and t.active = 0) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id and t.active = 0)) as tickets_available').where(active: "active").includes(:category) }
+  scope :presentation_admin, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id and t.active = 0) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id and t.active = 0)) as tickets_available').includes(:category) }
 
   def random_select
     winner_ticket = tickets.sample
