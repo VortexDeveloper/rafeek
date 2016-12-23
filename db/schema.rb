@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212210139) do
+ActiveRecord::Schema.define(version: 20161223165339) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -139,8 +139,8 @@ ActiveRecord::Schema.define(version: 20161212210139) do
     t.integer  "points"
     t.integer  "amount"
     t.string   "string"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "winner_ticket_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20161212210139) do
     t.datetime "avatar_updated_at"
     t.date     "deadline"
     t.integer  "category_id"
+    t.integer  "active",              default: 1
     t.index ["category_id"], name: "index_raffles_on_category_id", using: :btree
     t.index ["winner_ticket_id"], name: "index_raffles_on_winner_ticket_id", using: :btree
   end

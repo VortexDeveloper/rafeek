@@ -9,6 +9,7 @@
   </thead>
   <tbody>
     <% @tickets_transactions.each do |transaction| %>
+    <% byebug %>
       <tr class="t-head">
         <td><p><%= transaction.created_at %></p></td>
         <td><p><%= transaction.raffle.title %></p></td>

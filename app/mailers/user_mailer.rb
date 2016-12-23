@@ -1,6 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: 'noreply@vortexdeveloper.com'
-
   def created_purchase_mail(package_transaction)
     return nil if package_transaction.nil?
     mail_data(package_transaction, "iniciada")
@@ -32,6 +30,7 @@ class UserMailer < ApplicationMailer
   end
 
   def mail_data(package_transaction, status)
+    sendgrid_category 'Transactions'
     @package_transaction = package_transaction
     @profile = @package_transaction.user.profile
     mail(
@@ -41,6 +40,7 @@ class UserMailer < ApplicationMailer
   end
 
   def be_partner_mail(data)
+    sendgrid_category 'Partners'
     @data = data
     mail(
       to: "Rafeek Parceria <suporte@vortexdeveloper.com>",
@@ -49,6 +49,7 @@ class UserMailer < ApplicationMailer
   end
 
   def contact_mail(data)
+    sendgrid_category 'Contact'
     @data = data
     mail(
       to: "Rafeek Contato <suporte@vortexdeveloper.com>",

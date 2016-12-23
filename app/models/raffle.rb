@@ -11,6 +11,8 @@ class Raffle < ApplicationRecord
 
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  enum active: [:active, :inactive]
+
   # def amount_sold
   #   tickets.count
   # end
@@ -19,13 +21,13 @@ class Raffle < ApplicationRecord
   #   amount - amount_sold
   # end
 
-  scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').where('deadline >= :today', today: Date.today).includes(:category) }
+  scope :presentation, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').where(active: "active").includes(:category) }
   scope :presentation_admin, -> { select('raffles.*', '(SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id) as amount_sold', '(raffles.amount - (SELECT COUNT(t.id) FROM tickets t WHERE t.raffle_id = raffles.id)) as tickets_available').includes(:category) }
 
   def random_select
     winner_ticket = tickets.sample
     update_attributes winner_ticket_id: winner_ticket.id
-
+    inactive!
     winner_ticket
   end
 
@@ -43,6 +45,7 @@ class Raffle < ApplicationRecord
 
   def payback
     transactions.each { |t| t.payback }
+    inactive!
   end
 
   def transactions

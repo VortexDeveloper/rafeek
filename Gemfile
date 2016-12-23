@@ -45,7 +45,7 @@ gem 'sidekiq'
 gem 'aasm'
 
 gem 'i18n-country-translations'
-gem 'sendgrid-ruby'
+gem 'sendgrid'
 gem 'maskedinput-rails'
 
 

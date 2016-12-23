@@ -35,6 +35,7 @@ class TicketTransaction < ApplicationRecord
       user.account.credit(total_points)
       logger.info "Giving #{total_points} to user #{user.id}"
       inactivate_tickets
+      paidback!
     end
   end
 

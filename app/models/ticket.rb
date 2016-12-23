@@ -17,6 +17,7 @@ class Ticket < ApplicationRecord
         t.owner = transaction.user
         t.raffle = raffle
         t.ticket_transaction = transaction
+        t.active = :active
       end
     end
   end
